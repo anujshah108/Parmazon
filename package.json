@@ -1,5 +1,5 @@
 {
-  "name": "__BONES_NEEDS_A_NAME__",
+  "name": "Parmazon",
   "version": "0.0.1",
   "description": "A happy little skeleton.",
   "main": "index.js",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/queerviolet/bones.git"
+    "url": "https://github.com/anujshah108/StackStore.git"
   },
   "keywords": [
     "react",
@@ -23,9 +23,9 @@
   "author": "Ashi Krishnan <me@ashi.works>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/queerviolet/bones/issues"
+    "url": "https://github.com/anujshah108/StackStore/issues"
   },
-  "homepage": "https://github.com/queerviolet/bones#readme",
+  "homepage": "https://github.com/anujshah108/StackStore#readme",
   "dependencies": {
     "axios": "^0.15.2",
     "babel-preset-stage-2": "^6.18.0",
