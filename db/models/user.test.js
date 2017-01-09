@@ -4,10 +4,10 @@ const db = require('APP/db')
 const User = require('./user')
 const {expect} = require('chai')
 
-describe('User', () => {
+xdescribe('User', () => {
   before('wait for the db', () => db.didSync)
 
-  describe('authenticate(plaintext: String) ~> Boolean', () => {
+  xdescribe('authenticate(plaintext: String) ~> Boolean', () => {
     it('resolves true if the password matches', () =>
       User.create({ password: 'ok' })
         .then(user => user.authenticate('ok'))
