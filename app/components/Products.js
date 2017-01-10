@@ -4,19 +4,24 @@ import {Link} from 'react-router'
 export default class Products extends Component {
   constructor(props){
     super(props)
+    
   }
   render() {
-    let productsList = props.products.map(product =>
+    console.log("~~~~~~", this.props.products)
+    let products = this.props.products || [];
+    let productsList = products.map(function(product){
+
+
       return (
-         <div className={productsProduct}>
+         <div className='productsProduct'>
             <Link to={`/product/${product.id}`}>
-      <img className={productsImage} src={product.imageURL}/>
-      <div className={productsName}>{product.name}</div>
-      <div className={productsPrice}>Price: {`$ ${product.price}`}</div>
-      <div className={productsRating}>Rating: {'★ '+ product.rating}</div>
+            <img className='productsImage' height="100" src={product.imageURL}/>
+            <div className='productsName'>{product.name}</div>
+            <div className='productsPrice'>Price: {`$ ${product.price}`}</div>
+            <div className='productsRating'>Rating: {'★ '+ product.rating}</div>
           </Link>
-    </div> )
-      )
+        </div> )
+      })
     return (
       <div>
         {productsList}
