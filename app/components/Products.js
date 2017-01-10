@@ -9,11 +9,11 @@ export default class Products extends Component {
     let productsList = props.products.map(product =>
       return (
          <div className={productsProduct}>
-            <Link to={`/product/${props.product.id}`}>
-      <img className={productsImage} src='${props.product.thumb}'/>
-      <div className={productsName}>{props.product.name}</div>
-      <div className={productsPrice}>Rs. {`$ ${props.product.price}`}</div>
-      <div className={productsRating}>{'★ '+props.product.rating}</div>
+            <Link to={`/product/${product.id}`}>
+      <img className={productsImage} src={product.imageURL}/>
+      <div className={productsName}>{product.name}</div>
+      <div className={productsPrice}>Price: {`$ ${product.price}`}</div>
+      <div className={productsRating}>Rating: {'★ '+ product.rating}</div>
           </Link>
     </div> )
       )
