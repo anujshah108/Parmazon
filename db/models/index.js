@@ -12,14 +12,18 @@ const Review = require('./review')
 const Address = require('./address')
 
 User.hasMany(Review)
-Review.belongsTo(User,{as: 'author'})
-Review.belongsTo(Product)
+Review.belongsTo(User, {as: 'author'})
+
 Product.hasMany(Review)
+Review.belongsTo(Product)
+
 User.hasMany(Order)
 Order.belongsTo(User)
+
 User.hasMany(Address)
+Address.belongsTo(User)
+
 Order.hasMany(productOrder)
+productOrder.belongsTo(Order)
 
-
-
-module.exports = {User,Order,Product,productOrder,Review,Address}
+module.exports = {User, Order, Product, productOrder, Review, Address}

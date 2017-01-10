@@ -65,7 +65,7 @@ const Product = db.define('products', {
   defaultValue: 'cow'
 }
 }, {
-  indexes: [{fields: ['name'], unique: true,}]
+  indexes: [{fields: ['name'], unique: true}]
 }
 )
 

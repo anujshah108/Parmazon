@@ -29,6 +29,10 @@ const Address = db.define('addresses', {
   phone: {
     type: Sequelize.STRING,
     allowNull: false
+  },
+  zip: {
+    type: Sequelize.INTEGER,
+    allowNull: false
   }
 }
 )
