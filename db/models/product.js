@@ -61,7 +61,8 @@ const Product = db.define('products', {
   },
   milkType: {
   type: Sequelize.STRING,
-  allowNull: false
+  allowNull: false,
+  defaultValue: 'cow'
 }
 }, {
   indexes: [{fields: ['name'], unique: true,}]

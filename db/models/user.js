@@ -6,16 +6,15 @@ const db = require('APP/db')
 
 const User = db.define('users', {
   firstName: {
-    type: Sequelize.STRING,
-    allowNull: false
+    type: Sequelize.STRING
   },
   lastName: {
-    type: Sequelize.STRING,
-    allowNull: false
+    type: Sequelize.STRING
   },
   isAdmin: Sequelize.BOOLEAN,
   email: {
     type: Sequelize.STRING,
+    allowNull: false,
     validate: {
 			isEmail: true,
 			notEmpty: true,

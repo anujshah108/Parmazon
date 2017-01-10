@@ -4,8 +4,8 @@ const db = require('APP/db')
 const User = require('APP/db/models/user')
 const app = require('./start')
 
-xdescribe('/api/users', () => {
-  xdescribe('when not logged in', () => {
+describe('/api/users', () => {
+  describe('when not logged in', () => {
     it('GET /:id fails 401 (Unauthorized)', () =>
       request(app)
         .get(`/api/users/1`)

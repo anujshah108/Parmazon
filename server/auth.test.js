@@ -9,7 +9,7 @@ const alice = {
   password: '12345'
 }
 
-xdescribe('/api/auth', () => {
+describe('/api/auth', () => {
   before('create a user', () =>
     db.didSync
       .then(() =>
@@ -20,7 +20,7 @@ xdescribe('/api/auth', () => {
       )
   )
 
-  xdescribe('POST /local/login (username, password)', () => {
+  describe('POST /local/login (username, password)', () => {
     it('succeeds with a valid username and password', () =>
       request(app)
         .post('/api/auth/local/login')
@@ -38,7 +38,7 @@ xdescribe('/api/auth', () => {
       )
   })
 
-  xdescribe('GET /whoami', () => {
+  describe('GET /whoami', () => {
     describe('when logged in,', () => {
       const agent = request.agent(app)
       before('log in', () => agent
@@ -62,7 +62,7 @@ xdescribe('/api/auth', () => {
     )
   })
 
-  xdescribe('POST /logout when logged in', () => {
+  describe('POST /logout when logged in', () => {
     const agent = request.agent(app)
 
     before('log in', () => agent
