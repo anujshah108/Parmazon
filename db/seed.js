@@ -1,15 +1,15 @@
 const db = require('APP/db')
 
 const seedAddresses = [
-  {firstName: 'Barack', lastName: 'Obama', address1: '1600 Pennsylvania Ave', city: 'Washington DC', state: 'DC', phone: '555-555-5555', zip: '20500', userId: 1},
-  {firstName: 'Donald', lastName: 'Trump', address1: 'Trump Tower', address2: 'Apt 1', city: 'New York City', state: 'NY', phone: '555-555-1234', zip: '10022', userId: 2}
+  {firstName: 'Barack', lastName: 'Obama', address1: '1600 Pennsylvania Ave', city: 'Washington DC', state: 'DC', phone: '555-555-5555', zip: '20500', user_id: 1},
+  {firstName: 'Donald', lastName: 'Trump', address1: 'Trump Tower', address2: 'Apt 1', city: 'New York City', state: 'NY', phone: '555-555-1234', zip: '10022', user_id: 2}
 ]
 
 const seedAddressesFunc = () => {return db.Promise.each(seedAddresses, address => db.model('addresses').create(address))}
 
 const seedOrders = [
-  {status: 'pending', userId: 1},
-  {status: 'completed', userId: 1}
+  {status: 'pending', user_id: 1},
+  {status: 'completed', user_id: 1}
 ]
 
 const seedOrdersFunc = () => {return db.Promise.each(seedOrders, order => db.model('orders').create(order))}
@@ -31,16 +31,16 @@ const seedProducts = [
 const seedProductsFunc = () => {return db.Promise.each(seedProducts, product => db.model('products').create(product))}
 
 const seedProductOrders = [
-	{product: {name: 'Cheddar', price: 25.50, stockQuantity: 20, summary: ['Very Good Cheese'], description: 'A classic staple', imageURL: 'http://i.imgur.com/RlngTOV.jpg', categories: [''], tags: [''], location: 'USA', age: 4, milkType: 'cow'}, quantity: 1, orderId: 1},
-  {product: {name: 'Swiss', price: 10.00, stockQuantity: 30, summary: ['Very Good Cheese'], description: 'Popular worldwide, Swiss is an established type of cheese', imageURL: 'http://i.imgur.com/RlngTOV.jpg', categories: [''], tags: [''], location: 'USA', age: 1, milkType: 'goat'}, quantity: 3, orderId: 1}
+	{product: {name: 'Cheddar', price: 25.50, stockQuantity: 20, summary: ['Very Good Cheese'], description: 'A classic staple', imageURL: 'http://i.imgur.com/RlngTOV.jpg', categories: [''], tags: [''], location: 'USA', age: 4, milkType: 'cow'}, quantity: 1, order_id: 1},
+  {product: {name: 'Swiss', price: 10.00, stockQuantity: 30, summary: ['Very Good Cheese'], description: 'Popular worldwide, Swiss is an established type of cheese', imageURL: 'http://i.imgur.com/RlngTOV.jpg', categories: [''], tags: [''], location: 'USA', age: 1, milkType: 'goat'}, quantity: 3, order_id: 1}
 ]
 
 const seedProductOrdersFunc = () => {return db.Promise.each(seedProductOrders, productOrder => db.model('productOrders').create(productOrder))}
 
 const seedReviews = [
-  {title: 'Bad Experience', body: 'Cheese was already half eaten', stars: 1, authorId: 1, productId: 1},
-  {title: 'Average Cheese', body: 'I feel neutral about this product', stars: 3, authorId: 1, productId: 2},
-  {title: 'Excellent!!!', body: 'Fantastic product!', stars: 5, authorId: 2, productId: 3}
+  {title: 'Bad Experience', body: 'Cheese was already half eaten', stars: 1, author_id: 1, product_id: 1},
+  {title: 'Average Cheese', body: 'I feel neutral about this product', stars: 3, author_id: 1, product_id: 2},
+  {title: 'Excellent!!!', body: 'Fantastic product!', stars: 5, author_id: 2, product_id: 3}
 ]
 
 const seedReviewsFunc = () => {return db.Promise.each(seedReviews, review => db.model('reviews').create(review))}
