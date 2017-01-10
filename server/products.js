@@ -15,7 +15,11 @@ module.exports = require('express').Router()
     .catch(next))
   .get('/:id', (req, res, next) =>
     Product.findById(req.params.id)
-    .then(product => res.json(product))
+    .then(product => {
+      console.log('what the fuck', product);
+      res.json(product)
+
+    })
     .catch(next))
   .delete('/:id', (req, res, next) =>
     Product.findById(req.params.id)
