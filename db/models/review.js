@@ -11,7 +11,7 @@ const Review = db.define('reviews', {
     allowNull: false
   },
   stars: {
-    type: Sequelize.ENUM("1","2","3","4","5"),
+    type: Sequelize.INTEGER,
     allowNull: false
   },
   }

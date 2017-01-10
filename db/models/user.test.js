@@ -29,9 +29,7 @@ describe('User', () => {
             const user = User.build();
             return user.validate()
                 .then(err => {
-                  console.log(err)
                     expect(err).to.be.an('object');
-                    console.log(err.errors)
                     expect(err.errors[0].message).to.equal('email cannot be null');
         });
 
