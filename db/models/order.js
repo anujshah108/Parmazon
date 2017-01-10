@@ -5,9 +5,7 @@ const Order = db.define('orders', {
   status: {
     type: Sequelize.ENUM('pending', 'shipped', 'completed', 'canceled', 'returned'),
     allowNull: false,
-    validate: {
-      defaultValue: 'pending'
-    }
+    defaultValue: 'pending'
   }
 })
 
