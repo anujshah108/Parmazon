@@ -16,6 +16,7 @@ const usersReducer = function(state = initialState, action) {
       return Object.assign({}, state, {
         currentUser: action.user
       });
+    default: return state;
   }
 };
 

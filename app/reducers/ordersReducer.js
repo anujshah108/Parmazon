@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import {RECEIVE_ALL_ORDERS, RECEIVE_ORDER} from './actionCreators';
+import {RECEIVE_ALL_ORDERS, RECEIVE_ORDER, RECEIVE_USER_ORDERS} from './actionCreators';
 
 const initialState = {
   allOrders: [],
@@ -21,6 +21,7 @@ const ordersReducer = function(state = initialState, action) {
       return Object.assign({}, state, {
         currentOrder: action.order
       });
+    default: return state;
   }
 };
 

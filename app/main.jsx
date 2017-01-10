@@ -9,9 +9,12 @@ import HomePage from './components/HomePage'
 import Login from './components/Login'
 import WhoAmI from './components/WhoAmI'
 import NavBar from './components/NavBar'
-import products from './components/Products'
 import product from './components/Product'
+import {fetchProductsFromServer} from './reducers/actionCreators'
 
+const onHomePageEnter = function() {
+  store.dispatch(fetchProductsFromServer());
+};
 
 render (
   <Provider store={store}>
@@ -20,7 +23,7 @@ render (
     	<Route path='/products/:id' component={product}/>
     		{/**<Route path='/products' component={products}/>
     		    		<Route path='/products/category?' component={products}/>
-    		    		
+
     		    		<Route path='/products/filter?' component={products}/>
     		    		<Route path='/cart' component={cart}/>
     		    		<Route path='/products' component={products}/>
@@ -32,7 +35,7 @@ render (
     		    		<Route path='/checkout' component={checkout}/>
     		    		<Route path='/checkout' component={checkout}/>
     		**/}
-    		<IndexRoute component={HomePage}/>
+    		<IndexRoute component={HomePage} onEnter={onHomePageEnter} />
     	</Route>
     </Router>
   </Provider>,

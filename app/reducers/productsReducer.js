@@ -16,6 +16,7 @@ const productsReducer = function(state = initialState, action) {
 			return Object.assign({}, state, {
 				currentProduct: action.product
 			});
+		default: return state;
 	}
 };
 
