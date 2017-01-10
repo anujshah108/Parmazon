@@ -7,19 +7,15 @@ export default class NavBar extends Component {
     <div className="navbar-fixed">
     <nav>
       <div className="nav-wrapper teal lighten-2">
-        <a href="#!" className="brand-logo">Logo</a>
+        <ul className="left hide-on-med-and-down">
+          <li><a href="" ><i className="material-icons">visibility</i></a></li>
+          <li><a href="sass.html">thing1</a></li>
+          <li><a href="badges.html">thing2</a></li>
+        </ul>
         <ul className="right hide-on-med-and-down">
-          <li><a href="sass.html">Sass</a></li>
-          <li><a href="badges.html">Components</a></li>
-          <li>
-          	<form>
-          		<div className="input-field">
-          			<input id="search" type="search" required/>
-          			<label htmlFor="search"><i className="material-icons">search</i></label>
-          			<i className="material-icons">close</i>
-          		</div>
-          	</form>
-          </li>
+          <li><a href="sass.html">Sign Up</a></li>
+          <li><a href="badges.html">Log In</a></li>
+          <li><a href="" ><i className="material-icons">shopping_cart</i></a></li>
         </ul>
       </div>
     </nav>
