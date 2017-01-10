@@ -16,8 +16,8 @@ export default class NavBar extends Component {
           <li><a href="badges.html">thing2</a></li>
         </ul>
         <ul className="right hide-on-med-and-down">
-          <li><Link to={/signup/}>Sign Up</Link></li>
-          <li><Link to={/login/}>Log In</Link></li>
+          <li><Link to='/signup/'>Sign Up</Link></li>
+          <li><Link to='/login/'>Log In</Link></li>
           <li><a href="" ><i className="material-icons">shopping_cart</i></a></li>
         </ul>
       </div>
