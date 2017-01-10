@@ -10,23 +10,10 @@ import Login from './components/Login'
 import WhoAmI from './components/WhoAmI'
 import NavBar from './components/NavBar'
 
-const ExampleApp = connect(
-  ({ auth }) => ({ user: auth })
-) (
-  ({ user, children }) =>
-    <div>
-      
-      <NavBar />
-       
-    </div>
-)
-
 render (
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component={ExampleApp}>
-        <IndexRedirect to="/jokes" />
-        <Route path="/jokes" component={HomePage} />
+      <Route path="/" component={HomePage}>
       </Route>
     </Router>
   </Provider>,
