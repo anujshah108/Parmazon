@@ -7,13 +7,13 @@ export default class Products extends Component {
     
   }
   render() {
-    console.log("~~~~~~", this.props.products)
+    // console.log("~~~~~~", this.props.products)
     let products = this.props.products || [];
     let productsList = products.map(function(product){
 
 
       return (
-         <div className='productsProduct'>
+         <div className='productsProduct' key={product.id}>
             <Link to={`/product/${product.id}`}>
             <img className='productsImage' height="100" src={product.imageURL}/>
             <div className='productsName'>{product.name}</div>
