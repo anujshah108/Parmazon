@@ -126,6 +126,12 @@ auth.post('/:strategy/login', (req, res, next) =>
   })(req, res, next)
 )
 
+// auth.post('/:strategy/signup', (req, res, next) =>
+//   passport.authenticate(req.params.strategy, {
+//     successRedirect: '/'
+//   })(req, res, next)
+// )
+
 auth.post('/logout', (req, res, next) => {
   req.logout()
   res.redirect('/api/auth/whoami')
