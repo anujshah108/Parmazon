@@ -25,5 +25,6 @@ Address.belongsTo(User)
 
 Order.hasMany(productOrder)
 productOrder.belongsTo(Order)
+productOrder.belongsTo(Product, {as: 'ordered_product'})
 
 module.exports = {User, Order, Product, productOrder, Review, Address}

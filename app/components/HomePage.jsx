@@ -11,7 +11,6 @@ export default class HomePage extends Component {
             products: []
         }
     }
-
     componentDidMount(){
        axios.get('api/products')
       .then(res => res.data)
@@ -23,10 +22,8 @@ export default class HomePage extends Component {
         console.error(err);
       })
     }
+
   render() {  
-   
-
-
     return (
       <div>
         <NavBar/>
