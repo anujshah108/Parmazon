@@ -3,23 +3,10 @@ import axios from 'axios';
 export default class Products extends Component {
   constructor(props) {
         super(props);
-        this.state = {
-            product: {}
-        }
     }
-    componentDidMount(){
-       axios.get('/api/products/1')
-      .then(res => res.data)
-      .then(product => {
-        this.setState({product});
-        console.log('~~~~~~',product);
-      })
-      .catch(err => {
-        console.error(err);
-      })
-    }
+
   render() {
-    let product = this.state.product || {};
+    let product = this.props.product || {};
 
     return (
       <div className='productProduct'>

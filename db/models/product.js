@@ -61,7 +61,6 @@ const Product = db.define('products', {
   },
   milkType: {
   type: Sequelize.STRING,
-  allowNull: false,
   defaultValue: 'cow'
 }
 }, {
