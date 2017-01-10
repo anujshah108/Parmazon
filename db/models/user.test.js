@@ -4,6 +4,7 @@ const db = require('APP/db')
 const User = require('./user')
 const { expect } = require('chai')
 
+
 describe('User', () => {
     before('wait for the db', () => db.didSync)
 
@@ -30,14 +31,12 @@ describe('User', () => {
                 .then(err => {
                   console.log(err)
                     expect(err).to.be.an('object');
-                    expect(err.errors).to.contain.a.thing.with.properties({
-                        path: 'email',
-                        type: 'notNull Violation'
-                    });
-                });
+                    console.log(err.errors)
+                    expect(err.errors[0].message).to.equal('email cannot be null');
         });
 
     });
 
 
+})
 })

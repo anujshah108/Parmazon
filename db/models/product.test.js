@@ -37,10 +37,11 @@ const { expect } = require('chai')
               return product.validate()
                   .then(err => {
                       expect(err).to.be.an('object');
-                      expect(err.errors).to.contain.a.object.with.properties({
-                          path: 'description',
-                          type: 'notNull Violation'
-                      });
+                      let descriptionError
+                        err.errors.forEach(function(err){
+                        if(err.path == 'description') descriptionError = err
+                      })
+                      expect(descriptionError.message).to.equal('description cannot be null')
                   });
           });
 
