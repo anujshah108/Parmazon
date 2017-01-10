@@ -30,7 +30,7 @@ const Product = db.define('products', {
     allowNull: false
   },
   categories: {
-    type: Sequelize.ARRAY(Sequelize.STRING),
+    type: Sequelize.STRING,
     allowNull: false
   },
   tags: {
