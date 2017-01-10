@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router'
 
 export default class NavBar extends Component {
 
@@ -15,8 +16,8 @@ export default class NavBar extends Component {
           <li><a href="badges.html">thing2</a></li>
         </ul>
         <ul className="right hide-on-med-and-down">
-          <li><a href="sass.html">Sign Up</a></li>
-          <li><a href="badges.html">Log In</a></li>
+          <li><Link to={/signup/}>Sign Up</Link></li>
+          <li><Link to={/login/}>Log In</Link></li>
           <li><a href="" ><i className="material-icons">shopping_cart</i></a></li>
         </ul>
       </div>
