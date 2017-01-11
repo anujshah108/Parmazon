@@ -10,6 +10,7 @@ const Product = require('./product')
 const productOrder = require('./productOrder')
 const Review = require('./review')
 const Address = require('./address')
+const Tag = require('./tag')
 
 // Associating Reviews to Users
 User.hasMany(Review)
@@ -31,5 +32,8 @@ Address.belongsTo(User)
 Order.hasMany(productOrder)
 productOrder.belongsTo(Order)
 productOrder.belongsTo(Product, {as: 'ordered_product'})
+
+Product.hasMany(Tag)
+Tag.belongsToMany(Product)
 
 module.exports = {User, Order, Product, productOrder, Review, Address}
