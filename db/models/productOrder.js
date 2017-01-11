@@ -5,9 +5,12 @@ const db = require('APP/db')
 // A way to allow orders to contain quantities for a single product
 
 const ProductOrder = db.define('productOrders', {
-  product: {
-    type: Sequelize.JSON,
-    allowNull: false
+  price: {
+    type: Sequelize.DECIMAL(10, 2),
+    allowNull: false,
+    validate: {
+        isDecimal: true
+    }
   },
   quantity: {
     type: Sequelize.INTEGER,

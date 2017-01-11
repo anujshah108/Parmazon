@@ -2,7 +2,7 @@ const db = require('APP/db')
 
 const seedAddresses = [
   {firstName: 'Barack', lastName: 'Obama', address1: '1600 Pennsylvania Ave', city: 'Washington DC', state: 'DC', phone: '555-555-5555', zip: '20500', user_id: 1},
-  {firstName: 'Donald', lastName: 'Trump', address1: 'Trump Tower', address2: 'Apt 1', city: 'New York City', state: 'NY', phone: '555-555-1234', zip: '10022', user_id: 2, password: 'MAGA'}
+  {firstName: 'Donald', lastName: 'Trump', address1: 'Trump Tower', address2: 'Apt 1', city: 'New York City', state: 'NY', phone: '555-555-1234', zip: '10022', user_id: 2}
 ]
 
 const seedAddressesFunc = () => {return db.Promise.each(seedAddresses, address => db.model('addresses').create(address))}

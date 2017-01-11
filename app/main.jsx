@@ -10,11 +10,14 @@ import Login from './components/Login'
 import Signup from './components/Signup'
 import WhoAmI from './components/WhoAmI'
 import Product from './containers/ProductContainer'
+import ProductManagement from './components/ProductManagement'
 import {fetchProductsFromServer, fetchSingleProduct, fetchRatingforProduct} from './reducers/actionCreators'
 
 const onHomePageEnter = function() {
   store.dispatch(fetchProductsFromServer());
 };
+
+
 
 const onSingleProductEnter = function(nextRouterState) {
   store.dispatch(fetchSingleProduct(nextRouterState.params.productId));
@@ -29,6 +32,7 @@ render (
     	<Route path='/products/:productId' component={Product} onEnter={onSingleProductEnter}/>
         <Route path='/login' component={Login}/>
         <Route path='/signup' component={Signup}/>
+        <Route path='/admin' component={ProductManagement}/>
     		{/**<Route path='/products' component={products}/>
     		    		<Route path='/products/category?' component={products}/>
 
