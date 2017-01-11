@@ -7,7 +7,7 @@ export default class Products extends Component {
 
   }
   render() {
-    // console.log("~~~~~~", this.props.products)
+    
     let products = this.props.products || [];
     let productsList = products.map(function(product){
 
@@ -21,7 +21,7 @@ export default class Products extends Component {
             <div className='productsRating'>Rating: {'★ '+ product.rating}</div>
           </Link>
         </div> )
-      
+
         {/**return(
           <div className='productsProduct col s4' key={product.id}>
             <div className="card">
