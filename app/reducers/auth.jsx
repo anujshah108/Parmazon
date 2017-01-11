@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {fetchSingleUser} from './actionCreators'
 
 const reducer = (state=null, action) => {
   switch(action.type) {
@@ -32,6 +33,7 @@ export const whoami = () =>
       .then(response => {
         const user = response.data
         dispatch(authenticated(user))
+        dispatch(fetchSingleUser(user.id))
       })
       .catch(failed => dispatch(authenticated(null)))
 

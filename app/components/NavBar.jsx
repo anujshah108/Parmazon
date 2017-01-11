@@ -3,9 +3,8 @@ import {Link} from 'react-router'
 
 export default class NavBar extends Component {
 
-	render() {  
-    
-    
+	render() {
+
     return (
     <div className="navbar-fixed">
     <nav>
@@ -16,7 +15,7 @@ export default class NavBar extends Component {
           <li><a href="badges.html">thing2</a></li>
         </ul>
         <ul className="right hide-on-med-and-down">
-          {(this.props.auth ? renderSignedin() : renderSignedout())}
+          {(this.props.auth ? this.renderSignedin() : this.renderSignedout())}
           <li><a href="" ><i className="material-icons">shopping_cart</i></a></li>
         </ul>
       </div>

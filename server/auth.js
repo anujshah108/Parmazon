@@ -119,7 +119,6 @@ passport.use(new (require('passport-local').Strategy) (
 ))
 
 auth.get('/whoami', (req, res) => {
-    console.log('SENDING USER........', req.user)
     res.send(req.user)
   })
 auth.post('/:strategy/login', (req, res, next) =>
