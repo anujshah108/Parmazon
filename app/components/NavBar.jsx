@@ -30,16 +30,19 @@ export default class NavBar extends Component {
   }
    renderLogout() {
      return (
-         <li><Link to='/account'>My Account</Link></li>
-          <li onClick={logout}><Link to='/'>Logout</Link></li>
+        <div>
+        <li><Link to='/account'>My Account</Link></li>
+        <li><Link to='/'>Logout</Link></li>
+        </div>
      )
   }
 
      renderSignup() {
      return (
+        <div>
         <li><Link to='/signup/'>Sign Up</Link></li>
-          <li><Link to='/login/'>Log In</Link></li>
-
+        <li><Link to='/login/'>Log In</Link></li>
+        </div>
      )
   }
 }
