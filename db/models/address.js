@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize')
 const db = require('APP/db')
 
+//Address For Customers Either Billing Or Shipping
 const Address = db.define('addresses', {
     firstName: {
     type: Sequelize.STRING,

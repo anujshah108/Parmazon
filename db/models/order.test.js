@@ -13,7 +13,7 @@ describe('Order Model', () => {
 
           // *Assertion translation*:
           // This assertion expects that the Order model will
-          // put a `price` column in the messages table.
+          // put a `status` column in the order table.
           it('has expected status definition', () => {
               expect(Order.attributes.status).to.be.an('object');
           });
@@ -23,11 +23,11 @@ describe('Order Model', () => {
           // put a `description` column in the Orders table.
 
 
-          
+
 
           it('allows valid enum options', () => {
               const order = Order.build({status: 'pending'});
-                    
+
                     expect(order.status).to.equal('pending');
           });
 

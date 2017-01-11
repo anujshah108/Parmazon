@@ -1,6 +1,9 @@
 const Sequelize = require('sequelize')
 const db = require('APP/db')
 
+
+// A way to allow orders to contain quantities for a single product
+
 const ProductOrder = db.define('productOrders', {
   product: {
     type: Sequelize.JSON,

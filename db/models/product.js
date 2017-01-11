@@ -1,6 +1,9 @@
 const Sequelize = require('sequelize');
 const db = require('APP/db');
 const Review = require('./review');
+
+// A Model for products that contain all the individual details of a single product
+
 const Product = db.define('products', {
     name: {
       type: Sequelize.STRING,
