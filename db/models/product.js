@@ -1,6 +1,5 @@
 const Sequelize = require('sequelize');
 const db = require('APP/db');
-const Review = require('./review');
 
 // A Model for products that contain all the individual details of a single product
 
@@ -35,24 +34,6 @@ const Product = db.define('products', {
     categories: {
       type: Sequelize.STRING,
       allowNull: false
-    },
-    tags: {
-      type: Sequelize.ARRAY(Sequelize.TEXT),
-      // page.tags = 'programming,coding,javascript'
-      set: function(value) {
-
-        var arrayOfTags;
-
-        if (typeof value === 'string') {
-          arrayOfTags = value.split(',').map(function(s) {
-            return s.trim();
-          });
-          this.setDataValue('tags', arrayOfTags);
-        } else {
-          this.setDataValue('tags', value);
-        }
-
-      }
     },
     location: {
       type: Sequelize.STRING,
