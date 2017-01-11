@@ -8,6 +8,7 @@ export const RECEIVE_USER_ORDERS = 'RECEIVE_USER_ORDERS'
 export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
 export const RECEIVE_USER = 'RECEIVE_USER';
 export const RECEIVE_RATING = 'RECEIVE_RATING';
+export const LOGOUT_USER = 'LOGOUT_USER';
 
 
 //PRODUCTS
@@ -25,8 +26,6 @@ function receiveProduct(product) {
    product
  };
 }
-
-
 
 export function fetchProductsFromServer() {
  return function(dispatch) {
@@ -126,6 +125,13 @@ function receiveUser(user) {
    type: RECEIVE_USER,
    user
  };
+}
+
+export function logOutUser() {
+  return {
+    type: LOGOUT_USER,
+    user: {}
+}
 }
 
 export function fetchUsersFromServer() {

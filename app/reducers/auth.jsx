@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {fetchSingleUser} from './actionCreators'
+import {fetchSingleUser, logOutUser} from './actionCreators'
 
 const reducer = (state=null, action) => {
   switch(action.type) {
@@ -25,6 +25,7 @@ export const logout = () =>
   dispatch =>
     axios.post('/api/auth/logout')
       .then(() => dispatch(whoami()))
+      .then(() => dispatch(logOutUser()))
       .catch(() => dispatch(whoami()))
 
 export const whoami = () =>

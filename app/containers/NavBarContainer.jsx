@@ -13,4 +13,4 @@ function mapDispatchToProps(state) {
   };
 }
 const NavBarContainer = connect(mapStateToProps, mapDispatchToProps)(NavBar);
-export default NavBar;
+export default NavBarContainer;

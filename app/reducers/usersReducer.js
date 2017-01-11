@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import {RECEIVE_ALL_USERS, RECEIVE_USER} from './actionCreators';
+import {RECEIVE_ALL_USERS, RECEIVE_USER, LOGOUT_USER} from './actionCreators';
 
 const initialState = {
   allUsers: [],
@@ -16,6 +16,10 @@ const usersReducer = function(state = initialState, action) {
       return Object.assign({}, state, {
         currentUser: action.user
       });
+    case LOGOUT_USER:
+      return Object.assign({}, state, {
+        currentUser: action.user
+      })
     default: return state;
   }
 };

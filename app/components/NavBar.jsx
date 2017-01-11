@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router'
+import {logout} from 'APP/app/reducers/auth'
+import store from '../store'
 
 export default class NavBar extends Component {
 
-	render() {
+  logOutFunc(){
+    store.dispatch(logout())
+  }
 
+  render() {
+    console.log('user.......',this.props.user)
     return (
     <div className="navbar-fixed">
     <nav>
@@ -15,8 +21,7 @@ export default class NavBar extends Component {
           <li><a href="badges.html">thing2</a></li>
         </ul>
         <ul className="right hide-on-med-and-down">
-          {(this.props.auth ? this.renderSignedin() : this.renderSignedout())}
-          <li><a href="" ><i className="material-icons">shopping_cart</i></a></li>
+          {(this.props.user.id ? this.renderSignedin() : this.renderSignedout())}
         </ul>
       </div>
     </nav>
@@ -24,11 +29,13 @@ export default class NavBar extends Component {
     )
   }
 
+
   renderSignedout() {
     return (
       <div>
         <li><Link to='/signup/'>Sign Up</Link></li>
         <li><Link to='/login/'>Log In</Link></li>
+        <li><a href="" ><i className="material-icons">shopping_cart</i></a></li>
       </div>
     )
   }
@@ -36,8 +43,9 @@ export default class NavBar extends Component {
   renderSignedin() {
     return (
       <div>
-        <li><Link to='/account'>My Account</Link></li>
-        <li><Link to='/'>Logout</Link></li>
+        <li><Link to='/'>My Account</Link></li>
+        <li onClick={this.logOutFunc}><Link to='/'>Logout</Link></li>
+        <li><a href="" ><i className="material-icons">shopping_cart</i></a></li>
       </div>
     )
   }

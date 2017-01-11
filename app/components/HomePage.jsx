@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NavBar from './NavBar';
+import NavBar from '../containers/NavBarContainer';
 import Products from '../containers/ProductsContainer'
 import axios from 'axios';
 
