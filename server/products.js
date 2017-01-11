@@ -35,3 +35,9 @@ module.exports = require('express').Router()
     Product.findAll({where: {category: req.params.category}})
     .then(products => res.json(products))
     .catch(next))
+  // uses a query for filtering out products
+  .get('/products/filter', (req, res, next) => {
+    const filters = req.query.filters
+    Product.findAll({where:filters})
+    .then(filteredProducts => res.send(filteredProducts))
+    .catch(next))  

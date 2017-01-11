@@ -99,7 +99,7 @@ class Auth extends React.Component {
 
 /* -----------------    CONTAINER     ------------------ */
 
-const mapStateLogin = () => ({ message: 'Log in' })
+const mapStateLogin = (state) => ({ message: 'Log in' })
 const mapDispatchLogin = dispatch => ({ 
 	login: credentials => {
 		dispatch(login(credentials));
