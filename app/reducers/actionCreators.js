@@ -40,7 +40,7 @@ export function fetchProductsFromServer() {
 
 export function fetchSingleProduct(id) {
  return function(dispatch) {
-   axios.get(`api/products/${id}`)
+   axios.get(`/api/products/${id}`)
      .then(foundProduct => {
        dispatch(receiveProduct(foundProduct.data));
      })
@@ -100,7 +100,7 @@ export function fetchUserOrdersFromServer() {
 
 export function fetchSingleOrder(id) {
  return function(dispatch) {
-   axios.get(`api/orders/${id}`)
+   axios.get(`/api/orders/${id}`)
      .then(foundOrder => {
        dispatch(receiveOrder(foundOrder.data));
      })
@@ -140,7 +140,7 @@ export function fetchUsersFromServer() {
 
 export function fetchSingleUser(id) {
  return function(dispatch) {
-   axios.get(`api/users/${id}`)
+   axios.get(`/api/users/${id}`)
      .then(foundUser => {
        dispatch(receiveUser(foundUser.data));
      })

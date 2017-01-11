@@ -9,18 +9,23 @@ import HomePage from './components/HomePage'
 import Login from './components/Login'
 import Signup from './components/Signup'
 import WhoAmI from './components/WhoAmI'
-import product from './components/Product'
-import {fetchProductsFromServer} from './reducers/actionCreators'
+import Product from './containers/ProductContainer'
+import {fetchProductsFromServer, fetchSingleProduct} from './reducers/actionCreators'
 
 const onHomePageEnter = function() {
   store.dispatch(fetchProductsFromServer());
+};
+
+const onSingleProductEnter = function(nextRouterState) {
+  store.dispatch(fetchSingleProduct(nextRouterState.params.productId));
+
 };
 
 render (
   <Provider store={store}>
     <Router history={browserHistory}>
     	<Route path='/'>
-    	<Route path='/products/:id' component={product}/>
+    	<Route path='/products/:productId' component={Product} onEnter={onSingleProductEnter}/>
         <Route path='/login' component={Login}/>
         <Route path='/signup' component={Signup}/>
     		{/**<Route path='/products' component={products}/>

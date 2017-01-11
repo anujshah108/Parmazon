@@ -30,7 +30,7 @@ import { login, signup } from '../reducers/auth';
 class Auth extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.onSubmit = this.onSubmit.bind(this);
 	}
 
@@ -43,19 +43,19 @@ class Auth extends React.Component {
 								<div className="form-group">
 									<label>email</label>
 									<input
-										name="email" 
-										type="email" 
-										className="form-control" 
-										required 
+										name="email"
+										type="email"
+										className="form-control"
+										required
 									/>
 								</div>
 								<div className="form-group">
 										<label>password</label>
-										<input 
+										<input
 										  name="password"
-											type="password" 
-											className="form-control" 
-											required 
+											type="password"
+											className="form-control"
+											required
 										/>
 								</div>
 								<button type="submit" className="btn btn-block btn-primary">{message}</button>
@@ -99,8 +99,8 @@ class Auth extends React.Component {
 
 /* -----------------    CONTAINER     ------------------ */
 
-const mapStateLogin = (state) => ({ message: 'Log in' })
-const mapDispatchLogin = dispatch => ({ 
+const mapStateLogin = () => ({ message: 'Log in' })
+const mapDispatchLogin = dispatch => ({
 	login: credentials => {
 		dispatch(login(credentials));
 		browserHistory.push('/');

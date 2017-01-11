@@ -16,7 +16,6 @@ module.exports = require('express').Router()
   .get('/:id', (req, res, next) =>
     Product.findById(req.params.id)
     .then(product => {
-      console.log('what the fuck', product);
       res.json(product)
 
     })
@@ -40,5 +39,5 @@ module.exports = require('express').Router()
     const filters = req.query.filters
     Product.findAll({where:filters})
     .then(filteredProducts => res.send(filteredProducts))
-    .catch(next)}) 
+    .catch(next)})
 
