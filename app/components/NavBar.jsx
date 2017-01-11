@@ -16,15 +16,30 @@ export default class NavBar extends Component {
           <li><a href="badges.html">thing2</a></li>
         </ul>
         <ul className="right hide-on-med-and-down">
-          <li><Link to='/signup/'>Sign Up</Link></li>
-          <li><Link to='/login/'>Log In</Link></li>
-          <li><Link to='/account'>My Account</Link></li>
-          <li><Link to='/'>Logout</Link></li>
+          {(this.props.auth ? renderSignedin() : renderSignedout())}
           <li><a href="" ><i className="material-icons">shopping_cart</i></a></li>
         </ul>
       </div>
     </nav>
   </div>
+    )
+  }
+
+  renderSignedout() {
+    return (
+      <div>
+        <li><Link to='/signup/'>Sign Up</Link></li>
+        <li><Link to='/login/'>Log In</Link></li>
+      </div>
+    )
+  }
+
+  renderSignedin() {
+    return (
+      <div>
+        <li><Link to='/account'>My Account</Link></li>
+        <li><Link to='/'>Logout</Link></li>
+      </div>
     )
   }
 }
