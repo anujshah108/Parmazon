@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router'
+import {logout} from '../reducers/auth'
 
 export default class NavBar extends Component {
 
-	render() {  
-    
+	render() {
+
+    function logout() {
+
+    }
+
     return (
     <div className="navbar-fixed">
     <nav>
@@ -15,10 +20,7 @@ export default class NavBar extends Component {
           <li><a href="badges.html">thing2</a></li>
         </ul>
         <ul className="right hide-on-med-and-down">
-          <li><Link to='/signup/'>Sign Up</Link></li>
-          <li><Link to='/login/'>Log In</Link></li>
-          <li><Link to='/account'>My Account</Link></li>
-          <li><Link to='/'>Logout</Link></li>
+          {this.props.currentUser ? this.renderLogout() : this.loginSignup()}
           <li><a href="" ><i className="material-icons">shopping_cart</i></a></li>
         </ul>
       </div>
@@ -26,4 +28,22 @@ export default class NavBar extends Component {
   </div>
     )
   }
+   renderLogout() {
+     return (
+         <li><Link to='/account'>My Account</Link></li>
+          <li onClick={logout}><Link to='/'>Logout</Link></li>
+     )
+  }
+
+     renderSignup() {
+     return (
+        <li><Link to='/signup/'>Sign Up</Link></li>
+          <li><Link to='/login/'>Log In</Link></li>
+
+     )
+  }
+}
+
+function mapStateToProps() {
+
 }
