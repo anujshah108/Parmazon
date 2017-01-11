@@ -64,24 +64,6 @@ const Product = db.define('products', {
       defaultValue: 'cow'
     }
   }, {
-    getterMethods: {
-      getAverageRating: function() {
-        Review.findAll({
-            where: {
-              product_id: this.id
-            }
-          })
-          .then(scores => {
-            return scores.reduce(function(a, b) {
-              return a + b;
-            }, 0)
-          })
-          .catch(err => console.error(err))
-      }
-    }
-  },
-
-  {
     indexes: [{
       fields: ['name'],
       unique: true

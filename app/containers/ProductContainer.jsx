@@ -5,7 +5,8 @@ import store from '../store'
 function mapStateToProps(state) {
   console.log(state)
   return {
-    product: state.products.currentProduct
+    product: state.products.currentProduct,
+    rating: state.products.currentProductRating
   };
 }
 function mapDispatchToProps(state) {

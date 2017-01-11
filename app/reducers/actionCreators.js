@@ -7,6 +7,7 @@ export const RECEIVE_ORDER = 'RECEIVE_ORDER';
 export const RECEIVE_USER_ORDERS = 'RECEIVE_USER_ORDERS'
 export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
 export const RECEIVE_USER = 'RECEIVE_USER';
+export const RECEIVE_RATING = 'RECEIVE_RATING';
 
 //PRODUCTS
 
@@ -150,3 +151,23 @@ export function fetchSingleUser(id) {
  };
 }
 
+// RATING
+
+function receiveRating(rating) {
+ return {
+   type: RECEIVE_RATING,
+   rating: rating.data
+ };
+}
+
+export function fetchRatingforProduct(id) {
+ return function(dispatch) {
+   axios.get(`/api/products/${id}/review`)
+     .then(rating => {
+       dispatch(receiveRating(rating));
+     })
+     .catch(err => {
+       console.error(err);
+     });
+ };
+}

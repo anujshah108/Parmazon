@@ -7,6 +7,7 @@ export default class Products extends Component {
 
   render() {
     let product = this.props.product || {};
+    console.log('~~~~~~~~~~~This is a Rating:',this.props.rating.stars)
 
     return (
       <div className='productProduct'>

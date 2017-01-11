@@ -2,6 +2,7 @@
 
 const db = require('APP/db')
 const Product = db.model('products')
+const Review = db.model('reviews')
 
 
 module.exports = require('express').Router()
@@ -40,4 +41,20 @@ module.exports = require('express').Router()
     Product.findAll({where:filters})
     .then(filteredProducts => res.send(filteredProducts))
     .catch(next)})
-
+  .get('/:id/review', (req,res,next) => {
+    Review.findAll({
+          where: {
+            product_id: req.params.id
+          }
+        })
+        .then(ratings => {
+          const length = ratings.length;
+          let ratingsArr = ratings.map(instance => instance.stars);
+          var stars = ratingsArr.reduce((a, b) => {
+            return a + b; },0) / length;
+          console.log(stars)
+          stars = {stars: stars}
+          res.json(stars)
+        })
+        .catch(next)
+        })
