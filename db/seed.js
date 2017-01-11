@@ -1,7 +1,7 @@
 const db = require('APP/db')
 
 const seedAddresses = [
-  {firstName: 'Barack', lastName: 'Obama', address1: '1600 Pennsylvania Ave', city: 'Washington DC', state: 'DC', phone: '555-555-5555', zip: '20500', user_id: 1, password: '1234'},
+  {firstName: 'Barack', lastName: 'Obama', address1: '1600 Pennsylvania Ave', city: 'Washington DC', state: 'DC', phone: '555-555-5555', zip: '20500', user_id: 1},
   {firstName: 'Donald', lastName: 'Trump', address1: 'Trump Tower', address2: 'Apt 1', city: 'New York City', state: 'NY', phone: '555-555-1234', zip: '10022', user_id: 2, password: 'MAGA'}
 ]
 
@@ -46,9 +46,9 @@ const seedReviews = [
 const seedReviewsFunc = () => {return db.Promise.each(seedReviews, review => db.model('reviews').create(review))}
 
 const seedUsers = [
-  {firstName: 'Barack', lastName: 'Obama', isAdmin: false, email: 'barack@example.gov'},
-  {firstName: 'John', lastName: 'Cheeselover', isAdmin: false, email: 'john@example.com'},
-  {firstName: 'Evan', lastName: 'Scriber', isAdmin: true, email: 'evan@example.com'}
+  {firstName: 'Barack', lastName: 'Obama', isAdmin: false, email: 'barack@example.gov', password: '1234'},
+  {firstName: 'John', lastName: 'Cheeselover', isAdmin: false, email: 'john@example.com', password: 'MAGA'},
+  {firstName: 'Evan', lastName: 'Scriber', isAdmin: true, email: 'evan@example.com', password: '1234'}
 ]
 
 const seedUsersFunc = () => {return db.Promise.each(seedUsers, user => db.model('users').create(user))}

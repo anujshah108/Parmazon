@@ -22,7 +22,7 @@ describe('/api/products', () => {
           summary: ['Really Great Cheese'],
           description: 'The best cheese in the whole world',
           imageURL: 'www.cheeseimage.com',
-          categories: ['cheese', 'more cheese'],
+          categories: 'cheese',
           location: 'New York',
           age: 23
         })
