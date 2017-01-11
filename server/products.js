@@ -40,4 +40,5 @@ module.exports = require('express').Router()
     const filters = req.query.filters
     Product.findAll({where:filters})
     .then(filteredProducts => res.send(filteredProducts))
-    .catch(next))  
+    .catch(next)}) 
+
