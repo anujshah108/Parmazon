@@ -10,7 +10,7 @@ const Product = require('./product')
 const productOrder = require('./productOrder')
 const Review = require('./review')
 const Address = require('./address')
-const Tag = require('./tag')
+const Tag = require('./tags')
 
 // Associating Reviews to Users
 User.hasMany(Review)
