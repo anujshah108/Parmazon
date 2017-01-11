@@ -22,7 +22,7 @@ const onHomePageEnter = function() {
 const onSingleProductEnter = function(nextRouterState) {
   store.dispatch(fetchSingleProduct(nextRouterState.params.productId));
   store.dispatch(fetchRatingforProduct(nextRouterState.params.productId));
-
+  
 };
 
 render (
