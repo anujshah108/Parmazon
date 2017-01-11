@@ -6,14 +6,18 @@ const Order = db.model('orders')
 const {mustBeLoggedIn, forbidden,} = require('./auth.filters')
 
 module.exports = require('express').Router()
+	//requesting client must be logged in as an admin
+	//sends all of the user instances
 	.get('/', forbidden('only admins can list users'), (req, res, next) => 
 		User.findAll()
 		.then(users => res.json(users))
 		.catch(next))
-	.post('/', (req, res, next) =>
+	//creates a new user instance on the User table
+	.post('/', mustBeLoggedIn, (req, res, next) =>
 		User.create(req.body)
 		.then(user => res.status(201).json(user))
 		.catch(next))
+	//gets a specific user
 	.get('/:id', mustBeLoggedIn, (req, res, next) => 
 		User.findById(req.params.id)
 		.then(user => res.json(user))
