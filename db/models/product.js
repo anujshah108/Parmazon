@@ -36,24 +36,6 @@ const Product = db.define('products', {
       type: Sequelize.STRING,
       allowNull: false
     },
-    tags: {
-      type: Sequelize.ARRAY(Sequelize.TEXT),
-      // page.tags = 'programming,coding,javascript'
-      set: function(value) {
-
-        var arrayOfTags;
-
-        if (typeof value === 'string') {
-          arrayOfTags = value.split(',').map(function(s) {
-            return s.trim();
-          });
-          this.setDataValue('tags', arrayOfTags);
-        } else {
-          this.setDataValue('tags', value);
-        }
-
-      }
-    },
     location: {
       type: Sequelize.STRING,
       allowNull: false
