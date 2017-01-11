@@ -34,6 +34,6 @@ productOrder.belongsTo(Order)
 productOrder.belongsTo(Product, {as: 'ordered_product'})
 
 Product.hasMany(Tag)
-Tag.belongsToMany(Product)
+Tag.belongsTo(Product)
 
 module.exports = {User, Order, Product, productOrder, Review, Address}
