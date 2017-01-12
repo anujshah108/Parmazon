@@ -10,7 +10,6 @@ export default class NavBar extends Component {
   }
 
   render() {
-    console.log('user.......',this.props.user)
     return (
     <div className="navbar-fixed">
     <nav>

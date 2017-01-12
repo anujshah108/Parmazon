@@ -21,6 +21,7 @@ module.exports = require('express').Router()
 		.catch(next))
 	// gets an open cart by logged in user
 	.get('/cart/user/', (req, res, next) => {
+		if(typeof req.session.guest.id == 'number'){
 		Order.findOne({
 			where: {
 				status: 'cart',
@@ -28,9 +29,9 @@ module.exports = require('express').Router()
 			}
 		})
 		.then(order => res.json(order))
-		.catch(next)})
-	// gets an open cart by guest
-	.get('/cart/guest/', (req, res, next) => {
+		.catch(next)
+	}
+	else{
 		Order.findOne({
 			where: {
 				status: 'cart',
@@ -38,7 +39,9 @@ module.exports = require('express').Router()
 			}
 		})
 		.then(order => res.json(order))
-		.catch(next)})
+		.catch(next)
+	}
+	})
 	//updates an order based on the Id and the body of the request
 	.put('/:id', (req, res, next) =>
 		Order.findById(req.params.id)

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'axios'
 import store from '../store'
 
 export const RECEIVE_ALL_PRODUCTS = 'RECEIVE_ALL_PRODUCTS';
@@ -212,7 +212,6 @@ function receiveCart(cart) {
 }
 
 export function fetchOpenCart() {
-  // if(currentUser.id){
     return function(dispatch) {
       axios.get(`api/orders/cart/user/`)
         .then(cart => {
