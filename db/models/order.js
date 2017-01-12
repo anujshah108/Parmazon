@@ -7,8 +7,9 @@ const Order = db.define('orders', {
     //pending, shipping, completed, canceled, returned
     type: Sequelize.STRING,
     allowNull: false,
-    defaultValue: 'pending'
-  }
+    defaultValue: 'cart'
+  },
+  guestid: Sequelize.STRING
 })
 
   module.exports = Order
