@@ -4,16 +4,9 @@ import {Link} from 'react-router'
 export default class Products extends Component {
   constructor(props){
     super(props)
-    this.state= {
-      quantity: 0
-    }
-    this.handleOnChange = this.handleOnChange.bind(this)
   }
 
-  handleOnChange(event){
-    this.setState({quantity: event.target.value})
-    console.log(this.state)
-  }
+
 
 
   render() {
