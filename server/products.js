@@ -7,10 +7,11 @@ const Review = db.model('reviews')
 
 module.exports = require('express').Router()
   //returns all of the products in the Products table
-  .get('/', (req, res, next) =>
+  .get('/', (req, res, next) => {
+    console.log(req.session.passport)
     Product.findAll()
     .then(products => res.json(products))
-    .catch(next))
+    .catch(next)})
   //creates a new product
   .post('/', (req, res, next) =>
    Product.create(req.body)
@@ -47,7 +48,7 @@ module.exports = require('express').Router()
     Product.findAll({where:filters})
     .then(filteredProducts => res.send(filteredProducts))
     .catch(next)})
-  //used to aggregate all the reviews for a product and returns an average user rating 
+  //used to aggregate all the reviews for a product and returns an average user rating
   .get('/:id/review', (req,res,next) => {
     Review.findAll({
           where: {
