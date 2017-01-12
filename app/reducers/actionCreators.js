@@ -12,6 +12,8 @@ export const RECEIVE_RATING = 'RECEIVE_RATING';
 export const LOGOUT_USER = 'LOGOUT_USER';
 export const RECEIVE_CART = 'RECEIVE_CART'
 export const RECEIVE_REVIEWS = 'RECEIVE_REVIEWS'
+export const RECEIVE_ORDER_PRODUCTS = 'RECEIVE_ORDER_PRODUCTS'
+export const RECEIVE_CART_PRODUCTS = 'RECEIVE_CART_PRODUCTS'
 
 
 //PRODUCTS
@@ -216,21 +218,53 @@ export function fetchOpenCart() {
       axios.get(`api/orders/cart/user/`)
         .then(cart => {
           dispatch(receiveCart(cart));
+          dispatch(fetchProductsForCart(cart.data.id));
         })
         .catch(err => {
           console.error(err);
         });
     };
   }
-//   else{
-//     return function(dispatch) {
-//       axios.get(`'api/orders/cart/guest/`)
-//         .then(cart => {
-//           dispatch(receiveCart(cart));
-//         })
-//         .catch(err => {
-//           console.error(err);
-//         });
-//     };
-//   }
-// }
+
+//  productOrders for Order/Cart
+function receiveProductsForOrder(products) {
+ return {
+   type: RECEIVE_ORDER_PRODUCTS,
+   products: products.data
+}
+}
+
+
+function receiveProductsForCart(products) {
+ return {
+   type: RECEIVE_CART_PRODUCTS,
+   products: products.data
+}
+}
+
+ export function fetchProductsForOrder(id) {
+    return function(dispatch) {
+      axios.get(`api/orders/${id}/products/`)
+        .then(products => {
+          dispatch(receiveProductsForOrder(products));
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    };
+  }
+
+   export function fetchProductsForCart(id) {
+    return function(dispatch) {
+      axios.get(`api/orders/${id}/products/`)
+        .then(products => {
+          dispatch(receiveProductsForCart(products));
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    };
+  }
+
+
+

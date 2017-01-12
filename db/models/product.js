@@ -31,7 +31,7 @@ const Product = db.define('products', {
       type: Sequelize.STRING,
       allowNull: false
     },
-    categories: {
+    category: {
       type: Sequelize.STRING,
       allowNull: false
     },

@@ -1,6 +1,7 @@
 'use strict'
 const db = require('APP/db')
 const Order = db.model('orders')
+const ProductOrder = db.model('productOrders')
 const {mustBeLoggedIn, forbidden,} = require('./auth.filters')
 
 module.exports = require('express').Router()
@@ -19,7 +20,15 @@ module.exports = require('express').Router()
 		Order.findById(req.params.id)
 		.then(order => res.json(order))
 		.catch(next))
-	// gets an open cart by logged in user
+	// get products for a specific order
+	.get('/:id/products', (req, res, next) =>
+		ProductOrder.findAll({
+			where:
+			{order_id: req.params.id}
+		})
+		.then(products => res.json(products))
+		.catch(next))
+	// gets an open cart by logged in user or guest
 	.get('/cart/user/', (req, res, next) => {
 		if(typeof req.session.guest.id == 'number'){
 		Order.findOne({

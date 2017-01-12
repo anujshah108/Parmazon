@@ -5,9 +5,9 @@ Grace Shopper
   - [ ] Refine listing by category
   - [ ] Search product listing
   - View a product's details
-    - [ ] Product information
-    - [ ] Photo(s)
-    - [ ] View reviews left by authenticated users
+    - [x] Product information
+    - [x] Photo(s)
+    - [x] View reviews left by authenticated users
 - Manage their cart
   - [ ] Add an item to the cart from product listing or product detail pages
   - [ ] Remove an item from the cart
@@ -15,7 +15,7 @@ Grace Shopper
   - [ ] Log in and continue editing the cart
   - [ ] Refresh the page without being logged in and have the cart persist (you may use sessionStorage, localStorage, Cookies or JWT for this)
 - Account Management
-  - [ ] Create an account
+  - [x] Create an account
   - [ ] Login with Facebook and/or Google
 - Checkout
   - [ ] Purchase items from cart
