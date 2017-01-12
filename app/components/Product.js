@@ -26,7 +26,6 @@ export default class Products extends Component {
     form.reset();
     axios.put(`/api/products/${this.props.product.id}`, this.state)
     .then();
-
   }
 
 
