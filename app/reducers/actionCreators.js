@@ -9,6 +9,7 @@ export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
 export const RECEIVE_USER = 'RECEIVE_USER';
 export const RECEIVE_RATING = 'RECEIVE_RATING';
 export const LOGOUT_USER = 'LOGOUT_USER';
+export const RECEIVE_CART = 'RECEIVE_CART'
 
 
 //PRODUCTS
@@ -177,4 +178,38 @@ export function fetchRatingforProduct(id) {
        console.error(err);
      });
  };
+}
+
+//CART
+
+function receiveCart(cart) {
+ return {
+   type: RECEIVE_CART,
+   cart
+ };
+}
+
+export function fetchOpenCart(id) {
+  if(currentUser.id){
+    return function(dispatch) {
+      axios.get(`'/cart/user/${id}`)
+        .then(cart => {
+          dispatch(receiveCart(cart));
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    };
+  }
+  else{
+    return function(dispatch) {
+      axios.get(`'/cart/guest/${id}/`)
+        .then(cart => {
+          dispatch(receiveCart(cart));
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    };
+  }
 }
