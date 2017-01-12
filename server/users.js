@@ -8,7 +8,7 @@ const {mustBeLoggedIn, forbidden,} = require('./auth.filters')
 module.exports = require('express').Router()
 	//requesting client must be logged in as an admin
 	//sends all of the user instances
-	.get('/', forbidden('only admins can list users'), (req, res, next) =>
+	.get('/', (req, res, next) =>
 		User.findAll()
 		.then(users => res.json(users))
 		.catch(next))
