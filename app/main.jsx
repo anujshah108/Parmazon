@@ -11,7 +11,7 @@ import Signup from './components/Signup'
 import WhoAmI from './components/WhoAmI'
 import Product from './containers/ProductContainer'
 import ProductManagement from './components/ProductManagement'
-import {fetchProductsFromServer, fetchSingleProduct, fetchRatingforProduct, fetchOrdersFromServer, fetchUserOrdersFromServer} from './reducers/actionCreators'
+import {fetchProductsFromServer, fetchSingleProduct, fetchRatingforProduct, fetchOrdersFromServer, fetchUserOrdersFromServer, fetchReviewsforProduct} from './reducers/actionCreators'
 import App from './components/App'
 import Orders from './containers/OrdersContainer'
 
@@ -30,6 +30,7 @@ const onOrdersEnter = function() {
 const onSingleProductEnter = function(nextRouterState) {
   store.dispatch(fetchSingleProduct(nextRouterState.params.productId));
   store.dispatch(fetchRatingforProduct(nextRouterState.params.productId));
+  store.dispatch(fetchReviewsforProduct(nextRouterState.params.productId));
 
 };
 

@@ -7,7 +7,8 @@ function mapStateToProps(state) {
   return {
     product: state.products.currentProduct,
     rating: state.products.currentProductRating,
-    user: state.users.currentUser
+    user: state.users.currentUser,
+    reviews: state.products.currentProductReviews
   };
 }
 function mapDispatchToProps(state) {

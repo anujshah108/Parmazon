@@ -30,8 +30,9 @@ export default class Product extends Component {
 
 
   render() {
+    console.log(this.props.reviews)
     let product = this.props.product || {};
-    if(this.props.user.isAdmin){   
+    if(this.props.user.isAdmin){
       return (
         <div className='col s6'>
           <div className='productProduct col s12'>
@@ -108,7 +109,7 @@ export default class Product extends Component {
       </div> )
     }
     else {
-      return (  
+      return (
         <div className='productProduct'>
           <img className='productImage' height="100" src={this.state.imageURL || product.imageURL}/>
           <div id='productName' className='productName'>{this.state.name || product.name}</div>

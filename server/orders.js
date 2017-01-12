@@ -24,7 +24,7 @@ module.exports = require('express').Router()
 		Order.findOne({
 			where: {
 				status: 'cart',
-				user_id: req.params.id
+				user_id: req.session.guest.id
 			}
 		})
 		.then(order => res.json(order))
@@ -34,7 +34,7 @@ module.exports = require('express').Router()
 		Order.findOne({
 			where: {
 				status: 'cart',
-				guestid: req.params.id
+				guestid: req.session.guest.id
 			}
 		})
 		.then(order => res.json(order))

@@ -10,6 +10,7 @@ export const RECEIVE_USER = 'RECEIVE_USER';
 export const RECEIVE_RATING = 'RECEIVE_RATING';
 export const LOGOUT_USER = 'LOGOUT_USER';
 export const RECEIVE_CART = 'RECEIVE_CART'
+export const RECEIVE_REVIEWS = 'RECEIVE_REVIEWS'
 
 
 //PRODUCTS
@@ -160,7 +161,7 @@ export function fetchSingleUser(id) {
  };
 }
 
-// RATING
+// REVIEWS
 
 function receiveRating(rating) {
  return {
@@ -169,11 +170,30 @@ function receiveRating(rating) {
  };
 }
 
+function receiveReviews(reviews) {
+ return {
+   type: RECEIVE_REVIEWS,
+   reviews: reviews.data
+ };
+}
+
 export function fetchRatingforProduct(id) {
  return function(dispatch) {
    axios.get(`/api/products/${id}/review`)
      .then(rating => {
        dispatch(receiveRating(rating));
+     })
+     .catch(err => {
+       console.error(err);
+     });
+ };
+}
+
+export function fetchReviewsforProduct(id) {
+ return function(dispatch) {
+   axios.get(`/api/products/${id}/reviews`)
+     .then(reviews => {
+       dispatch(receiveReviews(reviews));
      })
      .catch(err => {
        console.error(err);
@@ -193,7 +213,7 @@ function receiveCart(cart) {
 export function fetchOpenCart(id) {
   if(currentUser.id){
     return function(dispatch) {
-      axios.get(`'/cart/user/${id}`)
+      axios.get(`'/cart/user/`)
         .then(cart => {
           dispatch(receiveCart(cart));
         })
@@ -204,7 +224,7 @@ export function fetchOpenCart(id) {
   }
   else{
     return function(dispatch) {
-      axios.get(`'/cart/guest/${id}/`)
+      axios.get(`'/cart/guest/`)
         .then(cart => {
           dispatch(receiveCart(cart));
         })

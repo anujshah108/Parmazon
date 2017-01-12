@@ -1,10 +1,11 @@
 import {combineReducers} from 'redux';
-import {RECEIVE_ALL_PRODUCTS, RECEIVE_PRODUCT, RECEIVE_RATING} from './actionCreators';
+import {RECEIVE_ALL_PRODUCTS, RECEIVE_REVIEWS, RECEIVE_PRODUCT, RECEIVE_RATING} from './actionCreators';
 
 const initialState = {
 	allProducts: [],
 	currentProduct: {},
-	currentProductRating: 0
+	currentProductRating: 0,
+	currentProductReviews: []
 };
 
 const productsReducer = function(state = initialState, action) {
@@ -12,6 +13,10 @@ const productsReducer = function(state = initialState, action) {
 		case RECEIVE_ALL_PRODUCTS:
 			return Object.assign({}, state, {
 				allProducts: action.products
+			});
+			case RECEIVE_REVIEWS:
+			return Object.assign({}, state, {
+				currentProductReviews: action.reviews
 			});
 			case RECEIVE_RATING:
 			return Object.assign({}, state, {

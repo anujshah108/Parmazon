@@ -66,3 +66,11 @@ module.exports = require('express').Router()
         })
         .catch(next)
         })
+   .get('/:id/reviews', (req,res,next) => {
+    Review.findAll({
+          where: {
+            product_id: req.params.id
+          }
+        })
+        .then(reviews => res.json(reviews))
+        .catch(next)})
