@@ -48,7 +48,10 @@ const seedReviewsFunc = () => {return db.Promise.each(seedReviews, review => db.
 const seedUsers = [
   {firstName: 'Barack', lastName: 'Obama', isAdmin: false, email: 'barack@example.gov', password: '1234'},
   {firstName: 'John', lastName: 'Cheeselover', isAdmin: false, email: 'john@example.com', password: 'MAGA'},
-  {firstName: 'Evan', lastName: 'Scriber', isAdmin: true, email: 'evan@example.com', password: '1234'}
+  {firstName: 'Evan', lastName: 'Scriber', isAdmin: true, email: 'evan@example.com', password: '1234'},
+  {firstName: 'Who', lastName: 'Cares', isAdmin: false, email: '1@1.com', password: '1'},
+  {firstName: "Still don't care", lastName: 'zzz', isAdmin: true, email: '2@2.com', password: '2'}
+
 ]
 
 const seedUsersFunc = () => {return db.Promise.each(seedUsers, user => db.model('users').create(user))}
