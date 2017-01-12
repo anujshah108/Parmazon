@@ -26,11 +26,12 @@ const onSingleProductEnter = function(nextRouterState) {
 
 };
 
+
 render (
   <Provider store={store}>
     <Router history={browserHistory}>
     	<Route path='/' component={App}>
-      <Route path='/homepage' component={HomePage} onEnter={onHomePageEnter} />
+      <IndexRoute component={HomePage} onEnter={onHomePageEnter} />
     	<Route path='/products/:productId' component={Product} onEnter={onSingleProductEnter}/>
         <Route path='/login' component={Login}/>
         <Route path='/signup' component={Signup}/>
@@ -47,7 +48,6 @@ render (
     		    		<Route path='/checkout' component={checkout}/>
     		    		<Route path='/checkout' component={checkout}/>
     		**/}
-    		<IndexRedirect to='/homepage' />
     	</Route>
     </Router>
   </Provider>,
