@@ -11,14 +11,21 @@ import Signup from './components/Signup'
 import WhoAmI from './components/WhoAmI'
 import Product from './containers/ProductContainer'
 import ProductManagement from './components/ProductManagement'
-import {fetchProductsFromServer, fetchSingleProduct, fetchRatingforProduct} from './reducers/actionCreators'
+import {fetchProductsFromServer, fetchSingleProduct, fetchRatingforProduct, fetchOrdersFromServer, fetchUserOrdersFromServer} from './reducers/actionCreators'
 import App from './components/App'
+import Orders from './containers/OrdersContainer'
 
 const onHomePageEnter = function() {
   store.dispatch(fetchProductsFromServer());
 };
 
-
+const onOrdersEnter = function() {
+  // let currentUser = store.users.currentUser
+  // console.log('~~~~~~~~~~~~~~~~~~', currentUser);
+  //if(currentUser.isAdmin) store.dispatch(fetchOrdersFromServer());
+   //store.dispatch(fetchUserOrdersFromServer(1))
+   store.dispatch(fetchOrdersFromServer());
+}
 
 const onSingleProductEnter = function(nextRouterState) {
   store.dispatch(fetchSingleProduct(nextRouterState.params.productId));
@@ -33,6 +40,7 @@ render (
     	<Route path='/' component={App}>
       <IndexRoute component={HomePage} onEnter={onHomePageEnter} />
     	<Route path='/products/:productId' component={Product} onEnter={onSingleProductEnter}/>
+        <Route path='/myAccount/orders' component={Orders} onEnter={onOrdersEnter} />
         <Route path='/login' component={Login}/>
         <Route path='/signup' component={Signup}/>
         <Route path='/admin' component={ProductManagement}/>

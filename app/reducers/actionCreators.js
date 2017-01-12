@@ -56,7 +56,7 @@ export function fetchSingleProduct(id) {
 
 function receiveAllOrders(orders) {
  return {
-   type: RECEIVE_USER_ORDERS,
+   type: RECEIVE_ALL_ORDERS,
    orders
  };
 }
@@ -70,7 +70,7 @@ function receiveOrder(order) {
 
 function receiveAllUserOrders(orders) {
  return {
-   type: RECEIVE_ALL_ORDERS,
+   type: RECEIVE_USER_ORDERS,
    orders
  };
 }
@@ -78,7 +78,7 @@ function receiveAllUserOrders(orders) {
 
 export function fetchOrdersFromServer() {
  return function(dispatch) {
-   axios.get('/api/orders')
+   axios.get('/api/orders/')
      .then(foundOrders => {
        dispatch(receiveAllOrders(foundOrders.data));
      })
@@ -88,8 +88,9 @@ export function fetchOrdersFromServer() {
  };
 }
 
-export function fetchUserOrdersFromServer() {
+export function fetchUserOrdersFromServer(id) {
  return function(dispatch) {
+
    axios.get(`/api/user/${id}/orders`)
      .then(foundOrders => {
        dispatch(receiveAllUserOrders(foundOrders.data));
