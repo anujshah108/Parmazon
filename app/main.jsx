@@ -14,6 +14,7 @@ import ProductManagement from './components/ProductManagement'
 import {fetchProductsFromServer, fetchSingleProduct, fetchRatingforProduct, fetchOrdersFromServer, fetchUserOrdersFromServer, fetchReviewsforProduct, fetchOpenCart} from './reducers/actionCreators'
 import App from './components/App'
 import Orders from './containers/OrdersContainer'
+import Order from './components/Order'
 
 const onHomePageEnter = function() {
   store.dispatch(fetchProductsFromServer());
@@ -43,6 +44,7 @@ render (
       <IndexRoute component={HomePage} onEnter={onHomePageEnter} />
     	<Route path='/products/:productId' component={Product} onEnter={onSingleProductEnter}/>
         <Route path='/myAccount/orders' component={Orders} onEnter={onOrdersEnter} />
+        <Route path='/myAccount/orders/:id' component={Order} />
         <Route path='/login' component={Login}/>
         <Route path='/signup' component={Signup}/>
         <Route path='/admin' component={ProductManagement}/>
