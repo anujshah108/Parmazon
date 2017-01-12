@@ -27,7 +27,11 @@ const ProductOrder = db.define('productOrders', {
   },
   userid: {
     type: Sequelize.DECIMAL
-  }
+  },
+  inCart: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: true
+}
 })
 
 module.exports = ProductOrder

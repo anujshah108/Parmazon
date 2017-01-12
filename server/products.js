@@ -8,7 +8,7 @@ const Review = db.model('reviews')
 module.exports = require('express').Router()
   //returns all of the products in the Products table
   .get('/', (req, res, next) => {
-    console.log(req.cookie)
+    console.log(req.session.passport)
     Product.findAll()
     .then(products => res.json(products))
     .catch(next)})
