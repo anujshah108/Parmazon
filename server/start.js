@@ -1,5 +1,16 @@
 'use strict'
 
+function makeid()
+{
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for( var i=0; i < 25; i++ )
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
+}
+
 const express = require('express')
 const bodyParser = require('body-parser')
 const {resolve} = require('path')
@@ -33,11 +44,24 @@ module.exports = app
   // Authentication middleware
   .use(passport.initialize())
   .use(passport.session())
-  
+
   // Serve static files from ../public
   .use(express.static(resolve(__dirname, '..', 'public')))
 
   // Serve our api
+  .use('/', function(req,res, next){
+    if(req.user) {
+    req.session.guest = req.user
+    }
+    else if(!req.user && !req.session.guest){
+    req.session.guest = {id: makeid()}
+    }
+    else if( !req.user && req.session.guest.lastName){
+    req.session.guest = {id: makeid()}
+    }
+    console.log(req.session.guest.id)
+    next()
+  })
   .use('/api', require('./api'))
 
   // Send index.html for anything else.
@@ -45,12 +69,12 @@ module.exports = app
 
 if (module === require.main) {
   // Start listening only if we're the main module.
-  // 
+  //
   // https://nodejs.org/api/modules.html#modules_accessing_the_main_module
   const server = app.listen(
     process.env.PORT || 1337,
     () => {
-      console.log(`--- Started HTTP Server for ${pkg.name} ---`)      
+      console.log(`--- Started HTTP Server for ${pkg.name} ---`)
       console.log(`Listening on ${JSON.stringify(server.address())}`)
     }
   )
