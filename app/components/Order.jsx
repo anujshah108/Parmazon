@@ -7,7 +7,6 @@ export default class Orders extends Component {
     }
 
     render(){
-
     	console.log(this.props);
     	return (<h1>hello</h1>)
     }
