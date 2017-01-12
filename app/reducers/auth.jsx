@@ -4,7 +4,7 @@ import {fetchSingleUser, logOutUser} from './actionCreators'
 const reducer = (state=null, action) => {
   switch(action.type) {
   case AUTHENTICATED:
-    return action.user  
+    return action.user
   }
   return state
 }
@@ -15,11 +15,13 @@ export const authenticated = user => ({
 })
 
 export const login = (username, password) =>
-  dispatch =>
+  dispatch => {
+    console.log('in here')
     axios.post('/api/auth/local/login',
       {username, password})
       .then(() => dispatch(whoami()))
       .catch(() => dispatch(whoami()))
+  }
 
 export const logout = () =>
   dispatch =>
@@ -37,5 +39,15 @@ export const whoami = () =>
         if (user.id) dispatch(fetchSingleUser(user.id))
       })
       .catch(failed => dispatch(authenticated(null)))
+
+export const signup = (firstName, lastName, email, password) =>
+  dispatch =>
+    axios.post('/api/users/',
+      {firstName, lastName, email, password})
+      .then((user) => {
+        user = user.data
+        login(user.email, user.password)
+        console.log('butt')
+      })
 
 export default reducer

@@ -13,7 +13,10 @@ const User = db.define('users', {
   lastName: {
     type: Sequelize.STRING
   },
-  isAdmin: Sequelize.BOOLEAN,
+  isAdmin: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
+  },
   email: {
     type: Sequelize.STRING,
     allowNull: false,
