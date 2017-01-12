@@ -20,7 +20,7 @@ module.exports = require('express').Router()
 		.then(order => res.json(order))
 		.catch(next))
 	// gets an open cart by logged in user
-	.get('/cart/user/:id', (req, res, next) =>
+	.get('/cart/user/', (req, res, next) => {
 		Order.findOne({
 			where: {
 				status: 'cart',
@@ -28,9 +28,9 @@ module.exports = require('express').Router()
 			}
 		})
 		.then(order => res.json(order))
-		.catch(next))
+		.catch(next)})
 	// gets an open cart by guest
-	.get('/cart/guest/:id', (req, res, next) =>
+	.get('/cart/guest/', (req, res, next) => {
 		Order.findOne({
 			where: {
 				status: 'cart',
@@ -38,9 +38,9 @@ module.exports = require('express').Router()
 			}
 		})
 		.then(order => res.json(order))
-		.catch(next))
+		.catch(next)})
 	//updates an order based on the Id and the body of the request
 	.put('/:id', (req, res, next) =>
 		Order.findById(req.params.id)
-		.then(orderToBeUpdated => orderToBeUpdated.udpdate(req.body))
+		.then(orderToBeUpdated => orderToBeUpdated.update(req.body))
 		.catch(next))

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import store from '../store'
 
 export const RECEIVE_ALL_PRODUCTS = 'RECEIVE_ALL_PRODUCTS';
 export const RECEIVE_PRODUCT = 'RECEIVE_PRODUCT';
@@ -206,14 +207,14 @@ export function fetchReviewsforProduct(id) {
 function receiveCart(cart) {
  return {
    type: RECEIVE_CART,
-   cart
+   cart: cart.data
  };
 }
 
-export function fetchOpenCart(id) {
-  if(currentUser.id){
+export function fetchOpenCart() {
+  // if(currentUser.id){
     return function(dispatch) {
-      axios.get(`'/cart/user/`)
+      axios.get(`api/orders/cart/user/`)
         .then(cart => {
           dispatch(receiveCart(cart));
         })
@@ -222,15 +223,15 @@ export function fetchOpenCart(id) {
         });
     };
   }
-  else{
-    return function(dispatch) {
-      axios.get(`'/cart/guest/`)
-        .then(cart => {
-          dispatch(receiveCart(cart));
-        })
-        .catch(err => {
-          console.error(err);
-        });
-    };
-  }
-}
+//   else{
+//     return function(dispatch) {
+//       axios.get(`'api/orders/cart/guest/`)
+//         .then(cart => {
+//           dispatch(receiveCart(cart));
+//         })
+//         .catch(err => {
+//           console.error(err);
+//         });
+//     };
+//   }
+// }

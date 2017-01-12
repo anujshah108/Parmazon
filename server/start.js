@@ -59,7 +59,6 @@ module.exports = app
     else if( !req.user && req.session.guest.lastName){
     req.session.guest = {id: makeid()}
     }
-    console.log(req.session.guest.id)
     next()
   })
   .use('/api', require('./api'))

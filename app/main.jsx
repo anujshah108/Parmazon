@@ -11,12 +11,13 @@ import Signup from './components/Signup'
 import WhoAmI from './components/WhoAmI'
 import Product from './containers/ProductContainer'
 import ProductManagement from './components/ProductManagement'
-import {fetchProductsFromServer, fetchSingleProduct, fetchRatingforProduct, fetchOrdersFromServer, fetchUserOrdersFromServer, fetchReviewsforProduct} from './reducers/actionCreators'
+import {fetchProductsFromServer, fetchSingleProduct, fetchRatingforProduct, fetchOrdersFromServer, fetchUserOrdersFromServer, fetchReviewsforProduct, fetchOpenCart} from './reducers/actionCreators'
 import App from './components/App'
 import Orders from './containers/OrdersContainer'
 
 const onHomePageEnter = function() {
   store.dispatch(fetchProductsFromServer());
+  store.dispatch(fetchOpenCart());
 };
 
 const onOrdersEnter = function() {

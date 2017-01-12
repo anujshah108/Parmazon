@@ -30,7 +30,7 @@ export default class Product extends Component {
 
 
   render() {
-    console.log(this.props.reviews)
+    console.log(this.props.cart)
     let product = this.props.product || {};
     if(this.props.user.isAdmin){
       return (

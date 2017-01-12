@@ -8,7 +8,8 @@ function mapStateToProps(state) {
     product: state.products.currentProduct,
     rating: state.products.currentProductRating,
     user: state.users.currentUser,
-    reviews: state.products.currentProductReviews
+    reviews: state.products.currentProductReviews,
+    cart: state.orders.cart
   };
 }
 function mapDispatchToProps(state) {
