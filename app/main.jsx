@@ -12,6 +12,7 @@ import WhoAmI from './components/WhoAmI'
 import Product from './containers/ProductContainer'
 import ProductManagement from './components/ProductManagement'
 import {fetchProductsFromServer, fetchSingleProduct, fetchRatingforProduct} from './reducers/actionCreators'
+import App from './components/App'
 
 const onHomePageEnter = function() {
   store.dispatch(fetchProductsFromServer());
@@ -22,13 +23,14 @@ const onHomePageEnter = function() {
 const onSingleProductEnter = function(nextRouterState) {
   store.dispatch(fetchSingleProduct(nextRouterState.params.productId));
   store.dispatch(fetchRatingforProduct(nextRouterState.params.productId));
-  
+
 };
 
 render (
   <Provider store={store}>
     <Router history={browserHistory}>
-    	<Route path='/'>
+    	<Route path='/' component={App}>
+      <Route path='/homepage' component={HomePage} onEnter={onHomePageEnter} />
     	<Route path='/products/:productId' component={Product} onEnter={onSingleProductEnter}/>
         <Route path='/login' component={Login}/>
         <Route path='/signup' component={Signup}/>
@@ -45,7 +47,7 @@ render (
     		    		<Route path='/checkout' component={checkout}/>
     		    		<Route path='/checkout' component={checkout}/>
     		**/}
-    		<IndexRoute component={HomePage} onEnter={onHomePageEnter} />
+    		<IndexRedirect to='/homepage' />
     	</Route>
     </Router>
   </Provider>,

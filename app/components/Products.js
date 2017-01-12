@@ -4,10 +4,20 @@ import {Link} from 'react-router'
 export default class Products extends Component {
   constructor(props){
     super(props)
-
+    this.state= {
+      quantity: 0
+    }
+    this.handleOnChange = this.handleOnChange.bind(this)
   }
+
+  handleOnChange(event){
+    this.setState({quantity: event.target.value})
+    console.log(this.state)
+  }
+
+
   render() {
-    
+
     let products = this.props.products || [];
     let productsList = products.map(function(product){
 
@@ -19,7 +29,7 @@ export default class Products extends Component {
             <div className='productsName'>{product.name}</div>
             <div className='productsPrice'>Price: {`$ ${product.price}`}</div>
             <div className='productsRating'>Rating: {'★ '+ product.rating}</div>
-          </Link>
+             </Link>
         </div> )
 
         {/**return(
@@ -47,6 +57,7 @@ export default class Products extends Component {
     return (
       <div className = 'row'>
         {productsList}
+      <input onChange={this.handleOnChange} className='col s3'/><button className='waves-effect waves-light btn-small'>Add To Cart</button>
       </div>
     )
   }
