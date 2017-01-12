@@ -4,15 +4,15 @@ import React from 'react';
 
 import Products from './Products';
 
-describe.only('Products component', () => {
-  let products;
+// describe('Products component', () => {
+//   let products;
 
-  beforeEach('Create products', () => {
-    products = shallow(<Products />)
-  })
+//   beforeEach('Create products', () => {
+//     products = shallow(<Products />)
+//   })
 
-  it('renders img', () => {
-    expect(products.find('img'))
-  })
+//   it('renders img', () => {
+//     expect(products.find('img'))
+//   })
 
-})
+// })
