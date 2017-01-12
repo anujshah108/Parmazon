@@ -16,6 +16,17 @@ const ProductOrder = db.define('productOrders', {
     type: Sequelize.INTEGER,
     allowNull: false,
     defaultValue: 1
+  },
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  imageURL: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  userid: {
+    type: Sequelize.DECIMAL
   }
 })
 

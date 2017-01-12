@@ -31,8 +31,8 @@ const seedProducts = [
 const seedProductsFunc = () => {return db.Promise.each(seedProducts, product => db.model('products').create(product))}
 
 const seedProductOrders = [
-	{product: {name: 'Cheddar', price: 25.50, stockQuantity: 20, summary: ['Very Good Cheese'], description: 'A classic staple', imageURL: 'http://i.imgur.com/RlngTOV.jpg', categories: [''], tags: [''], location: 'USA', age: 4, milkType: 'cow'}, quantity: 1, order_id: 1},
-  {product: {name: 'Swiss', price: 10.00, stockQuantity: 30, summary: ['Very Good Cheese'], description: 'Popular worldwide, Swiss is an established type of cheese', imageURL: 'http://i.imgur.com/RlngTOV.jpg', categories: [''], tags: [''], location: 'USA', age: 1, milkType: 'goat'}, quantity: 3, order_id: 1}
+	{name: 'Cheddar', price: 25.50,imageURL: 'http://i.imgur.com/RlngTOV.jpg', quantity: 1, userid: 1, order_id: 1},
+  {name: 'Swiss', price: 10.00, imageURL: 'http://i.imgur.com/RlngTOV.jpg', quantity: 3, userid: 2, order_id: 1}
 ]
 
 const seedProductOrdersFunc = () => {return db.Promise.each(seedProductOrders, productOrder => db.model('productOrders').create(productOrder))}

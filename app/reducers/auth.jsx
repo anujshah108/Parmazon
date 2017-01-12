@@ -46,7 +46,7 @@ export const signup = (firstName, lastName, email, password) =>
       {firstName, lastName, email, password})
       .then((user) => {
         user = user.data
-        login(user.email, user.password)
+        dispatch(login(user.email, user.password))
         console.log('butt')
       })
 
