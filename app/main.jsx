@@ -80,7 +80,7 @@ render (
       <Route path='/myAccount/users' component={Users} onEnter={onUsersEnter}/>
       <Route path='/myAccount/users/:userId' component={MyAccountContainer} onEnter={onSingleUserEnter}/>
       <Route path='/myAccount/users/:userId/orders' component={MyAccountContainer} onEnter={onSingleUserEnter}/>
-      <Route path='/cart/' component={CartContainer} onEnter={onCartEnter}/>
+      <Route path='/cart' component={CartContainer} onEnter={onCartEnter}/>
 
     		{/**<Route path='/products' component={products}/>
     		    		<Route path='/products/category?' component={products}/>
