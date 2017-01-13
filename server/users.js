@@ -18,23 +18,23 @@ module.exports = require('express').Router()
 		.then(user => res.status(201).json(user))
 		.catch(next))
 	//gets a specific user
-	.get('/:id', mustBeLoggedIn, (req, res, next) =>
+	.get('/:id', (req, res, next) =>
 		User.findById(req.params.id)
 		.then(user => res.json(user))
 		.catch(next))
 	//gets all the orders for a user
-	.get('/:id/orders', mustBeLoggedIn, (req, res, next) =>
+	.get('/:id/orders', (req, res, next) =>
 		Order.findAll({where: {user_id: req.params.id}})
 		.then(listOforders => res.json(listOforders))
 		.catch(next))
 	//update a user that is passed through req.params
-	.put('/:id', mustBeLoggedIn, (req, res, next) =>
+	.put('/:id', (req, res, next) =>
 		User.findById(req.params.id)
 		.then(user => user.update(req.body)
 		.then(updatedUser => res.json(updatedUser))
 		.catch(next))
 	//deletes a user that is selected from req.params
-	.delete('/:id', mustBeLoggedIn, (req, res, next) =>
+	.delete('/:id',  (req, res, next) =>
 		User.findById(req.params.id)
 		.then(userToDestroy => userToDestroy.destroy())
 		.then(res.sendStatus(204))

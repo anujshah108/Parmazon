@@ -11,9 +11,9 @@ import Signup from './components/Signup'
 import WhoAmI from './components/WhoAmI'
 import Product from './containers/ProductContainer'
 import ProductManagement from './components/ProductManagement'
-import {fetchProductsFromServer, fetchSingleProduct, fetchRatingforProduct, 
-  fetchOrdersFromServer, fetchUserOrdersFromServer, fetchReviewsforProduct, 
-  fetchOpenCart, fetchUsersFromServer, fetchSingleOrder, fetchProductsForOrder, 
+import {fetchProductsFromServer, fetchSingleProduct, fetchRatingforProduct,
+  fetchOrdersFromServer, fetchReviewsforProduct, fetchOpenCart,
+  fetchUsersFromServer, fetchSingleOrder, fetchProductsForOrder,
   fetchUserOrdersFromServer} from './reducers/actionCreators'
 import App from './components/App'
 import Orders from './containers/OrdersContainer'
@@ -69,7 +69,7 @@ render (
       <Route path='/signup' component={Signup}/>
       <Route path='/admin' component={ProductManagement}/>
       <Route path='/myAccount/users' component={Users} onEnter={onUsersEnter}/>
-      <Route path='/myAccount/users/:userId' component={MyAccountContainer} onEnter={onSingleUserEnter}/> 
+      <Route path='/myAccount/users/:userId' component={MyAccountContainer} onEnter={onSingleUserEnter}/>
     		{/**<Route path='/products' component={products}/>
     		    		<Route path='/products/category?' component={products}/>
 

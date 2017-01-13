@@ -220,7 +220,6 @@ export function fetchOpenCart() {
           if(cart){
           dispatch(receiveCart(cart));
           dispatch(fetchProductsForCart(cart.data.id));
-            
           }
         })
         .catch(err => {
