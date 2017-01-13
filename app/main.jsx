@@ -11,12 +11,16 @@ import Signup from './components/Signup'
 import WhoAmI from './components/WhoAmI'
 import Product from './containers/ProductContainer'
 import ProductManagement from './components/ProductManagement'
-import {fetchProductsFromServer, fetchSingleProduct, fetchRatingforProduct, fetchOrdersFromServer, fetchUserOrdersFromServer, fetchReviewsforProduct, fetchOpenCart, fetchUsersFromServer} from './reducers/actionCreators'
+import {fetchProductsFromServer, fetchSingleProduct, fetchRatingforProduct, 
+  fetchOrdersFromServer, fetchUserOrdersFromServer, fetchReviewsforProduct, 
+  fetchOpenCart, fetchUsersFromServer, fetchSingleOrder, fetchProductsForOrder, 
+  fetchUserOrdersFromServer} from './reducers/actionCreators'
 import App from './components/App'
 import Orders from './containers/OrdersContainer'
-import Order from './components/Order'
+import Order from './containers/OrderContainer'
 import Users from './containers/UsersContainer'
 import UsersList from './components/UsersList'
+import MyAccountContainer from './containers/MyAccountContainer'
 
 const onHomePageEnter = function() {
   store.dispatch(fetchProductsFromServer());
@@ -36,12 +40,21 @@ const onUsersEnter = function(){
 
 }
 
+const onOrderEnter = function(nextRouterState){
+  store.dispatch(fetchSingleOrder(nextRouterState.params.orderId));
+  store.dispatch(fetchProductsForOrder(nextRouterState.params.orderId))
+}
+
 const onSingleProductEnter = function(nextRouterState) {
   store.dispatch(fetchSingleProduct(nextRouterState.params.productId));
   store.dispatch(fetchRatingforProduct(nextRouterState.params.productId));
   store.dispatch(fetchReviewsforProduct(nextRouterState.params.productId));
 
 };
+
+const onSingleUserEnter = function(nextRouterState) {
+  store.dispatch(fetchUserOrdersFromServer(nextRouterState.params.userId))
+}
 
 
 render (
@@ -50,13 +63,13 @@ render (
     	<Route path='/' component={App}>
       <IndexRoute component={HomePage} onEnter={onHomePageEnter} />
     	<Route path='/products/:productId' component={Product} onEnter={onSingleProductEnter}/>
-        <Route path='/myAccount/orders' component={Orders} onEnter={onOrdersEnter} />
-        <Route path='/myAccount/orders/:id' component={Order} />
-        <Route path='/login' component={Login}/>
-        <Route path='/signup' component={Signup}/>
-        <Route path='/admin' component={ProductManagement}/>
-        <Route path='/myAccount/users' component={Users} onEnter={onUsersEnter}/>
-        <Route path='/users/:id' component={UsersList}/> 
+      <Route path='/myAccount/orders' component={Orders} onEnter={onOrdersEnter} />
+      <Route path='/myAccount/orders/:orderId' component={Order} onEnter={onOrderEnter}/>
+      <Route path='/login' component={Login}/>
+      <Route path='/signup' component={Signup}/>
+      <Route path='/admin' component={ProductManagement}/>
+      <Route path='/myAccount/users' component={Users} onEnter={onUsersEnter}/>
+      <Route path='/myAccount/users/:userId' component={MyAccountContainer} onEnter={onSingleUserEnter}/> 
     		{/**<Route path='/products' component={products}/>
     		    		<Route path='/products/category?' component={products}/>
 

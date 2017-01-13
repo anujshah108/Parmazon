@@ -22,7 +22,7 @@ export default class UsersList extends Component {
 			            <td>{user.id}</td>
 			            <td>{fullName}</td>
 			            <td>{user.email}</td>
-			            <td><Link to={`/users/${user.id}`}><i className="material-icons">trending_flat</i></Link></td>
+			            <td><Link to={`/myAccount/users/${user.id}`}><i className="material-icons">trending_flat</i></Link></td>
 			        </tr>
 			    
 		        
