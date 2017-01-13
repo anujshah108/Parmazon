@@ -6,7 +6,8 @@ function mapStateToProps(state) {
   // console.log(state)
   return {
     currentUser: state.users.currentUser,
-    userOrders: state.users.userOrders
+    userOrders: state.orders.userOrders,
+    allOrders: state.orders.allOrders
 	}
 }
 function mapDispatchToProps(state) {

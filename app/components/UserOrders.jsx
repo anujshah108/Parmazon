@@ -4,7 +4,6 @@ export default class Orders extends Component {
 	constructor(props) {
         super(props);
         this.state = {
-          allOrders: this.props.allOrders,
           userOrders: this.props.userOrders,
           user: this.props.user
         };
@@ -13,7 +12,7 @@ export default class Orders extends Component {
     render(){
 
         console.log('8712389472189471289734987219847193', this.props);
-        const arrToMap = this.props.user.isAdmin ? this.props.allOrders : this.props.userOrders;
+        const arrToMap = this.props.userOrders;
 
 
             var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };

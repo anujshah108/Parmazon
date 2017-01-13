@@ -103,7 +103,7 @@ export function fetchOrdersFromServer() {
 export function fetchUserOrdersFromServer(id) {
  return function(dispatch) {
 
-   axios.get(`/api/user/${id}/orders`)
+   axios.get(`/api/users/${id}/orders`)
      .then(foundOrders => {
        dispatch(receiveAllUserOrders(foundOrders.data));
      })

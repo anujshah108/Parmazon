@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
+import UserOrders from './UserOrders';
 
 export default class MyAccount extends Component {
 	constructor(props) {
         super(props);
         this.state = {
-          singleOrder: this.props.singleOrder,
-          products: this.props.products
+          user: this.props.currentUser,
+          orders: this.props.userOrders,
+          allOrders: this.props.allOrders
         };
     }
 
@@ -17,12 +19,13 @@ export default class MyAccount extends Component {
     	  return (
     	    <div className='productProduct'>
     	
-    	      <div id='productName' className='productName'>hello</div>
+    	      <div id='productName' className='productName'>{this.props.currentUser.firstName}</div>
+              <div id='productName' className='productName'>{this.props.currentUser.lastName}</div>
+              {<UserOrders userOrders={this.props.userOrders} user={this.props.currentUser} allOrders={this.props.allOrders}/>}
+              {/**<OrdersContainer />**/}
     	      
     	    </div>
     	    )
-
-    	  
     }
 
 }
