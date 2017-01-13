@@ -23,9 +23,7 @@ export default class Orders extends Component {
 			            <td>{dateToFormat.toLocaleDateString("en-US")}</td>
 			            <td>{order.status}</td>
 			            <td><Link to={`/myAccount/orders/${order.id}`}><i className="material-icons">trending_flat</i></Link></td>
-			        </tr>
-			    
-		        
+			        </tr>   
     		)
     	})
     	 // console.log('~~~~~~~~~~~~~~orders', this.props.allOrders)

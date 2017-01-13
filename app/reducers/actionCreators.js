@@ -215,10 +215,13 @@ function receiveCart(cart) {
 
 export function fetchOpenCart() {
     return function(dispatch) {
-      axios.get(`api/orders/cart/user/`)
+      axios.get(`/api/orders/cart/user/`)
         .then(cart => {
+          if(cart){
           dispatch(receiveCart(cart));
           dispatch(fetchProductsForCart(cart.data.id));
+            
+          }
         })
         .catch(err => {
           console.error(err);
@@ -244,7 +247,7 @@ function receiveProductsForCart(products) {
 
  export function fetchProductsForOrder(id) {
     return function(dispatch) {
-      axios.get(`api/orders/${id}/products/`)
+      axios.get(`/api/orders/${id}/products/`)
         .then(products => {
           dispatch(receiveProductsForOrder(products));
         })
@@ -256,7 +259,7 @@ function receiveProductsForCart(products) {
 
    export function fetchProductsForCart(id) {
     return function(dispatch) {
-      axios.get(`api/orders/${id}/products/`)
+      axios.get(`/api/orders/${id}/products/`)
         .then(products => {
           dispatch(receiveProductsForCart(products));
         })
