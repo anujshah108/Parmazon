@@ -11,10 +11,10 @@ const Cart  = (props) => {
       console.log(product)
       return (
       <div key={product.id}>
-        name={product.name}
-        price={product.price}
-        quantity={product.quantity}
-        key={product.id}
+        <img src={product.imageURL} height='75'/>
+        <div>name={product.name}</div>
+        <div>price={product.price}</div>
+        <div>quantity={product.quantity}</div>
       </div> )
    } )
   ) : (

@@ -56,3 +56,23 @@ module.exports = require('express').Router()
 		Order.findById(req.params.id)
 		.then(orderToBeUpdated => orderToBeUpdated.update(req.body))
 		.catch(next))
+	.post('/:id/products', (req, res, next) =>
+		ProductOrder.findOne({
+			where:{
+				order_id: req.params.id,
+				ordered_product_id: req.body.id
+			}
+		})
+		.then(product => {
+			if(product.id){
+			return product.update({
+					quantity: product.quantity+req.body.quantity
+				})
+			}
+			else{
+				return ProductOrder.create(req.body)
+			}
+		}).then(product => {
+			res.json(product)
+		})
+		.catch(next))

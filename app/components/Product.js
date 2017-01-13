@@ -30,7 +30,6 @@ export default class Product extends Component {
 
 
   render() {
-    console.log('CART', this.props.cart)
     let product = this.props.product || {};
     if(this.props.user.isAdmin){
       return (
@@ -46,6 +45,15 @@ export default class Product extends Component {
             <div className='productLocation'>Location: {`${this.state.location || product.location}`}</div>
             <div className='productAge'>Age: {`${this.state.age || product.age}`}</div>
             <div className='productMilk'>Milk Type: {`${this.state.milkType || product.milkType}`}</div>
+            <input className='col s3' type='number'/><button className='waves-effect waves-light btn-small'>Add To Cart</button>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <div>
+            Admin Edit
+            </div>
             <div className="row">
               <form id='productEditForm' className="col s6" onSubmit={this.handleSubmit}>
                 <div className="row">

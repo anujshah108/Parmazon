@@ -14,6 +14,7 @@ export const RECEIVE_CART = 'RECEIVE_CART'
 export const RECEIVE_REVIEWS = 'RECEIVE_REVIEWS'
 export const RECEIVE_ORDER_PRODUCTS = 'RECEIVE_ORDER_PRODUCTS'
 export const RECEIVE_CART_PRODUCTS = 'RECEIVE_CART_PRODUCTS'
+export const RECEIVE_CREATED_ORDER = 'RECEIVE_CREATED_ORDER'
 
 
 //PRODUCTS
@@ -79,6 +80,13 @@ export function receiveAllUserOrders(orders) {
  };
 }
 
+export function sendCreatedCart(order) {
+ return {
+   type: RECEIVE_CREATED_ORDER,
+   order
+ };
+}
+
 
 export function fetchOrdersFromServer() {
  return function(dispatch) {
@@ -110,6 +118,18 @@ export function fetchSingleOrder(id) {
    axios.get(`/api/orders/${id}`)
      .then(foundOrder => {
        dispatch(receiveOrder(foundOrder.data));
+     })
+     .catch(err => {
+       console.error(err);
+     });
+ };
+}
+
+export function createCart() {
+ return function(dispatch) {
+   axios.get(`/api/orders/`)
+     .then(Order => {
+       dispatch(sendCreatedCart(Order.data));
      })
      .catch(err => {
        console.error(err);

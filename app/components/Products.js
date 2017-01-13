@@ -50,7 +50,6 @@ export default class Products extends Component {
     return (
       <div className = 'row'>
         {productsList}
-      <input onChange={this.handleOnChange} className='col s3'/><button className='waves-effect waves-light btn-small'>Add To Cart</button>
       </div>
     )
   }
