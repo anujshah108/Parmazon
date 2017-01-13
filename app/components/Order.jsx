@@ -11,12 +11,37 @@ export default class Order extends Component {
 
 
     render(){
-    	console.log('~~~!@!@~@~!@~!@~@~props for single order', this.props.products);
+    	
+
+
+        let total = 0
+        let hasProducts = this.props.products.length > 0
+        const nodes = hasProducts ? (
+          this.props.products.map(product => {
+            total += (product.price*product.quantity)
+            console.log(product)
+            return (
+            <div key={product.id}>
+              <img src={product.imageURL} height='75'/>
+              <div>name={product.name}</div>
+              <div>price={product.price}</div>
+              <div>quantity={product.quantity}</div>
+            </div> )
+         } )
+        ) : (
+          <em>Please add some products to cart.</em>
+        )
+
+
   		
     	  return (
     	    <div className='productProduct'>
     	
-    	      <div id='productName' className='productName'>hello</div>
+    	      <div>
+                <h3>Your Order</h3>
+                <div>{nodes}</div>
+                <p>Total: {total}</p>
+              </div>
     	      
     	    </div>
     	    )

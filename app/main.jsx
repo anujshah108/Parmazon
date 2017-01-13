@@ -25,6 +25,7 @@ import UsersList from './components/UsersList'
 import MyAccountContainer from './containers/MyAccountContainer'
 import CartContainer from './containers/CartContainer'
 import Admin from './components/Admin'
+import Checkout from './components/Checkout'
 const onHomePageEnter = function() {
   store.dispatch(fetchProductsFromServer());
   store.dispatch(fetchOpenCart());
@@ -81,7 +82,7 @@ render (
       <Route path='/myAccount/users/:userId' component={MyAccountContainer} onEnter={onSingleUserEnter}/>
       <Route path='/myAccount/users/:userId/orders' component={MyAccountContainer} onEnter={onSingleUserEnter}/>
       <Route path='/cart' component={CartContainer} onEnter={onCartEnter}/>
-
+      <Route path='/checkout' component={Checkout} />
     		{/**<Route path='/products' component={products}/>
     		    		<Route path='/products/category?' component={products}/>
 

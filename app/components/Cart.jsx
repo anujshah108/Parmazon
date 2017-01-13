@@ -26,9 +26,9 @@ const Cart  = (props) => {
       <h3>Your Cart</h3>
       <div>{nodes}</div>
       <p>Total: {total}</p>
-      <button disabled={hasProducts ? '' : 'disabled'}>
+      <Link to='/checkout'><button disabled={hasProducts ? '' : 'disabled'}>
         Checkout
-      </button>
+      </button></Link>
     </div>
   )
 }
