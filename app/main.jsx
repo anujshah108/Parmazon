@@ -11,6 +11,7 @@ import Login from './components/Login'
 import Signup from './components/Signup'
 import WhoAmI from './components/WhoAmI'
 import Product from './containers/ProductContainer'
+import Products from './containers/ProductsContainer'
 import ProductManagement from './components/ProductManagement'
 import {fetchProductsFromServer, fetchSingleProduct, fetchRatingforProduct,
   fetchOrdersFromServer, fetchReviewsforProduct, fetchOpenCart,
@@ -23,7 +24,7 @@ import Users from './containers/UsersContainer'
 import UsersList from './components/UsersList'
 import MyAccountContainer from './containers/MyAccountContainer'
 import CartContainer from './containers/CartContainer'
-
+import Admin from './components/Admin'
 const onHomePageEnter = function() {
   store.dispatch(fetchProductsFromServer());
   store.dispatch(fetchOpenCart());
@@ -70,14 +71,17 @@ render (
     	<Route path='/' component={App}>
       <IndexRoute component={HomePage} onEnter={onHomePageEnter} />
     	<Route path='/products/:productId' component={Product} onEnter={onSingleProductEnter}/>
+      <Route path='/products' component={Products} onEnter={onHomePageEnter}/>
       <Route path='/myAccount/orders' component={Orders} onEnter={onOrdersEnter} />
       <Route path='/myAccount/orders/:orderId' component={Order} onEnter={onOrderEnter}/>
       <Route path='/login' component={Login}/>
       <Route path='/signup' component={Signup}/>
-      <Route path='/admin' component={ProductManagement}/>
+      <Route path='/myAccount' component={Admin}/>
       <Route path='/myAccount/users' component={Users} onEnter={onUsersEnter}/>
       <Route path='/myAccount/users/:userId' component={MyAccountContainer} onEnter={onSingleUserEnter}/>
+      <Route path='/myAccount/users/:userId/orders' component={MyAccountContainer} onEnter={onSingleUserEnter}/>
       <Route path='/cart/' component={CartContainer} onEnter={onCartEnter}/>
+
     		{/**<Route path='/products' component={products}/>
     		    		<Route path='/products/category?' component={products}/>
 

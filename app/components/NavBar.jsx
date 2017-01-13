@@ -17,8 +17,8 @@ export default class NavBar extends Component {
         <ul className="left hide-on-med-and-down">
           <li><a href="/" ><i className="material-icons">Home</i></a></li>
           <li><a href="/">Home</a></li>
-          <li><a href="">All Products</a></li>
-          <li><a href="">Categories</a></li>
+          <li><Link to='/products'>All Products</Link></li>
+          <li><Link to='/categories'>Categories</Link></li>
         </ul>
         <ul className="right hide-on-med-and-down">
           {(this.props.user.id ? this.renderSignedin() : this.renderSignedout())}
@@ -43,9 +43,9 @@ export default class NavBar extends Component {
   renderSignedin() {
     return (
       <div>
-        <li><Link to='/'>My Account</Link></li>
+        <li><Link to='/myAccount'>My Account</Link></li>
         <li onClick={this.logOutFunc}><Link to='/'>Logout</Link></li>
-        <li><Link to='/cart/'><i className="material-icons">shopping_cart</i></Link></li>
+        <li><Link to='/cart'><i className="material-icons">shopping_cart</i></Link></li>
       </div>
     )
   }
