@@ -31,6 +31,21 @@ export default class Product extends Component {
 
   render() {
     let product = this.props.product || {};
+    let reviews = this.props.reviews.map(function(review){
+      return (
+        <div>
+        <div>
+        Title: {review.title}
+        </div>
+        <div>
+        {review.body}
+        </div>
+        <div>
+        Stars: {`★ ${review.stars}`}
+        </div>
+        </div>
+        )
+    })
     if(this.props.user.isAdmin){
       return (
         <div className='col s6'>
@@ -46,6 +61,10 @@ export default class Product extends Component {
             <div className='productAge'>Age: {`${this.state.age || product.age}`}</div>
             <div className='productMilk'>Milk Type: {`${this.state.milkType || product.milkType}`}</div>
             <input className='col s3' type='number'/><button className='waves-effect waves-light btn-small'>Add To Cart</button>
+            <br/>
+            <br/>
+            <div> REVIEWS </div>
+            {reviews}
             <br/>
             <br/>
             <br/>
