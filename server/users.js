@@ -3,7 +3,10 @@
 const db = require('APP/db')
 const User = db.model('users')
 const Order = db.model('orders')
-const {mustBeLoggedIn, forbidden,} = require('./auth.filters')
+const {
+	mustBeLoggedIn,
+	forbidden,
+} = require('./auth.filters')
 
 module.exports = require('express').Router()
 	//requesting client must be logged in as an admin
@@ -24,18 +27,23 @@ module.exports = require('express').Router()
 		.catch(next))
 	//gets all the orders for a user
 	.get('/:id/orders', (req, res, next) =>
-		Order.findAll({where: {user_id: req.params.id}})
+		Order.findAll({
+			where: {
+				user_id: req.params.id,
+				status: 'completed'
+			}
+		})
 		.then(listOforders => res.json(listOforders))
 		.catch(next))
 	//update a user that is passed through req.params
 	.put('/:id', (req, res, next) =>
 		User.findById(req.params.id)
 		.then(user => user.update(req.body)
-		.then(updatedUser => res.json(updatedUser))
-		.catch(next))
-	//deletes a user that is selected from req.params
-	.delete('/:id',  (req, res, next) =>
-		User.findById(req.params.id)
-		.then(userToDestroy => userToDestroy.destroy())
-		.then(res.sendStatus(204))
-		.catch(next)))
+			.then(updatedUser => res.json(updatedUser))
+			.catch(next))
+		//deletes a user that is selected from req.params
+		.delete('/:id', (req, res, next) =>
+			User.findById(req.params.id)
+			.then(userToDestroy => userToDestroy.destroy())
+			.then(res.sendStatus(204))
+			.catch(next)))
