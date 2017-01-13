@@ -5,6 +5,7 @@ import {render} from 'react-dom'
 import {connect, Provider} from 'react-redux'
 
 import store from './store'
+import Cart from './components/cart'
 import HomePage from './components/HomePage'
 import Login from './components/Login'
 import Signup from './components/Signup'
@@ -21,6 +22,7 @@ import Order from './containers/OrderContainer'
 import Users from './containers/UsersContainer'
 import UsersList from './components/UsersList'
 import MyAccountContainer from './containers/MyAccountContainer'
+import CartContainer from './containers/CartContainer'
 
 const onHomePageEnter = function() {
   store.dispatch(fetchProductsFromServer());
@@ -70,6 +72,7 @@ render (
       <Route path='/admin' component={ProductManagement}/>
       <Route path='/myAccount/users' component={Users} onEnter={onUsersEnter}/>
       <Route path='/myAccount/users/:userId' component={MyAccountContainer} onEnter={onSingleUserEnter}/>
+      <Route path='/cart/' component={CartContainer}/>
     		{/**<Route path='/products' component={products}/>
     		    		<Route path='/products/category?' component={products}/>
 

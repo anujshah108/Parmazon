@@ -45,7 +45,7 @@ export default class NavBar extends Component {
       <div>
         <li><Link to='/'>My Account</Link></li>
         <li onClick={this.logOutFunc}><Link to='/'>Logout</Link></li>
-        <li><a href="" ><i className="material-icons">shopping_cart</i></a></li>
+        <li><Link to='/cart/'><i className="material-icons">shopping_cart</i></Link></li>
       </div>
     )
   }

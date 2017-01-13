@@ -1,16 +1,21 @@
+import React, { Component } from 'react';
+import {Link} from 'react-router';
+
+
 const Cart  = (props) => {
-  let total =
-  const hasProducts = props.products.length > 0
+  let total = 0
+  let hasProducts = props.products.length > 0
   const nodes = hasProducts ? (
-    products.map(product => {
+    props.products.map(product => {
       total += (product.price*product.quantity)
+      console.log(product)
       return (
-      <Product
-        title={product.title}
+      <div>
+        name={product.name}
         price={product.price}
         quantity={product.quantity}
         key={product.id}
-      /> )
+      </div> )
    } )
   ) : (
     <em>Please add some products to cart.</em>
@@ -20,9 +25,8 @@ const Cart  = (props) => {
     <div>
       <h3>Your Cart</h3>
       <div>{nodes}</div>
-      <p>Total: &#36;{total}</p>
-      <button onClick={}
-        disabled={hasProducts ? '' : 'disabled'}>
+      <p>Total: {total}</p>
+      <button disabled={hasProducts ? '' : 'disabled'}>
         Checkout
       </button>
     </div>
