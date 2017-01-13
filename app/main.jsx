@@ -58,6 +58,11 @@ const onSingleUserEnter = function(nextRouterState) {
   store.dispatch(fetchUserOrdersFromServer(nextRouterState.params.userId))
 }
 
+const onCartEnter = function(nextRouterState) {
+   store.dispatch(fetchOpenCart());
+}
+
+
 
 render (
   <Provider store={store}>
@@ -72,7 +77,7 @@ render (
       <Route path='/admin' component={ProductManagement}/>
       <Route path='/myAccount/users' component={Users} onEnter={onUsersEnter}/>
       <Route path='/myAccount/users/:userId' component={MyAccountContainer} onEnter={onSingleUserEnter}/>
-      <Route path='/cart/' component={CartContainer}/>
+      <Route path='/cart/' component={CartContainer} onEnter={onCartEnter}/>
     		{/**<Route path='/products' component={products}/>
     		    		<Route path='/products/category?' component={products}/>
 

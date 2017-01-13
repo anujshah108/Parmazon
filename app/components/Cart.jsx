@@ -10,7 +10,7 @@ const Cart  = (props) => {
       total += (product.price*product.quantity)
       console.log(product)
       return (
-      <div>
+      <div key={product.id}>
         name={product.name}
         price={product.price}
         quantity={product.quantity}

@@ -18,14 +18,14 @@ export const RECEIVE_CART_PRODUCTS = 'RECEIVE_CART_PRODUCTS'
 
 //PRODUCTS
 
-function receiveAllProducts(products) {
+export function receiveAllProducts(products) {
  return {
    type: RECEIVE_ALL_PRODUCTS,
    products
  };
 }
 
-function receiveProduct(product) {
+export function receiveProduct(product) {
  return {
    type: RECEIVE_PRODUCT,
    product
@@ -58,21 +58,21 @@ export function fetchSingleProduct(id) {
 
 //ORDERS
 
-function receiveAllOrders(orders) {
+export function receiveAllOrders(orders) {
  return {
    type: RECEIVE_ALL_ORDERS,
    orders
  };
 }
 
-function receiveOrder(order) {
+export function receiveOrder(order) {
  return {
    type: RECEIVE_ORDER,
    order
  };
 }
 
-function receiveAllUserOrders(orders) {
+export function receiveAllUserOrders(orders) {
  return {
    type: RECEIVE_USER_ORDERS,
    orders
@@ -119,14 +119,14 @@ export function fetchSingleOrder(id) {
 
 //USERS
 
-function receiveAllUsers(users) {
+export function receiveAllUsers(users) {
  return {
    type: RECEIVE_ALL_USERS,
    users
  };
 }
 
-function receiveUser(user) {
+export function receiveUser(user) {
  return {
    type: RECEIVE_USER,
    user
@@ -166,14 +166,14 @@ export function fetchSingleUser(id) {
 
 // REVIEWS
 
-function receiveRating(rating) {
+export function receiveRating(rating) {
  return {
    type: RECEIVE_RATING,
    rating: rating.data
  };
 }
 
-function receiveReviews(reviews) {
+export function receiveReviews(reviews) {
  return {
    type: RECEIVE_REVIEWS,
    reviews: reviews.data
@@ -206,7 +206,7 @@ export function fetchReviewsforProduct(id) {
 
 //CART
 
-function receiveCart(cart) {
+export function receiveCart(cart) {
  return {
    type: RECEIVE_CART,
    cart: cart.data
@@ -229,7 +229,7 @@ export function fetchOpenCart() {
   }
 
 //  productOrders for Order/Cart
-function receiveProductsForOrder(products) {
+export function receiveProductsForOrder(products) {
  return {
    type: RECEIVE_ORDER_PRODUCTS,
    products: products.data
@@ -237,7 +237,7 @@ function receiveProductsForOrder(products) {
 }
 
 
-function receiveProductsForCart(products) {
+export function receiveProductsForCart(products) {
  return {
    type: RECEIVE_CART_PRODUCTS,
    products: products.data

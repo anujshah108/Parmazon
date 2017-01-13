@@ -15,10 +15,10 @@ export default class NavBar extends Component {
     <nav>
       <div className="nav-wrapper teal lighten-2">
         <ul className="left hide-on-med-and-down">
-          <li><a href="" ><i className="material-icons">Home</i></a></li>
-          <li><a href="sass.html">Home</a></li>
-          <li><a href="sass.html">All Products</a></li>
-          <li><a href="badges.html">Categories</a></li>
+          <li><a href="/" ><i className="material-icons">Home</i></a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="">All Products</a></li>
+          <li><a href="">Categories</a></li>
         </ul>
         <ul className="right hide-on-med-and-down">
           {(this.props.user.id ? this.renderSignedin() : this.renderSignedout())}
