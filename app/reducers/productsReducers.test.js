@@ -32,15 +32,20 @@ describe('products reducer', () => {
         )
     })
 
-    it('can receieve product', () => {
+    it('can receive product', () => {
         testStore.dispatch({type: 'RECEIVE_PRODUCT', product: {name: 'Halloumi', price: 0.01, stockQuantity: 10, summary: ['Very Good Cheese']}})
         expect(testStore.getState().currentProduct).to.be.deep.equal({
             name: 'Halloumi', price: 0.01, stockQuantity: 10, summary: ['Very Good Cheese']}
         )
     })
-    it('can receieve a rating', () => {
+    it('can receive a rating', () => {
         testStore.dispatch({type: 'RECEIVE_RATING', rating: 3})
         expect(testStore.getState().currentProductRating).to.be.deep.equal(3)
+    })
+
+    it('can receive reviews', () => {
+        testStore.dispatch({type: 'RECEIVE_REVIEWS', reviews: [{title: 'hungry employees', body: 'My wheel of cheese had bite marks on it, tasted fine though', stars: 1, author_id: 1, product_id: 1}]})
+        expect(testStore.getState().currentProductReviews).to.be.deep.equal([{title: 'hungry employees', body: 'My wheel of cheese had bite marks on it, tasted fine though', stars: 1, author_id: 1, product_id: 1}])
     })
 
 })
