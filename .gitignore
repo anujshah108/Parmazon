@@ -12,4 +12,4 @@ public/bundle.js.map
 npm-debug.log
 
 #filesystem junk 
-.DS_Stores
+.DS_Store
