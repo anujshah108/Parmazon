@@ -5,6 +5,7 @@ import store from '../store'
 function mapStateToProps(state) {
   // console.log(state)
   return {
+  	user: state.users.currentUser,
     allOrders: state.orders.allOrders,
     userOrders: state.orders.userOrders 
 	}

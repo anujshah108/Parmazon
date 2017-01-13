@@ -11,9 +11,9 @@ export default class UsersList extends Component {
 
     render(){
 
-    	var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    	const arrToMap = this.props.currentUser.isAdmin ? this.props.allUsers : [];
 
-    	const arrOfUsers = this.props.allUsers.map(user => {
+    	const arrOfUsers = arrToMap.map(user => {
     		// let dateToFormat = new Date(order.created_at);
     		// if(order.status === 'cart') return;
     		const fullName = user.firstName + ' ' + user.lastName;
