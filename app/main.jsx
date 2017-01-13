@@ -5,7 +5,7 @@ import {render} from 'react-dom'
 import {connect, Provider} from 'react-redux'
 
 import store from './store'
-import Cart from './components/cart'
+import Cart from './components/Cart'
 import HomePage from './components/HomePage'
 import Login from './components/Login'
 import Signup from './components/Signup'
