@@ -12,7 +12,7 @@ export default class Products extends Component {
   render() {
 
     let products = this.props.products || [];
-    let productsList = products.map(function(product){
+    let productsList = products.filter(product=>product.milkType==this.props.params.cat).map(function(product){
 
 
       return (
@@ -27,9 +27,10 @@ export default class Products extends Component {
 
 
       })
+
     return (
       <div className = 'row'>
-      <div> Products By {productList[0].category} </div>
+      <div> Products By {this.props.params.cat} </div>
         {productsList}
       </div>
     )

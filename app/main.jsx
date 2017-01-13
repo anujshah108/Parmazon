@@ -26,6 +26,8 @@ import MyAccountContainer from './containers/MyAccountContainer'
 import CartContainer from './containers/CartContainer'
 import Admin from './components/Admin'
 import Checkout from './components/Checkout'
+import CategoryProduct from './containers/CategoryProductContainer'
+
 const onHomePageEnter = function() {
   store.dispatch(fetchProductsFromServer());
   store.dispatch(fetchOpenCart());
@@ -73,6 +75,7 @@ render (
       <IndexRoute component={HomePage} onEnter={onHomePageEnter} />
     	<Route path='/products/:productId' component={Product} onEnter={onSingleProductEnter}/>
       <Route path='/products' component={Products} onEnter={onHomePageEnter}/>
+      <Route path='/products/category/:cat' component={CategoryProduct} onEnter={onHomePageEnter}/>
       <Route path='/myAccount/orders' component={Orders} onEnter={onOrdersEnter} />
       <Route path='/myAccount/orders/:orderId' component={Order} onEnter={onOrderEnter}/>
       <Route path='/login' component={Login}/>

@@ -20,11 +20,11 @@ export default class NavBar extends Component {
     return (
     <div className="navbar-fixed">
     <ul id="dropdown1" className="dropdown-content">
-      <li><a href="#!">one</a></li>
-      <li><a href="#!">one</a></li>
-      <li><a href="#!">one</a></li>
-      <li><a href="#!">one</a></li>
-      <li><a href="#!">one</a></li>
+      <li><Link to='/products/category/vegan' href="#!">Vegan</Link></li>
+      <li><Link to='/products/category/cow'>Cow</Link></li>
+      <li><Link to='/products/category/goat'>Goat</Link></li>
+      <li><Link to='/products/category/buffalo'>Buffalo</Link></li>
+      <li><Link to='/products/category/sheep'>Sheep</Link></li>
     </ul>
     <nav>
       <div className="nav-wrapper teal lighten-2">
@@ -32,7 +32,7 @@ export default class NavBar extends Component {
           <li><a href="/" ><i className="material-icons">Home</i></a></li>
           <li><a href="/">Home</a></li>
           <li><Link to='/products'>All Products</Link></li>
-          <li><a className="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i className="material-icons right">arrow_drop_down</i></a></li>
+          <li><a className="dropdown-button" href="#!" data-activates="dropdown1">Categories<i className="material-icons right">arrow_drop_down</i></a></li>
         </ul>
         <ul className="right hide-on-med-and-down">
           {(this.props.user.id ? this.renderSignedin() : this.renderSignedout())}
