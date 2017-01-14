@@ -149,11 +149,19 @@ export default class Product extends Component {
           <div className='productLocation'>Location: {`${this.state.location || product.location}`}</div>
           <div className='productAge'>Age: {`${this.state.age || product.age}`}</div>
           <div className='productMilk'>Milk Type: {`${this.state.milkType || product.milkType}`}</div>
-          <input className='col s3' type='number'/><button className='waves-effect waves-light btn-small'>Add To Cart</button>
+           <br/>
+            <br/>
+            <div>Quantity</div>
+            <span className='row'><input onChange={e => this.setState({ quantity: e.target.value })} className='col s3' type='number'/></span>
+            <br/>
+            <button onClick={this.handleSubmitAddToCart} className='waves-effect waves-light btn-small'>Add To Cart</button>
             <br/>
             <br/>
             <div> REVIEWS </div>
             <Reviews reviews={this.props.reviews}/>
+            <br/>
+            <br/>
+            <br/>
             <br/>
             <br/>
         </div>
