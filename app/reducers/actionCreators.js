@@ -229,7 +229,7 @@ export function fetchReviewsforProduct(id) {
 export function receiveCart(cart) {
  return {
    type: RECEIVE_CART,
-   cart: cart.data
+   cart: cart.data[0]
  };
 }
 
@@ -239,7 +239,7 @@ export function fetchOpenCart() {
         .then(cart => {
           if(cart){
           dispatch(receiveCart(cart));
-          dispatch(fetchProductsForCart(cart.data.id));
+          dispatch(fetchProductsForCart(cart.data[0].id));
           }
         })
         .catch(err => {

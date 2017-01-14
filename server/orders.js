@@ -31,7 +31,7 @@ module.exports = require('express').Router()
 	// gets an open cart by logged in user or guest
 	.get('/cart/user/', (req, res, next) => {
 		if(typeof req.session.guest.id == 'number'){
-		Order.findOne({
+		Order.findOrCreate({
 			where: {
 				status: 'cart',
 				user_id: req.session.guest.id
@@ -41,13 +41,16 @@ module.exports = require('express').Router()
 		.catch(next)
 	}
 	else{
-		Order.findOne({
+		Order.findOrCreate({
 			where: {
 				status: 'cart',
 				guestid: req.session.guest.id
 			}
 		})
-		.then(order => res.json(order))
+		.then(order => {
+			console.log(order)
+			res.json(order)
+			})
 		.catch(next)
 	}
 	})
