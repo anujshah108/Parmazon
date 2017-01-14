@@ -55,9 +55,11 @@ export default class NavBar extends Component {
   }
 
   renderSignedin() {
+    console.log('LOG IN', this.props.user.isAdmin)
+    var myAccountRoute = this.props.user.isAdmin ? '/myAccount' : `/myAccount/users/${this.props.user.id}`
     return (
       <div>
-        <li><Link to='/myAccount'>My Account</Link></li>
+        <li><Link to={myAccountRoute}>My Account</Link></li>
         <li onClick={this.logOutFunc}><Link to='/'>Logout</Link></li>
         <li><Link to='/cart'><i className="material-icons">shopping_cart</i></Link></li>
       </div>

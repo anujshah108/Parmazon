@@ -33,6 +33,10 @@ Order.hasMany(productOrder)
 productOrder.belongsTo(Order)
 productOrder.belongsTo(Product, {as: 'ordered_product'})
 
+//Associating Address To Order
+Address.hasMany(Order)
+Order.belongsTo(Address)
+
 Product.hasMany(Tag)
 Tag.belongsTo(Product)
 

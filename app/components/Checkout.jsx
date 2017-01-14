@@ -16,6 +16,14 @@ export default class Products extends Component {
 
       <form onSubmit={evt => {checkout(evt.target.firstName.value, evt.target.lastName.value, evt.target.email.value, evt.target.password.value)} }>
             <div className="form-group">
+              <label>Email</label>
+              <input
+                name="email"
+                className="form-control"
+                required
+              />
+            </div>
+            <div className="form-group">
               <label>First Name</label>
               <input
                 name="firstName"
@@ -81,7 +89,7 @@ export default class Products extends Component {
                 required
               />
             </div>
-            <input type="submit" value="Login" />
+            <input type="submit" value="Complete Checkout" />
           </form>
 
     )

@@ -8,8 +8,8 @@ const seedAddresses = [
 const seedAddressesFunc = () => {return db.Promise.each(seedAddresses, address => db.model('addresses').create(address))}
 
 const seedOrders = [
-  {status: 'cart', user_id: 3},
-  {status: 'completed', user_id: 3}
+  {status: 'cart', user_id: 3, address_id: 1},
+  {status: 'completed', user_id: 3, address_id: 1}
 ]
 
 const seedOrdersFunc = () => {return db.Promise.each(seedOrders, order => db.model('orders').create(order))}
