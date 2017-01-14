@@ -80,3 +80,11 @@ module.exports = require('express').Router()
 			res.json(product)
 		})
 		.catch(next))
+
+	.delete('/:id/products/:productId', (req, res, next) =>
+		ProductOrder.delete({
+			where:{
+				order_id: req.params.id,
+				id: req.params.productId
+			}.then(sendStatus())
+		}).then(product=> sendStatus(201)).catch(next))

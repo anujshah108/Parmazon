@@ -9,7 +9,7 @@ export default class Reviews extends Component {
   render() {
     let reviews = this.props.reviews.map(function(review){
       return (
-        <div>
+        <div key={review.id}>
         <div>
         Title: {review.title}
         </div>
