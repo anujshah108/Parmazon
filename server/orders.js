@@ -63,16 +63,17 @@ module.exports = require('express').Router()
 		ProductOrder.findOne({
 			where:{
 				order_id: req.params.id,
-				ordered_product_id: req.body.id
+				ordered_product_id: req.body.ordered_product_id
 			}
 		})
 		.then(product => {
-			if(product.id){
+			if(product){
 			return product.update({
 					quantity: product.quantity+req.body.quantity
 				})
 			}
 			else{
+				console.log(req.body)
 				return ProductOrder.create(req.body)
 			}
 		}).then(product => {

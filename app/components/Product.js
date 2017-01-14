@@ -15,14 +15,16 @@ export default class Product extends Component {
           summary: this.props.product.summary,
           location: this.props.product.location,
           age: this.props.product.age,
-          milkType: this.props.product.milkType
+          milkType: this.props.product.milkType,
+          quantity: 1
         };
 
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmitEdit = this.handleSubmitEdit.bind(this);
+        this.handleSubmitAddToCart = this.handleSubmitAddToCart.bind(this);
     }
 
 
-  handleSubmit(event){
+  handleSubmitEdit(event){
     event.preventDefault()
     var form = document.getElementById("productEditForm");
     form.reset();
@@ -30,8 +32,14 @@ export default class Product extends Component {
     .then();
   }
 
+  handleSubmitAddToCart(event){
+    event.preventDefault()
+    axios.post(`/api/orders/${this.props.cart.id}/products`, {name: this.props.product.name, price:this.props.product.price,quantity:this.state.quantity,imageURL:this.props.product.imageURL,ordered_product_id:this.props.product.id,order_id:this.props.cart.id,user_id:this.props.user.id})
+    .then();
+  }
 
   render() {
+    console.log(this.props)
     let product = this.props.product || {};
 
     if(this.props.user.isAdmin){
@@ -48,7 +56,12 @@ export default class Product extends Component {
             <div className='productLocation'>Location: {`${this.state.location || product.location}`}</div>
             <div className='productAge'>Age: {`${this.state.age || product.age}`}</div>
             <div className='productMilk'>Milk Type: {`${this.state.milkType || product.milkType}`}</div>
-            <input className='col s3' type='number'/><button className='waves-effect waves-light btn-small'>Add To Cart</button>
+            <br/>
+            <br/>
+            <div>Quantity</div>
+            <span className='row'><input onChange={e => this.setState({ quantity: e.target.value })} className='col s3' type='number'/></span>
+            <br/>
+            <button onClick={this.handleSubmitAddToCart} className='waves-effect waves-light btn-small'>Add To Cart</button>
             <br/>
             <br/>
             <div> REVIEWS </div>
@@ -62,7 +75,7 @@ export default class Product extends Component {
             Admin Edit
             </div>
             <div className="row">
-              <form id='productEditForm' className="col s6" onSubmit={this.handleSubmit}>
+              <form id='productEditForm' className="col s6" onSubmit={this.handleSubmitEdit}>
                 <div className="row">
                   <div className="input-field col s12">
                     <label className="active" htmlFor="productName">Product Name</label>

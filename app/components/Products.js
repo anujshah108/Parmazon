@@ -21,7 +21,6 @@ export default class Products extends Component {
             <img className='productsImage' height="100" src={product.imageURL}/>
             <div className='productsName'>{product.name}</div>
             <div className='productsPrice'>Price: {`$ ${product.price}`}</div>
-            <div className='productsRating'>Rating: {'★ '+ product.rating}</div>
              </Link>
         </div> )
 
