@@ -39,7 +39,6 @@ export default class Product extends Component {
   }
 
   render() {
-    console.log(this.props)
     let product = this.props.product || {};
 
     if(this.props.user.isAdmin){

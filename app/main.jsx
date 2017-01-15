@@ -12,7 +12,6 @@ import Signup from './components/Signup'
 import WhoAmI from './components/WhoAmI'
 import Product from './containers/ProductContainer'
 import Products from './containers/ProductsContainer'
-import ProductManagement from './components/ProductManagement'
 import {fetchProductsFromServer, fetchSingleProduct, fetchRatingforProduct,
   fetchOrdersFromServer, fetchReviewsforProduct, fetchOpenCart,
   fetchUsersFromServer, fetchSingleOrder, fetchProductsForOrder,
@@ -26,7 +25,9 @@ import MyAccountContainer from './containers/MyAccountContainer'
 import CartContainer from './containers/CartContainer'
 import Admin from './components/Admin'
 import Checkout from './components/Checkout'
+import CheckoutContainer from './containers/CheckoutContainer'
 import CategoryProduct from './containers/CategoryProductContainer'
+import ConfirmationPage from './components/ConfirmationPage'
 
 const onHomePageEnter = function() {
   store.dispatch(fetchProductsFromServer());
@@ -62,9 +63,14 @@ const onSingleUserEnter = function(nextRouterState) {
   store.dispatch(fetchUserOrdersFromServer(nextRouterState.params.userId))
 }
 
-const onCartEnter = function(nextRouterState) {
+const onCartEnter = function() {
    store.dispatch(fetchOpenCart());
 }
+
+const onCheckoutEnter = function() {
+   store.dispatch(fetchOpenCart());
+}
+
 
 
 
@@ -85,7 +91,8 @@ render (
       <Route path='/myAccount/users/:userId' component={MyAccountContainer} onEnter={onSingleUserEnter}/>
       <Route path='/myAccount/users/:userId/orders' component={MyAccountContainer} onEnter={onSingleUserEnter}/>
       <Route path='/cart' component={CartContainer} onEnter={onCartEnter}/>
-      <Route path='/checkout' component={Checkout} />
+      <Route path='/checkout' component={CheckoutContainer} onEnter={onCheckoutEnter}/>
+      <Route path='/confirmation' component={ConfirmationPage} />
     		{/**<Route path='/products' component={products}/>
     		    		<Route path='/products/category?' component={products}/>
 

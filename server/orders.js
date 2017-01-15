@@ -2,6 +2,7 @@
 const db = require('APP/db')
 const Order = db.model('orders')
 const ProductOrder = db.model('productOrders')
+const Address = db.model('addresses')
 const {mustBeLoggedIn, forbidden,} = require('./auth.filters')
 
 module.exports = require('express').Router()
@@ -59,6 +60,8 @@ module.exports = require('express').Router()
 		Order.findById(req.params.id)
 		.then(orderToBeUpdated => orderToBeUpdated.update(req.body))
 		.catch(next))
+
+	//posts a new product for order
 	.post('/:id/products', (req, res, next) =>
 		ProductOrder.findOne({
 			where:{
@@ -81,10 +84,19 @@ module.exports = require('express').Router()
 		})
 		.catch(next))
 
+	//delete a product from an order
 	.delete('/:id/products/:productId', (req, res, next) =>
-		ProductOrder.delete({
+		ProductOrder.destroy({
 			where:{
 				order_id: req.params.id,
 				id: req.params.productId
-			}.then(sendStatus())
-		}).then(product=> sendStatus(201)).catch(next))
+			}
+		}).then(product=> res.sendStatus(204)).catch(next))
+
+	//Creates An Address and Links It to The Current Order
+
+	.post('/checkout/address', (req,res,next) =>
+		Address.create(req.body)
+		.then(address => res.json(address))
+		.catch(next))
+

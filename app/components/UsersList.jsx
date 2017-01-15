@@ -18,17 +18,16 @@ export default class UsersList extends Component {
     		// if(order.status === 'cart') return;
     		const fullName = user.firstName + ' ' + user.lastName;
     		return(
-	    			<tr className="collection " key={user.id}>		
+	    			<tr className="collection " key={user.id}>
 			            <td>{user.id}</td>
 			            <td>{fullName}</td>
 			            <td>{user.email}</td>
 			            <td><Link to={`/myAccount/users/${user.id}`}><i className="material-icons">trending_flat</i></Link></td>
 			        </tr>
-			    
-		        
+
+
     		)
     	})
-    	  console.log('~~~~~~~~~~~~~~USERS', this.props)
 
     	return (
     		<div>
@@ -47,7 +46,7 @@ export default class UsersList extends Component {
 	  		    </table>
     	    </div>
     	)
-    	
+
     }
 
 }

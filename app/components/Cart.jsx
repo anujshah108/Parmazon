@@ -1,20 +1,34 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
+import axios from 'axios'
+import {Router} from 'react-router'
 
 
-const Cart  = (props) => {
+
+export default class Cart extends Component {
+  constructor(props) {
+        super(props);
+        this.handleOnClickDelete = this.handleOnClickDelete.bind(this)
+      }
+
+    handleOnClickDelete(id){
+       axios.delete(`/api/orders/${this.props.cart.id}/products/${id}`)
+    .then();
+    }
+
+  render(){
   let total = 0
-  let hasProducts = props.products.length > 0
+  let hasProducts = this.props.products.length > 0
   const nodes = hasProducts ? (
-    props.products.map(product => {
+    this.props.products.map(product => {
       total += (product.price*product.quantity)
-      console.log(product)
       return (
       <div key={product.id}>
         <img src={product.imageURL} height='75'/>
         <div>name={product.name}</div>
         <div>price={product.price}</div>
         <div>quantity={product.quantity}</div>
+        <button onClick={() => this.handleOnClickDelete(product.id)}>Delete</button>
       </div> )
    } )
   ) : (
@@ -32,6 +46,6 @@ const Cart  = (props) => {
     </div>
   )
 }
+}
 
 
-export default Cart

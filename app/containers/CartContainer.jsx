@@ -3,7 +3,7 @@ import Cart from '../components/Cart'
 import store from '../store'
 
 function mapStateToProps(state) {
-  console.log(state)
+
   return {
     cart: state.orders.cart,
     products: state.orders.cartProducts
