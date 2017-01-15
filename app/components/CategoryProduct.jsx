@@ -18,6 +18,7 @@ export default class Products extends Component {
      return (
 
             <div className="col s4">
+             <Link to={`/products/${product.id}`}>
                             <div className="card">
                                 <div className="view overlay hm-white-slight">
                                     <img src={product.imageURL} className="img-fluid" height='100' alt=""/>
@@ -31,6 +32,7 @@ export default class Products extends Component {
                                     <a href="#" className="btn btn-primary">Buy now for {`$ ${product.price}`}</a>
                                 </div>
                             </div>
+                            </Link>
                         </div>
         )
       })

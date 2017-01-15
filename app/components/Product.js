@@ -42,35 +42,55 @@ export default class Product extends Component {
     let product = this.props.product || {};
 
     if(this.props.user.isAdmin){
+
       return (
         <div className='col s6'>
-          <div className='productProduct col s12'>
-            <img className='productImage' height="100" src={this.state.imageURL || product.imageURL}/>
-            <div id='productName' className='productName'>{this.state.name || product.name}</div>
-            <div className='productRating'>Rating: {'★ ' + (this.state.rating || this.props.rating.stars)}</div>
-            <div className='productPrice'>Price: {`$ ${this.state.price || product.price}`}</div>
-            <div className='productStock'>Stock: {`${this.state.stockQuantity || product.stockQuantity}`}</div>
-            <div className='productDescription'>Description: {`${this.state.description || product.description}`}</div>
-            <div className='productSummary'>Summary: {`${this.state.summary || product.summary}`}</div>
-            <div className='productLocation'>Location: {`${this.state.location || product.location}`}</div>
-            <div className='productAge'>Age: {`${this.state.age || product.age}`}</div>
-            <div className='productMilk'>Milk Type: {`${this.state.milkType || product.milkType}`}</div>
-            <br/>
-            <br/>
-            <div>Quantity</div>
-            <span className='row'><input onChange={e => this.setState({ quantity: e.target.value })} className='col s3' type='number'/></span>
-            <br/>
-            <button onClick={this.handleSubmitAddToCart} className='waves-effect waves-light btn-small'>Add To Cart</button>
-            <br/>
-            <br/>
-            <div> REVIEWS </div>
-            <Reviews reviews={this.props.reviews}/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <div>
+          <div className ='row'>
+         <div className="col-lg-8">
+
+                    <div className="row">
+                        <div className="col-md-12">
+
+                            <div className="product-wrapper">
+
+                                <div className="view overlay hm-white-light z-depth-1-half">
+                                    <img src={this.state.imageURL || product.imageURL} className="img-fluid " height='500'/>
+                                    <div className="mask">
+                                    </div>
+                                    <h5 className="price"><span>{`$ ${this.state.price || product.price}`}</span></h5>
+                                </div>
+
+                                <br/>
+
+                                <h2 className="h2-responsive">{this.state.name || product.name}</h2>
+                                <hr/>
+                                <p>{`${this.state.description || product.description}`}</p>
+                                <p><h5>Rating: </h5>{'★ ' + (this.state.rating || this.props.rating.stars)}</p>
+                                <p><h5>Summary: </h5>{`${this.state.summary || product.summary}`}</p>
+                                <p><h5>Location: </h5>{`${this.state.location || product.location}`}</p>
+                                <p><h5>Age: </h5>{`${this.state.age || product.age}`}</p>
+                                <p><h5>Milk Type: </h5>{`${this.state.milkType.charAt(0).toUpperCase() + this.state.milkType.slice(1)}`}</p>
+                            </div>
+
+                        </div>
+                        <br/>
+                         <br/>
+                         <div>Quantity</div>
+                         <span className='row'><input onChange={e => this.setState({ quantity: e.target.value })} className='col s3' type='number'/></span>
+                         <br/>
+                         <button onClick={this.handleSubmitAddToCart} className='waves-effect waves-light btn-small'>Add To Cart</button>
+                         <br/>
+                         <br/>
+                         <div className="reviews">
+                            <h2 className="h2-responsive">Reviews</h2>
+                             <Reviews reviews={this.props.reviews}/>
+                        </div>
+                         <br/>
+                         <br/>
+                         <br/>
+                         <br/>
+                         <br/>
+                        </div>
             Admin Edit
             </div>
             <div className="row">
