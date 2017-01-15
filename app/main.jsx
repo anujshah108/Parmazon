@@ -27,6 +27,7 @@ import Admin from './components/Admin'
 import Checkout from './components/Checkout'
 import CheckoutContainer from './containers/CheckoutContainer'
 import CategoryProduct from './containers/CategoryProductContainer'
+import SearchProduct from './containers/SearchProductsContainer'
 import ConfirmationPage from './components/ConfirmationPage'
 
 const onHomePageEnter = function() {
@@ -93,6 +94,7 @@ render (
       <Route path='/cart' component={CartContainer} onEnter={onCartEnter}/>
       <Route path='/checkout' component={CheckoutContainer} onEnter={onCheckoutEnter}/>
       <Route path='/confirmation' component={ConfirmationPage} />
+      <Route path='/search/:term' component={SearchProduct} onEnter={onHomePageEnter}/>
     		{/**<Route path='/products' component={products}/>
     		    		<Route path='/products/category?' component={products}/>
 
