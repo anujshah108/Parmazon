@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Reviews from './Reviews'
+import Rating from 'react-rating-system';
 
 export default class Product extends Component {
   constructor(props) {
@@ -54,29 +55,29 @@ export default class Product extends Component {
                             <div className="product-wrapper">
 
                                 <div className="view overlay hm-white-light z-depth-1-half">
-                                    <img src={this.state.imageURL || product.imageURL} className="img-fluid " height='500'/>
+                                    <img src={product.imageURL} className="img-fluid " height='500'/>
                                     <div className="mask">
                                     </div>
-                                    <h5 className="price"><span>{`$ ${this.state.price || product.price}`}</span></h5>
+                                    <h5 className="price"><span>{`$ ${product.price}`}</span></h5>
                                 </div>
 
                                 <br/>
 
-                                <h2 className="h2-responsive">{this.state.name || product.name}</h2>
+                                <h2 className="h2-responsive">{product.name}</h2>
                                 <hr/>
-                                <p>{`${this.state.description || product.description}`}</p>
-                                <p><h5>Rating: </h5>{'★ ' + (this.state.rating || this.props.rating.stars)}</p>
-                                <p><h5>Summary: </h5>{`${this.state.summary || product.summary}`}</p>
-                                <p><h5>Location: </h5>{`${this.state.location || product.location}`}</p>
-                                <p><h5>Age: </h5>{`${this.state.age || product.age}`}</p>
-                                <p><h5>Milk Type: </h5>{`${this.state.milkType || product.milkType}`}</p>
+                                <p>{`${product.description}`}</p>
+                                <p><h5>Rating: </h5><Rating image='https://raw.githubusercontent.com/enzoferey/react-rating-system/master/dist/star.png' fillBG="gold" initialBG="white" initialValue={3.5} editable={false} containerStyle={{ maxWidth: '200px' }}/></p><br/><br/>
+                                <p><h5>Summary: </h5>{`${product.summary}`}</p>
+                                <p><h5>Location: </h5>{`${product.location}`}</p>
+                                <p><h5>Age: </h5>{`${product.age}`}</p>
+                                <p><h5>Milk Type: </h5>{`${product.milkType}`}</p>
                             </div>
 
                         </div>
                         <br/>
                          <br/>
                          <div>Quantity</div>
-                         <span className='row'><input onChange={e => this.setState({ quantity: e.target.value })} className='col s3' type='number'/></span>
+                         <span className='row'><input value={this.state.quantity} onChange={e => this.setState({ quantity: e.target.value })} className='col s3' type='number'/></span>
                          <br/>
                          <button onClick={this.handleSubmitAddToCart} className='waves-effect waves-light btn-small'>Add To Cart</button>
                          <br/>
@@ -98,7 +99,7 @@ export default class Product extends Component {
                 <div className="row">
                   <div className="input-field col s12">
                     <label className="active" htmlFor="productName">Product Name</label>
-                    <input id="productName" onChange={e => this.setState({ name: e.target.value })} type="text" className="validate"/>
+                    <input id="productName" onChange={e => this.setState({ name: e.target.value })} type="text" className="validate" />
                   </div>
                 </div>
                 <div className="row">
