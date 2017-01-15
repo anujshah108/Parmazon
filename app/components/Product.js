@@ -69,7 +69,7 @@ export default class Product extends Component {
                                 <p><h5>Summary: </h5>{`${this.state.summary || product.summary}`}</p>
                                 <p><h5>Location: </h5>{`${this.state.location || product.location}`}</p>
                                 <p><h5>Age: </h5>{`${this.state.age || product.age}`}</p>
-                                <p><h5>Milk Type: </h5>{`${this.state.milkType.charAt(0).toUpperCase() + this.state.milkType.slice(1)}`}</p>
+                                <p><h5>Milk Type: </h5>{`${this.state.milkType || product.milkType}`}</p>
                             </div>
 
                         </div>
