@@ -65,12 +65,12 @@ export default class Product extends Component {
 
                                 <h2 className="h2-responsive">{product.name}</h2>
                                 <hr/>
-                                <p>{`${product.description}`}</p>
+                                <div>{`${product.description}`}</div>
                                 <div><h5>Rating: </h5><Rating image='https://raw.githubusercontent.com/enzoferey/react-rating-system/master/dist/star.png' fillBG="gold" initialBG="white" initialValue={this.props.rating.stars} editable={false} containerStyle={{ maxWidth: '200px' }}/></div><br/><br/>
-                                <p><h5>Summary: </h5>{`${product.summary}`}</p>
-                                <p><h5>Location: </h5>{`${product.location}`}</p>
-                                <p><h5>Age: </h5>{`${product.age}`}</p>
-                                <p><h5>Milk Type: </h5>{`${product.milkType}`}</p>
+                                <div><h5>Summary: </h5>{`${product.summary}`}</div>
+                                <div><h5>Location: </h5>{`${product.location}`}</div>
+                                <div><h5>Age: </h5>{`${product.age}`}</div>
+                                <div><h5>Milk Type: </h5>{`${product.milkType}`}</div>
                             </div>
 
                         </div>

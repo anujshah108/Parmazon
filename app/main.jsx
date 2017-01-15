@@ -41,27 +41,32 @@ const onOrdersEnter = function() {
   //if(currentUser.isAdmin) store.dispatch(fetchOrdersFromServer());
    //store.dispatch(fetchUserOrdersFromServer(1))
    store.dispatch(fetchOrdersFromServer());
+   store.dispatch(fetchOpenCart());
 }
 
 const onUsersEnter = function(){
    store.dispatch(fetchUsersFromServer());
+   store.dispatch(fetchOpenCart());
 
 }
 
 const onOrderEnter = function(nextRouterState){
   store.dispatch(fetchSingleOrder(nextRouterState.params.orderId));
   store.dispatch(fetchProductsForOrder(nextRouterState.params.orderId))
+  store.dispatch(fetchOpenCart());
 }
 
 const onSingleProductEnter = function(nextRouterState) {
   store.dispatch(fetchSingleProduct(nextRouterState.params.productId));
   store.dispatch(fetchRatingforProduct(nextRouterState.params.productId));
   store.dispatch(fetchReviewsforProduct(nextRouterState.params.productId));
+   store.dispatch(fetchOpenCart());
 
 };
 
 const onSingleUserEnter = function(nextRouterState) {
   store.dispatch(fetchUserOrdersFromServer(nextRouterState.params.userId))
+   store.dispatch(fetchOpenCart());
 }
 
 const onCartEnter = function() {
