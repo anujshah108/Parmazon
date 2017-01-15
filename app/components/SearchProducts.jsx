@@ -12,8 +12,8 @@ export default class Products extends Component {
   render() {
 
     let products = this.props.products || [];
-    let term = this.props.params.term.toLowerCase()
-    let productsList = products.filter(function(product){return product.milkType==term||product.location==term||(product.age+"")==term||product.name.toLowerCase().includes(term)}).map(function(product){
+    let term = this.props.params.term
+    let productsList = products.filter(function(product){return product.milkType.match(new RegExp(term, "i"))||product.location.match(new RegExp(term, "i"))||(product.age+"")==term||product.name.match(new RegExp(term, "i"))}).map(function(product){
 
 
      return (
