@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Rating from 'react-rating-system';
 
 export default class Reviews extends Component {
 
@@ -11,13 +12,13 @@ export default class Reviews extends Component {
       return (
         <div key={review.id}>
         <div>
-        Title: {review.title}
+       <h5>{review.title}</h5>
         </div>
         <div>
         {review.body}
         </div>
         <div>
-        Stars: {`★ ${review.stars}`}
+       <Rating image='https://raw.githubusercontent.com/enzoferey/react-rating-system/master/dist/star.png' fillBG="gold" initialBG="white" initialValue={review.stars} editable={false} containerStyle={{ maxWidth: '125px' }}/>
         </div>
         </div>
         )
