@@ -48,6 +48,11 @@ export default class Product extends Component {
     .then();
   }
 
+
+//TODO
+//write html/css product component
+//plug in react
+//renderAdmin in a conditional underneath 
   render() {
     let product = this.props.product || {};
     let x = this.props.rating.stars
@@ -167,7 +172,7 @@ export default class Product extends Component {
           </div>
       </div> )
     }
-    else if(this.props.rating){
+    else {
       return (
        <div className='col s6'>
           <div className ='row'>
@@ -222,8 +227,6 @@ export default class Product extends Component {
         )
 
       }
-      else{
-        return <div></div>
-      }
+      
   }
 }
