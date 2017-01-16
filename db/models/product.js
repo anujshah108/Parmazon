@@ -48,6 +48,13 @@ const Product = db.define('products', {
       defaultValue: 'cow'
     }
   }, {
+    getterMethods: {
+      preview: function() {
+        if (this.content) return this.content.slice(0, 175) + '...'
+        else return '';
+      },
+    }
+  }, {
     indexes: [{
       fields: ['name'],
       unique: true

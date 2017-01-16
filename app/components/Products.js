@@ -18,22 +18,22 @@ export default class Products extends Component {
       return (
 
             <div className="col s4" key={product.id}>
-             <Link to={`/products/${product.id}`}>
-                            <div className="card">
-                                <div className="view overlay hm-white-slight">
-                                    <img src={product.imageURL} className="img-fluid" height='100' alt=""/>
+              <Link to={`/products/${product.id}`}>
+                <div className="card">
+                    <div className="view overlay hm-white-slight">
+                        <img src={product.imageURL} className="img-fluid" height='100' alt=""/>
 
-                                        <div className="mask"></div>
+                            <div className="mask"></div>
 
-                                </div>
-                                <div className="card-block">
-                                    <h4 className="card-title">{product.name}</h4>
-                                    <p className="card-text">{product.description}</p>
-                                    <button href="#" className="btn btn-primary">Buy now for {`$ ${product.price}`}</button>
-                                </div>
-                            </div>
-                            </Link>
-                        </div>
+                    </div>
+                    <div className="card-block">
+                        <h4 className="card-title">{product.name}</h4>
+                        <p className="card-text">{product.description.slice(0, 175) + ((product.description.length > 175) ? '...' : '')}</p>
+                        <button href="#" className="btn btn-primary">Buy now for {`$ ${product.price}`}</button>
+                    </div>
+                </div>
+              </Link>
+            </div>
         )
 
         {/**return(
