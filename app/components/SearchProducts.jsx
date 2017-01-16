@@ -18,7 +18,7 @@ export default class Products extends Component {
 
      return (
 
-            <div className="col s4">
+            <div className="col s4" key={product.id}>
              <Link to={`/products/${product.id}`}>
                             <div className="card">
                                 <div className="view overlay hm-white-slight">

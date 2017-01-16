@@ -29,6 +29,7 @@ import CheckoutContainer from './containers/CheckoutContainer'
 import CategoryProduct from './containers/CategoryProductContainer'
 import SearchProduct from './containers/SearchProductsContainer'
 import ConfirmationPage from './components/ConfirmationPage'
+import AddProduct from './components/AddProduct'
 
 const onHomePageEnter = function() {
   store.dispatch(fetchProductsFromServer());
@@ -101,6 +102,7 @@ render (
       <Route path='/checkout' component={CheckoutContainer} onEnter={onCheckoutEnter}/>
       <Route path='/confirmation' component={ConfirmationPage} />
       <Route path='/search/:term' component={SearchProduct} onEnter={onHomePageEnter}/>
+      <Route path='/addProducts' component={AddProduct}/> 
     		{/**<Route path='/products' component={products}/>
     		    		<Route path='/products/category?' component={products}/>
 
