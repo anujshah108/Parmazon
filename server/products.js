@@ -18,6 +18,10 @@ module.exports = require('express').Router()
    Product.create(req.body)
     .then(product => res.status(201).json(product))
     .catch(next))
+   .post('/review', (req, res, next) =>
+   Review.create(req.body)
+    .then(review => res.status(201).json(review))
+    .catch(next))
   //finds a product by its id
   .get('/:id', (req, res, next) =>
     Product.findById(req.params.id)

@@ -91,7 +91,7 @@ export default class Product extends Component {
                          <br/>
                          <div className="reviews">
                             <h2 className="h2-responsive">Reviews</h2>
-                             <Reviews reviews={this.props.reviews}/>
+                             <Reviews user={this.props.user} reviews={this.props.reviews} product={this.props.product}/>
                         </div>
                          <br/>
                          <br/>
@@ -186,7 +186,7 @@ export default class Product extends Component {
             <br/>
             <br/>
             <div> REVIEWS </div>
-            <Reviews reviews={this.props.reviews}/>
+            <Reviews user={this.props.user} reviews={this.props.reviews} product={this.props.product}/>
             <br/>
             <br/>
             <br/>
