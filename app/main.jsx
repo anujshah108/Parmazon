@@ -15,7 +15,7 @@ import Products from './containers/ProductsContainer'
 import {fetchProductsFromServer, fetchSingleProduct, fetchRatingforProduct,
   fetchOrdersFromServer, fetchReviewsforProduct, fetchOpenCart,
   fetchUsersFromServer, fetchSingleOrder, fetchProductsForOrder,
-  fetchUserOrdersFromServer} from './reducers/actionCreators'
+  fetchUserOrdersFromServer, fetchSingleUserForPage} from './reducers/actionCreators'
 import App from './components/App'
 import Orders from './containers/OrdersContainer'
 import Order from './containers/OrderContainer'
@@ -66,7 +66,8 @@ const onSingleProductEnter = function(nextRouterState) {
 
 const onSingleUserEnter = function(nextRouterState) {
   store.dispatch(fetchUserOrdersFromServer(nextRouterState.params.userId))
-   store.dispatch(fetchOpenCart());
+  store.dispatch(fetchOpenCart());
+  store.dispatch(fetchSingleUserForPage(nextRouterState.params.userId));
 }
 
 const onCartEnter = function() {

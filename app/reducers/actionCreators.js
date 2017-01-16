@@ -15,7 +15,7 @@ export const RECEIVE_REVIEWS = 'RECEIVE_REVIEWS'
 export const RECEIVE_ORDER_PRODUCTS = 'RECEIVE_ORDER_PRODUCTS'
 export const RECEIVE_CART_PRODUCTS = 'RECEIVE_CART_PRODUCTS'
 export const RECEIVE_CREATED_ORDER = 'RECEIVE_CREATED_ORDER'
-
+export const RECEIVE_USER_FOR_PAGE = 'RECEIVE_USER_FOR_PAGE'
 
 //PRODUCTS
 
@@ -153,6 +153,13 @@ export function receiveUser(user) {
  };
 }
 
+export function receiveUserForPage(user) {
+ return {
+   type: RECEIVE_USER_FOR_PAGE,
+   user
+ };
+}
+
 export function logOutUser() {
   return {
     type: LOGOUT_USER,
@@ -177,6 +184,18 @@ export function fetchSingleUser(id) {
    axios.get(`/api/users/${id}`)
      .then(foundUser => {
        dispatch(receiveUser(foundUser.data));
+     })
+     .catch(err => {
+       console.error(err);
+     });
+ };
+}
+
+export function fetchSingleUserForPage(id) {
+ return function(dispatch) {
+   axios.get(`/api/users/${id}`)
+     .then(foundUser => {
+       dispatch(receiveUserForPage(foundUser.data));
      })
      .catch(err => {
        console.error(err);

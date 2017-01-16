@@ -17,19 +17,19 @@ export default class Products extends Component {
 
       return (
 
-            <div className="col s4">
+            <div className="col s4" key={product.id}>
              <Link to={`/products/${product.id}`}>
                             <div className="card">
                                 <div className="view overlay hm-white-slight">
                                     <img src={product.imageURL} className="img-fluid" height='100' alt=""/>
-                                    <a href="#">
+                                    
                                         <div className="mask"></div>
-                                    </a>
+                                    
                                 </div>
                                 <div className="card-block">
                                     <h4 className="card-title">{product.name}</h4>
                                     <p className="card-text">{product.description}</p>
-                                    <a href="#" className="btn btn-primary">Buy now for {`$ ${product.price}`}</a>
+                                    <button href="#" className="btn btn-primary">Buy now for {`$ ${product.price}`}</button>
                                 </div>
                             </div>
                             </Link>
