@@ -11,13 +11,14 @@ export default class Orders extends Component {
 
     render(){
 
-        console.log('8712389472189471289734987219847193', this.props);
         const arrToMap = this.props.userOrders;
 
 
             var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
-        
+            
+
+
         	const arrOfOrders = arrToMap.map(order => {
         		let dateToFormat = new Date(order.created_at);
         		if(order.status === 'cart') return;
@@ -31,8 +32,10 @@ export default class Orders extends Component {
     			        </tr>   
         		)
         	})
-        	 // console.log('~~~~~~~~~~~~~~orders', this.props.allOrders)
+        	
 
+            
+            
         	return (
         		<div>
     	  	    	<table className="highlight">

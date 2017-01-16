@@ -22,6 +22,7 @@ export default class Product extends Component {
 
         this.handleSubmitEdit = this.handleSubmitEdit.bind(this);
         this.handleSubmitAddToCart = this.handleSubmitAddToCart.bind(this);
+        this.handleDeleteButton = this.handleDeleteButton.bind(this);
     }
 
 
@@ -30,6 +31,12 @@ export default class Product extends Component {
     var form = document.getElementById("productEditForm");
     form.reset();
     axios.put(`/api/products/${this.props.product.id}`, this.state)
+    .then();
+  }
+
+  handleDeleteButton(event){
+    event.preventDefault();
+    axios.delete(`/api/products/${this.props.product.id}`, this.state)
     .then();
   }
 
@@ -94,6 +101,7 @@ export default class Product extends Component {
                         </div>
             Admin Edit
             </div>
+            <button onClick={this.handleDeleteButton} className="btn">Delete Product</button>
             <div className="row">
               <form id='productEditForm' className="col s6" onSubmit={this.handleSubmitEdit}>
                 <div className="row">
