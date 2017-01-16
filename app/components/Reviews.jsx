@@ -9,6 +9,7 @@ export default class Reviews extends Component {
     }
 
   render() {
+    let user = this.props.user
     let reviews = this.props.reviews.map(function(review){
       return (
         <div key={review.id}>
@@ -26,7 +27,14 @@ export default class Reviews extends Component {
          </div>
         )
     })
-    return (
+
+      if(!user.id) {
+        return ( <div>
+       {reviews}
+       </div>)
+      }
+      else{
+        return (
       <div>
        {reviews}
        <form onSubmit={event => {
@@ -68,5 +76,6 @@ export default class Reviews extends Component {
         </form>
      </div>
     )
+  }
   }
 }
