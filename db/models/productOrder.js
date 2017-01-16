@@ -23,7 +23,6 @@ const ProductOrder = db.define('productOrders', {
   },
   imageURL: {
     type: Sequelize.STRING,
-    allowNull: false
   },
   userid: {
     type: Sequelize.DECIMAL

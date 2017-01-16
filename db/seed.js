@@ -2,14 +2,24 @@ const db = require('APP/db')
 
 const seedAddresses = [
   {firstName: 'Barack', lastName: 'Obama', address1: '1600 Pennsylvania Ave', city: 'Washington DC', state: 'DC', phone: '555-555-5555', zip: '20500', user_id: 1},
-  {firstName: 'Donald', lastName: 'Trump', address1: 'Trump Tower', address2: 'Apt 1', city: 'New York City', state: 'NY', phone: '555-555-1234', zip: '10022', user_id: 2}
+  {firstName: 'Donald', lastName: 'Trump', address1: 'Trump Tower', address2: 'Apt 1', city: 'New York City', state: 'NY', phone: '555-555-1234', zip: '10022', user_id: 2},
+  {firstName: 'John', lastName: 'Smith', address1: '1 Main Street', city: 'Washington DC', state: 'DC', phone: '555-555-5555', zip: '20500', user_id: 3},
+  {firstName: 'Ned', lastName: 'Stark', address1: 'Castle', city: 'Winterfell', state: 'AZ', phone: '555-555-5555', zip: '20500', user_id: 3},
+  {firstName: 'Test', lastName: 'User', address1: '1 Street Road', city: 'Washington DC', state: 'DC', phone: '555-555-5555', zip: '20500', user_id: 4},
 ]
 
 const seedAddressesFunc = () => {return db.Promise.each(seedAddresses, address => db.model('addresses').create(address))}
 
 const seedOrders = [
-  {status: 'cart', user_id: 3, address_id: 1},
-  {status: 'completed', user_id: 3, address_id: 1}
+  {status: 'pending', user_id: 3, address_id: 1},
+  {status: 'completed', user_id: 3, address_id: 1},
+  {status: 'pending', user_id: 4, address_id: 1},
+  {status: 'returned', user_id: 5, address_id: 1},
+  {status: 'completed', user_id: 1, address_id: 1},
+  {status: 'completed', user_id: 2, address_id: 1},
+  {status: 'completed', user_id: 2, address_id: 1},
+  {status: 'completed', user_id: 2, address_id: 1},
+  {status: 'completed', user_id: 2, address_id: 1},
 ]
 
 const seedOrdersFunc = () => {return db.Promise.each(seedOrders, order => db.model('orders').create(order))}
@@ -30,19 +40,15 @@ const seedProducts = [
   {name: 'Provolone', price: 10.00, stockQuantity: 1, summary: ['Po valley staple', 'Award Winner'], description: 'Provolone is an Italian cheese made from cow’s milk whose origins lie in Southern Italy. Today, the major production of Provolone takes place in Po valley region, particularly Lombardy and Veneto. Both Provolone Valpadana and Provolone del Monaco are granted DOP designation by the European Union to ensure that cheese is produced under strict supervision using specific methods to guarantee supreme quality.', imageURL: 'http://www.cheese.com/media/img/cheese/Provolone_3.jpg', category: '', location: 'USA', age: 1, milkType: 'sheep'},
   {name: 'Parmesan', price: 10.00, stockQuantity: 1, summary: ['Excellent on pasta'], description: 'The Parmigiano Reggiano or Parmesan cheese as it is called in English is considered to be among the top cheeses by cheese connoisseurs. Today, it is produced by various producers. However, PDO designation states that for a cheese to be called as Parmesan, it has to be produced from cows grazing on fresh grass and hay.', imageURL: 'http://media1.s-nbcnews.com/i/newscms/2016_07/977756/grated-parmesan-today-tease-160217_f9ef7604016457433d18c10f422ffcde.jpg', category: '', location: 'USA', age: 1, milkType: 'cow'},
   {name: 'Feta', price: 10.00, stockQuantity: 1, summary: ['Greek Classic', 'The White Cheese'], description: 'Feta is undoubtedly one of the most famous Greek cheeses. In fact, Feta occupies 70% stake in Greek cheese consumption. The cheese is protected by EU legislations and only those cheeses manufactured in Macedonia, Thrace, Thessaly, Central Mainland Greece, the Peloponnese and Lesvos can be called ‘feta’. Similar cheeses produced elsewhere in the eastern Mediterranean and around the Black Sea, outside the EU, are often called ‘white cheese’.', imageURL: 'http://www.cheese.com/media/img/cheese/Greek_Feta_1.jpg', category: '', location: 'USA', age: 1, milkType: 'sheep'},
-  // {name: '', price: 10.00, stockQuantity: 1, summary: ['', 'Award Winner'], description: '', imageURL: '', category: '', location: 'USA', age: 1, milkType: 'cow'},
-  // {name: '', price: 10.00, stockQuantity: 1, summary: ['', 'Award Winner'], description: '', imageURL: '', category: '', location: 'USA', age: 1, milkType: 'cow'},
-  // {name: '', price: 10.00, stockQuantity: 1, summary: ['', 'Award Winner'], description: '', imageURL: '', category: '', location: 'USA', age: 1, milkType: 'cow'},
-  // {name: '', price: 10.00, stockQuantity: 1, summary: ['', 'Award Winner'], description: '', imageURL: '', category: '', location: 'USA', age: 1, milkType: 'cow'},
-  // {name: '', price: 10.00, stockQuantity: 1, summary: ['', 'Award Winner'], description: '', imageURL: '', category: '', location: 'USA', age: 1, milkType: 'cow'},
-  // {name: '', price: 10.00, stockQuantity: 1, summary: ['', 'Award Winner'], description: '', imageURL: '', category: '', location: 'USA', age: 1, milkType: 'cow'},
 ]
 
 const seedProductsFunc = () => {return db.Promise.each(seedProducts, product => db.model('products').create(product))}
 
 const seedProductOrders = [
-	{name: 'Cheddar', price: 25.50, imageURL: 'http://i.imgur.com/RlngTOV.jpg', quantity: 1, userid: 1, inCart: false, order_id: 2, ordered_product_id: 5},
-  {name: 'Swiss', price: 10.00, imageURL: 'http://i.imgur.com/RlngTOV.jpg', quantity: 3, userid: 2, inCart: true, order_id: 1,ordered_product_id: 6}
+  {price: 10.00, quantity: 1, name: 'Cheddar', ordered_product: 5, userid: 3, order_id: 1, inCart: false},
+  {price: 10.00, quantity: 1, name: 'Swiss', ordered_product: 6, userid: 3, order_id: 1, inCart: false},
+  {price: 10.00, quantity: 1, name: 'American', ordered_product: 7, userid: 3, order_id: 1, inCart: false},
+
 ]
 
 const seedProductOrdersFunc = () => {return db.Promise.each(seedProductOrders, productOrder => db.model('productOrders').create(productOrder))}
