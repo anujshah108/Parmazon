@@ -41,7 +41,7 @@ export default class NavBar extends Component {
     <nav>
       <div className="nav-wrapper teal lighten-2">
         <ul className="left hide-on-med-and-down">
-          <li><a href="/" ><i className="material-icons">Home</i></a></li>
+          <li><a href="/" ><i className="material-icons">PARMAZON</i></a></li>
           <li><a href="/">Home</a></li>
           <li><Link to='/products'>All Products</Link></li>
           <li><a className="dropdown-button" href="#!" data-activates="dropdown1">Categories<i className="material-icons right">arrow_drop_down</i></a></li>
