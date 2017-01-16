@@ -65,7 +65,7 @@ export default class NavBar extends Component {
             <form id='search' onSubmit={this.handleSearch}>
               <div className="input-field">
                <input id="search" type="search" required/>
-               <label for="search"><i className="material-icons">search</i></label>
+               <label htmlFor="search"><i className="material-icons">search</i></label>
                <i className="material-icons">close</i>
               </div>
             </form>
@@ -89,7 +89,7 @@ export default class NavBar extends Component {
             <form id='search' onSubmit={this.handleSearch}>
               <div className="input-field">
                <input id="search" type="search" required/>
-               <label for="search"><i className="material-icons">search</i></label>
+               <label htmlFor="search"><i className="material-icons">search</i></label>
                <i className="material-icons">close</i>
               </div>
             </form>

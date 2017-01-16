@@ -38,12 +38,12 @@ module.exports = require('express').Router()
 	//update a user that is passed through req.params
 	.put('/:id', (req, res, next) =>
 		User.findById(req.params.id)
-		.then(user => user.update(req.body)
+		.then(user => user.update(req.body))
 			.then(updatedUser => res.json(updatedUser))
 			.catch(next))
 		//deletes a user that is selected from req.params
-		.delete('/:id', (req, res, next) =>
+	.delete('/:id', (req, res, next) =>
 			User.findById(req.params.id)
 			.then(userToDestroy => userToDestroy.destroy())
 			.then(res.sendStatus(204))
-			.catch(next)))
+			.catch(next))
