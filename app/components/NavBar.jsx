@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import {Link} from 'react-router'
+import {Link, browserHistory} from 'react-router'
 import {logout} from 'APP/app/reducers/auth'
 import store from '../store'
 
+
+
 export default class NavBar extends Component {
+  constructor(props){
+    super(props);
+    this.handleSearch = this.handleSearch.bind(this);
+  }
 
   logOutFunc(){
     store.dispatch(logout())
@@ -16,6 +22,12 @@ export default class NavBar extends Component {
    });
   }
 
+  handleSearch(event){
+    event.preventDefault()
+    browserHistory.push(`/search/${event.target.search.value}`)
+    var form = document.getElementById("search");
+    form.reset();
+  }
   render() {
     return (
     <div className="navbar-fixed">
@@ -47,6 +59,18 @@ export default class NavBar extends Component {
   renderSignedout() {
     return (
       <div>
+        <li>
+        <div className="nav-wrapper">
+
+            <form id='search' onSubmit={this.handleSearch}>
+              <div className="input-field">
+               <input id="search" type="search" required/>
+               <label for="search"><i className="material-icons">search</i></label>
+               <i className="material-icons">close</i>
+              </div>
+            </form>
+          </div>
+        </li>
         <li><Link to='/signup/'>Sign Up</Link></li>
         <li><Link to='/login/'>Log In</Link></li>
         <li><Link to='/cart'><i className="material-icons">shopping_cart</i></Link></li>
@@ -59,6 +83,18 @@ export default class NavBar extends Component {
     var myAccountRoute = this.props.user.isAdmin ? '/myAccount' : `/myAccount/users/${this.props.user.id}`
     return (
       <div>
+        <li>
+        <div className="nav-wrapper">
+
+            <form id='search' onSubmit={this.handleSearch}>
+              <div className="input-field">
+               <input id="search" type="search" required/>
+               <label for="search"><i className="material-icons">search</i></label>
+               <i className="material-icons">close</i>
+              </div>
+            </form>
+          </div>
+        </li>
         <li><Link to={myAccountRoute}>My Account</Link></li>
         <li onClick={this.logOutFunc}><Link to='/'>Logout</Link></li>
         <li><Link to='/cart'><i className="material-icons">shopping_cart</i></Link></li>

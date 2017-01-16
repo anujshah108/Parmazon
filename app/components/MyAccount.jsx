@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
 import UserOrders from './UserOrders';
+import axios from 'axios';
 
 export default class MyAccount extends Component {
 	constructor(props) {
@@ -10,6 +11,11 @@ export default class MyAccount extends Component {
           orders: this.props.userOrders,
           allOrders: this.props.allOrders
         };
+    }
+
+    handlePromoteToAdmin(event){
+      event.preventDefault();
+
     }
 
 
