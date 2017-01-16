@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-
+import axios from 'axios';
 
 export default class AddProduct extends Component {
 
 	constructor(props){
 		super(props)
 		this.state = {};
-		this.handleSubmitCreate = this.handleSubmitCreate.bind();
+		this.handleSubmitCreate = this.handleSubmitCreate.bind(this);
 	}
 
 	handleSubmitCreate(event){
 		event.preventDefault();
-		axios.post('/api/products', this.getState()).then();
+		axios.post('/api/products/', this.state).then();
 	}
 
 	render(){
@@ -51,7 +51,7 @@ export default class AddProduct extends Component {
 			    <div className="row">
 			      <div className="input-field col s12">
 			        <label className="active" htmlFor="productSummary">Summary</label>
-			        <input id="productSummary" onChange={e => this.setState({ summary: e.target.value })} type="text" className="validate"/>
+			        <input id="productSummary" onChange={e => this.setState({ summary: [e.target.value] })} type="text" className="validate"/>
 			      </div>
 			    </div>
 			    <div className="row">
@@ -72,7 +72,13 @@ export default class AddProduct extends Component {
 			        <input id="productMilkType" onChange={e => this.setState({ milkType: e.target.value })} type="text" className="validate"/>
 			      </div>
 			    </div>
-			    <button type="submit" className="btn btn-success">edit</button>
+			    <div className="row">
+			      <div className="input-field col s12">
+			        <label className="active" htmlFor="productName">Category</label>
+			        <input id="productCategory" onChange={e => this.setState({category: e.target.value })} type="text" className="validate"/>
+			      </div>
+			    </div>
+			    <button type="submit" className="btn btn-success">add</button>
 			  </form>
 			</div>
 
