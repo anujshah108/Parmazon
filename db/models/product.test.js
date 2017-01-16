@@ -9,7 +9,7 @@ const { expect } = require('chai')
 
           // *Assertion translation*:
           // This assertion expects that the Product model will
-          // put a `price` column in the messages table.
+          // put a `price` column in the table.
           it('has expected subject definition', () => {
               expect(Product.attributes.price).to.be.an('object');
           });

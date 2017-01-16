@@ -14,8 +14,7 @@ describe('/api/products', () => {
 
     it('POST creates a product', () =>
       request(app)
-        .post('/api/products')
-        .send({
+        .post('/api/products', {
           name: 'cheeseTest',
           price: 4.44,
           stockQuantity: 100,

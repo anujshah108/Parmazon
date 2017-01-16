@@ -8,7 +8,7 @@ describe('ProductOrder Model', () => {
 	describe('definition', () => {
 
 		it('has expected product definition', () => {
-			expect(ProductOrder.attributes.product).to.be.an('object');
+			expect(ProductOrder.attributes.name).to.be.an('object');
 		});
 
 		it('has expected quantity definition', () => {
