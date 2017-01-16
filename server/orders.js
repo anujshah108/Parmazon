@@ -83,7 +83,7 @@ module.exports = require('express').Router()
 		.catch(next))
 
 	//delete a product from an order
-	.delete('/products/:productId', (req, res, next) =>
+	.delete('/:id/products/:productId', (req, res, next) =>
 		ProductOrder.destroy({
 			where:{
 				order_id: req.params.id,
