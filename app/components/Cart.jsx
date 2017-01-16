@@ -4,7 +4,6 @@ import axios from 'axios'
 import {Router} from 'react-router'
 
 
-
 export default class Cart extends Component {
   constructor(props) {
         super(props);
@@ -12,8 +11,9 @@ export default class Cart extends Component {
       }
 
     handleOnClickDelete(id){
-       axios.delete(`/api/orders/${this.props.cart.id}/products/${id}`)
-    .then();
+
+       axios.delete(`/api/orders/${this.props.cart.id}/products/${id}`, {}).then();
+    
     }
 
   render(){
@@ -23,14 +23,17 @@ export default class Cart extends Component {
     this.props.products.map(product => {
       total += (product.price*product.quantity)
       return (
-      <div key={product.id}>
-        <img src={product.imageURL} height='75'/>
-        <div>name={product.name}</div>
-        <div>price={product.price}</div>
-        <div>quantity={product.quantity}</div>
-        <button onClick={() => this.handleOnClickDelete(product.id)}>Delete</button>
-      </div> )
-   } )
+
+          <tr className="collection " key={product.id}> 
+                <td><img height='50' src={product.imageURL}/></td>  
+                <td>{product.name}</td>
+                <td>{product.price}</td>
+                <td>{product.quantity}</td>
+                <td><Link to={`/products/${product.id}`}><i className="material-icons">trending_flat</i></Link></td>
+                <td><button onClick={() => this.handleOnClickDelete(product.id)}>Delete</button></td>
+          </tr> 
+          )
+        } )
   ) : (
     <em>Please add some products to cart.</em>
   )
@@ -38,11 +41,30 @@ export default class Cart extends Component {
   return (
     <div>
       <h3>Your Cart</h3>
-      <div>{nodes}</div>
+            <table className="highlight">
+                <thead>
+                  <tr>
+                      <th data-field="productImg"></th>
+                      <th data-field="name">Order Date</th>
+                      <th data-field="price">Order Status</th>
+                      <th data-field="quantity">Quantiity</th>
+                      <th data-field="link">View</th>
+                      <th data-field="delete">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {nodes}
+              </tbody>
+            </table>
+
+
+
+
       <p>Total: {total}</p>
       <Link to='/checkout'><button disabled={hasProducts ? '' : 'disabled'}>
         Checkout
       </button></Link>
+      
     </div>
   )
 }
