@@ -52,7 +52,7 @@ export default class Product extends Component {
 //TODO
 //write html/css product component
 //plug in react
-//renderAdmin in a conditional underneath 
+//renderAdmin in a conditional underneath
   render() {
     let product = this.props.product || {};
     let x = this.props.rating.stars
@@ -195,7 +195,7 @@ export default class Product extends Component {
                                 <h2 className="h2-responsive">{product.name}</h2>
                                 <hr/>
                                 <div>{`${product.description}`}</div>
-                                <div><h5>Rating: </h5><Rating image='https://raw.githubusercontent.com/enzoferey/react-rating-system/master/dist/star.png' fillBG="gold" initialBG="white" initialValue={this.props.rating.stars} editable={true} containerStyle={{ maxWidth: '200px' }}/></div><br/><br/>
+                                <div><h5>Rating: </h5><Rating image='https://raw.githubusercontent.com/enzoferey/react-rating-system/master/dist/star.png' fillBG="gold" initialBG="white" initialValue={this.props.rating.stars} editable={false} containerStyle={{ maxWidth: '200px' }}/></div><br/><br/>
                                 <div><h5>Summary: </h5>{`${product.summary}`}</div>
                                 <div><h5>Location: </h5>{`${product.location}`}</div>
                                 <div><h5>Age: </h5>{`${product.age}`}</div>
@@ -227,6 +227,6 @@ export default class Product extends Component {
         )
 
       }
-      
+
   }
 }
