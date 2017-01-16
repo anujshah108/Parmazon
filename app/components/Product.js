@@ -77,7 +77,7 @@ export default class Product extends Component {
                                 <div><h5>Summary: </h5>{`${product.summary}`}</div>
                                 <div><h5>Location: </h5>{`${product.location}`}</div>
                                 <div><h5>Age: </h5>{`${product.age}`}</div>
-                                <div><h5>Milk Type: </h5>{`${product.milkType}`}</div>
+                                <div><h5>Milk Type: </h5>{`${product.milkType.charAt(0).toUpperCase() + product.milkType.slice(1)}`}</div>
                             </div>
 
                         </div>
