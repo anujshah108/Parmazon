@@ -38,7 +38,6 @@ export default class Reviews extends Component {
       <div>
        {reviews}
        <form onSubmit={event => {
-      event.preventDefault()
       axios.post(`/api/products/review`, {
       title: event.target.title.value,
       body: event.target.body.value,
