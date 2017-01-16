@@ -60,7 +60,7 @@ export default class Products extends Component {
       })
     return (
       <div className = 'row'>
-      <Link to={'/products/add'} ><button className='btn'>Add new product</button></Link>
+      <Link to={'/addProducts'} ><button className='btn'>Add new product</button></Link>
         {productsList}
       </div>
     )
