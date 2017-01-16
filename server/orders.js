@@ -49,7 +49,6 @@ module.exports = require('express').Router()
 			}
 		})
 		.then(order => {
-			console.log(order)
 			res.json(order)
 			})
 		.catch(next)
@@ -76,7 +75,6 @@ module.exports = require('express').Router()
 				})
 			}
 			else{
-				console.log(req.body)
 				return ProductOrder.create(req.body)
 			}
 		}).then(product => {
