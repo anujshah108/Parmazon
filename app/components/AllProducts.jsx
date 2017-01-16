@@ -59,9 +59,18 @@ export default class AllProducts extends Component {
           )**/}
 
       })
+
+    if(this.props.user.isAdmin){
+      return (
+        <div className = 'row'>
+        <Link to={'/addProducts'} ><button className='btn'>Add new product</button></Link>
+          {productsList}
+        </div>
+      )
+
+    }
     return (
       <div className = 'row'>
-      <Link to={'/addProducts'} ><button className='btn'>Add new product</button></Link>
         {productsList}
       </div>
     )
