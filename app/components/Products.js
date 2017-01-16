@@ -12,7 +12,7 @@ export default class Products extends Component {
   render() {
 
     let products = this.props.products || [];
-    let productsList = products.filter(product=>product.stockQuantity>0).map(function(product){
+    let productsList = products.filter(product => product.stockQuantity > 0).map(function(product){
 
 
       return (

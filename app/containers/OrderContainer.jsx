@@ -6,7 +6,8 @@ function mapStateToProps(state) {
   // console.log(state)
   return {
     singleOrder: state.orders.currentOrder,
-    products: state.orders.currentOrderProducts
+    products: state.orders.currentOrderProducts,
+    user: state.users.currentUser
 	}
 }
 function mapDispatchToProps(state) {
