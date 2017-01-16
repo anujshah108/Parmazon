@@ -15,15 +15,27 @@ export default class AllProducts extends Component {
     let productsList = products.map(function(product){
 
       if(product.stockQuantity <= 0) return;
+
       return (
-         <div className='productsProduct col s4' key={product.id}>
-            <Link to={`/products/${product.id}`}>
-            <img className='productsImage' height="100" src={product.imageURL}/>
-            <div className='productsName'>{product.name}</div>
-            <div className='productsPrice'>Price: {`$ ${product.price}`}</div>
-            <div className='productsRating'>Rating: {'★ '+ product.rating}</div>
-             </Link>
-        </div> )
+
+            <div className="col s4" key={product.id}>
+             <Link to={`/products/${product.id}`}>
+                            <div className="card">
+                                <div className="view overlay hm-white-slight">
+                                    <img src={product.imageURL} className="img-fluid" height='100' alt=""/>
+
+                                        <div className="mask"></div>
+
+                                </div>
+                                <div className="card-block">
+                                    <h4 className="card-title">{product.name}</h4>
+                                    <p className="card-text">{product.description}</p>
+                                    <button href="#" className="btn btn-primary">Buy now for {`$ ${product.price}`}</button>
+                                </div>
+                            </div>
+                            </Link>
+                        </div>
+        )
 
         {/**return(
           <div className='productsProduct col s4' key={product.id}>
@@ -49,6 +61,7 @@ export default class AllProducts extends Component {
       })
     return (
       <div className = 'row'>
+      <Link to={'/addProducts'} ><button className='btn'>Add new product</button></Link>
         {productsList}
       </div>
     )

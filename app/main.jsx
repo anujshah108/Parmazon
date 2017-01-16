@@ -30,6 +30,7 @@ import CategoryProduct from './containers/CategoryProductContainer'
 import SearchProduct from './containers/SearchProductsContainer'
 import ConfirmationPage from './components/ConfirmationPage'
 import AddProduct from './components/AddProduct'
+import AllProducts from './containers/AllProductsContainer'
 
 const onHomePageEnter = function() {
   store.dispatch(fetchProductsFromServer());
@@ -88,7 +89,7 @@ render (
     	<Route path='/' component={App}>
       <IndexRoute component={HomePage} onEnter={onHomePageEnter} />
     	<Route path='/products/:productId' component={Product} onEnter={onSingleProductEnter}/>
-      <Route path='/products' component={Products} onEnter={onHomePageEnter}/>
+      <Route path='/products' component={AllProducts} onEnter={onHomePageEnter}/>
       <Route path='/products/category/:cat' component={CategoryProduct} onEnter={onHomePageEnter}/>
       <Route path='/myAccount/orders' component={Orders} onEnter={onOrdersEnter} />
       <Route path='/myAccount/orders/:orderId' component={Order} onEnter={onOrderEnter}/>
@@ -102,7 +103,7 @@ render (
       <Route path='/checkout' component={CheckoutContainer} onEnter={onCheckoutEnter}/>
       <Route path='/confirmation' component={ConfirmationPage} />
       <Route path='/search/:term' component={SearchProduct} onEnter={onHomePageEnter}/>
-      <Route path='/addProducts' component={AddProduct}/> 
+      <Route path='/addProducts' component={AddProduct}/>
     		{/**<Route path='/products' component={products}/>
     		    		<Route path='/products/category?' component={products}/>
 

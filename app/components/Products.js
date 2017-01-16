@@ -22,9 +22,9 @@ export default class Products extends Component {
                             <div className="card">
                                 <div className="view overlay hm-white-slight">
                                     <img src={product.imageURL} className="img-fluid" height='100' alt=""/>
-                                    
+
                                         <div className="mask"></div>
-                                    
+
                                 </div>
                                 <div className="card-block">
                                     <h4 className="card-title">{product.name}</h4>
@@ -60,7 +60,6 @@ export default class Products extends Component {
       })
     return (
       <div className = 'row'>
-      <Link to={'/addProducts'} ><button className='btn'>Add new product</button></Link>
         {productsList}
       </div>
     )
