@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Reviews from './Reviews'
 import Rating from 'react-rating-system';
+import {fetchRatingforProduct} from '../reducers/actionCreators'
+import store from '../store'
 
 export default class Product extends Component {
   constructor(props) {
@@ -48,6 +50,7 @@ export default class Product extends Component {
 
   render() {
     let product = this.props.product || {};
+    let x = this.props.rating.stars
 
     if(this.props.user.isAdmin){
 
@@ -164,37 +167,63 @@ export default class Product extends Component {
           </div>
       </div> )
     }
-    else {
+    else if(this.props.rating){
       return (
-        <div className='productProduct'>
-          <img className='productImage' height="100" src={this.state.imageURL || product.imageURL}/>
-          <div id='productName' className='productName'>{this.state.name || product.name}</div>
-          <div className='productRating'>Rating: {'★ ' + (this.state.rating || this.props.rating.stars)}</div>
-          <div className='productPrice'>Price: {`$ ${this.state.price || product.price}`}</div>
-          <div className='productStock'>Stock: {`${this.state.stockQuantity || product.stockQuantity}`}</div>
-          <div className='productDescription'>Description: {`${this.state.description || product.description}`}</div>
-          <div className='productSummary'>Summary: {`${this.state.summary || product.summary}`}</div>
-          <div className='productLocation'>Location: {`${this.state.location || product.location}`}</div>
-          <div className='productAge'>Age: {`${this.state.age || product.age}`}</div>
-          <div className='productMilk'>Milk Type: {`${this.state.milkType || product.milkType}`}</div>
-           <br/>
-            <br/>
-            <div>Quantity</div>
-            <span className='row'><input onChange={e => this.setState({ quantity: e.target.value })} className='col s3' type='number'/></span>
-            <br/>
-            <button onClick={this.handleSubmitAddToCart} className='waves-effect waves-light btn-small'>Add To Cart</button>
-            <br/>
-            <br/>
-            <div> REVIEWS </div>
-            <Reviews user={this.props.user} reviews={this.props.reviews} product={this.props.product}/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-        </div>
+       <div className='col s6'>
+          <div className ='row'>
+         <div className="col-lg-8">
+
+                    <div className="row">
+                        <div className="col-md-12">
+
+                            <div className="product-wrapper">
+
+                                <div className="view overlay hm-white-light z-depth-1-half">
+                                    <img src={product.imageURL} className="img-fluid " height='500'/>
+                                    <div className="mask">
+                                    </div>
+                                    <h5 className="price"><span>{`$ ${product.price}`}</span></h5>
+                                </div>
+
+                                <br/>
+
+                                <h2 className="h2-responsive">{product.name}</h2>
+                                <hr/>
+                                <div>{`${product.description}`}</div>
+                                <div><h5>Rating: </h5><Rating image='https://raw.githubusercontent.com/enzoferey/react-rating-system/master/dist/star.png' fillBG="gold" initialBG="white" initialValue={this.props.rating.stars} editable={false} containerStyle={{ maxWidth: '200px' }}/></div><br/><br/>
+                                <div><h5>Summary: </h5>{`${product.summary}`}</div>
+                                <div><h5>Location: </h5>{`${product.location}`}</div>
+                                <div><h5>Age: </h5>{`${product.age}`}</div>
+                                <div><h5>Milk Type: </h5>{`${product.milkType}`}</div>
+                            </div>
+
+                        </div>
+                        <br/>
+                         <br/>
+                         <div>Quantity</div>
+                         <span className='row'><input value={this.state.quantity} onChange={e => this.setState({ quantity: e.target.value })} className='col s3' type='number'/></span>
+                         <br/>
+                         <button onClick={this.handleSubmitAddToCart} className='waves-effect waves-light btn-small'>Add To Cart</button>
+                         <br/>
+                         <br/>
+                         <div className="reviews">
+                            <h2 className="h2-responsive">Reviews</h2>
+                             <Reviews user={this.props.user} reviews={this.props.reviews} product={this.props.product}/>
+                        </div>
+                         <br/>
+                         <br/>
+                         <br/>
+                         <br/>
+                         <br/>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
         )
 
+      }
+      else{
+        return <div></div>
       }
   }
 }
