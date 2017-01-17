@@ -46,7 +46,6 @@ export const signup = (firstName, lastName, email, password) =>
       .then((user) => {
         user = user.data
         dispatch(login(user.email, user.password))
-        console.log('butt')
       })
 
 export default reducer

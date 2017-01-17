@@ -1,79 +1,56 @@
 # Parmazon
 
-One Paragraph of project description goes here
+Parmazon is an e-commerce platform that allows businesses to connect users with thier cheese. It was built using Node, Express, React and PostgreSQL as a project for senior phase at Fullstack Acadmey. The site is deployed and viewable at parmazon.club (it's deployed via a free Heroku plan, so it might take a minute or so to load)
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Follow these steps to get the project running on your machine 
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+This guide assumes that you have Node (and npm) installed. If you don't, you can get it here: https://nodejs.org.
+You'll also need a PostgreSQL database, we used [Postgres.app](https://postgresapp.com/)
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
+Setup is easy, in the project directory run
 
 ```
-Give the example
+npm install
 ```
 
-And repeat
+To start the server, 
 
 ```
-until finished
+npm run build
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+and then
+
+```
+npm start
+```
+
+then connect to localhost:1337.
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+Our test suite features testing for the database, routing and frontend. On the frontend, we test our React componets and Redux action creators for expected behavior, and also test specific forms such as login. All tests are run via 
 
 ```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
+npm test
 ```
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Parmazon is deployed on Heroku with minimal additional configuration. The .profile file and install scripts are written to handle deployment. If you wish to deploy yourself, make sure you've installed the Heroku Postgres add-ons, then from the command line simply
 
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+```
+git push heroku master
+```
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+* **Anuj Shah** - [GitHub](https://github.com/anujshah108)
+* **Patryk Chmura** - [GitHub](https://github.com/pchmura)
+* **Evan Scribner-MacLean** - [GitHub](https://github.com/eScribMac)
