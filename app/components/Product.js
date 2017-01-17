@@ -46,11 +46,13 @@ export default class Product extends Component {
   render() {
     let product = this.props.product || {};
     let x = this.props.rating.stars
+    let milkType = product.milkType ? product.milkType : "test"
+    let stockQuantity = product.stockQuantity ? product.stockQuantity : "Item Is Sold Out"
 
     if(this.props.user.isAdmin){
 
       return (
-        <div className='col s6'>
+        <div className='col s6' id='productContainer'>
           <div className ='row'>
          <div className="col-lg-8">
 
@@ -73,9 +75,10 @@ export default class Product extends Component {
                                 <div>{`${product.description}`}</div>
                                 <div><h5>Rating: </h5><Rating image='https://raw.githubusercontent.com/enzoferey/react-rating-system/master/dist/star.png' fillBG="gold" initialBG="white" initialValue={this.props.rating.stars} editable={false} containerStyle={{ maxWidth: '200px' }}/></div><br/><br/>
                                 <div><h5>Summary: </h5>{`${product.summary}`}</div>
+                                <div><h5>Availability: </h5>{`${stockQuantity}`}</div>
                                 <div><h5>Location: </h5>{`${product.location}`}</div>
                                 <div><h5>Age: </h5>{`${product.age}`}</div>
-                                <div><h5>Milk Type: </h5>{product.milkType}</div>
+                                <div><h5>Milk Type: </h5>{milkType.charAt(0).toUpperCase() + milkType.slice(1)}</div>
                             </div>
 
                         </div>
@@ -164,7 +167,7 @@ export default class Product extends Component {
     }
     else {
       return (
-       <div className='col s6'>
+       <div className='col s6' id='productContainer'>
           <div className ='row'>
          <div className="col-lg-8">
 
@@ -187,9 +190,10 @@ export default class Product extends Component {
                                 <div>{`${product.description}`}</div>
                                 <div><h5>Rating: </h5><Rating image='https://raw.githubusercontent.com/enzoferey/react-rating-system/master/dist/star.png' fillBG="gold" initialBG="white" initialValue={this.props.rating.stars} editable={false} containerStyle={{ maxWidth: '200px' }}/></div><br/><br/>
                                 <div><h5>Summary: </h5>{`${product.summary}`}</div>
+                                <div><h5>Availability: </h5>{`${stockQuantity}`}</div>
                                 <div><h5>Location: </h5>{`${product.location}`}</div>
                                 <div><h5>Age: </h5>{`${product.age}`}</div>
-                                <div><h5>Milk Type: </h5>{product.milkType}</div>
+                                <div><h5>Milk Type: </h5>{milkType.charAt(0).toUpperCase() + milkType.slice(1)}</div>
                             </div>
 
                         </div>

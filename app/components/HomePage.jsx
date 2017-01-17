@@ -33,23 +33,18 @@ $('.slider').slider('prev');
              <div className="slider">
                  <ul className="slides">
                    <li>
-                     <img src="http://cdn.wall-pix.net/cache/art-photography/39/39e85122d3f545ef5cc05aba2f73bb62dad0ebb0.jpg"/>
+                     <img src="http://www.eatwisconsincheese.com/EatWisconsinCheese/media/content/hero%20images/hero-cheese.png"/>
                      <div className="caption center-align">
-                       <h3>Welcome To Parmazon!</h3>
                      </div>
                    </li>
                    <li>
                      <img src="https://cdn.suwalls.com/wallpapers/photography/cheese-31926-2560x1600.jpg"/>
                      <div className="caption left-align">
-                       <h3>We Love Cheese!</h3>
-                       <h5 className="light grey-text text-lighten-3">Shop Now!</h5>
                      </div>
                    </li>
                    <li>
                      <img src="https://amycrawleyphotography.files.wordpress.com/2013/05/img_0049.jpg"/>
                      <div className="caption right-align">
-                       <h3>Best Cheese In The World!</h3>
-                       <h5 className="light grey-text text-lighten-3">Great For Gifts!</h5>
                      </div>
                    </li>
                    <li>
