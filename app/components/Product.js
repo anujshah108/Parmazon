@@ -87,7 +87,7 @@ export default class Product extends Component {
                          <br/>
                          <br/>
                          <div className="reviews">
-                            <h2 className="h2-responsive">Reviews</h2>
+                            <h3 className="h2-responsive">Reviews</h3>
                              <Reviews user={this.props.user} reviews={this.props.reviews} product={this.props.product}/>
                         </div>
                          <br/>
@@ -105,8 +105,13 @@ export default class Product extends Component {
   renderAdmin() {
     return (
       <div>
-        <div> Admin Edit </div>
+        <h4> Admin Edit </h4>
+        <br/>
+        <br/>
           <button onClick={this.handleDeleteButton} className="btn">Delete Product</button>
+          <br/>
+          <br/>
+          <br/>
           <div className="row">
             <form id='productEditForm' className="col s6" onSubmit={this.handleSubmitEdit}>
               <div className="row">
