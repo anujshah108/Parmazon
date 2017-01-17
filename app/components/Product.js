@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {browserHistory} from 'react-router'
 import axios from 'axios';
 import Reviews from './Reviews'
 import Rating from 'react-rating-system';
@@ -46,6 +47,8 @@ export default class Product extends Component {
     event.preventDefault()
     axios.post(`/api/orders/${this.props.cart.id}/products`, {name: this.props.product.name, price:this.props.product.price,quantity:this.state.quantity,imageURL:this.props.product.imageURL,ordered_product_id:this.props.product.id,order_id:this.props.cart.id,user_id:this.props.user.id})
     .then();
+    browserHistory.push('/cart')
+
   }
 
 

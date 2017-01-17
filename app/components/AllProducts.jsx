@@ -63,7 +63,8 @@ export default class AllProducts extends Component {
     if(this.props.user.isAdmin){
       return (
         <div className = 'row'>
-        <Link to={'/addProducts'} ><button className='btn'>Add new product</button></Link>
+         <h2> All Of The Cheeses </h2>
+        <Link to={'/addProducts'} ><button className='btn'>Add new product</button></Link><br/>
           {productsList}
         </div>
       )
@@ -71,6 +72,7 @@ export default class AllProducts extends Component {
     }
     return (
       <div className = 'row'>
+      <h2> All Of The Cheeses </h2>
         {productsList}
       </div>
     )

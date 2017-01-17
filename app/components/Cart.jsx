@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {Link} from 'react-router';
 import axios from 'axios'
 import {Router} from 'react-router'
+import {fetchProductsForCart} from '../reducers/actionCreators'
+import store from '../store'
 
 
 export default class Cart extends Component {
@@ -11,9 +13,10 @@ export default class Cart extends Component {
       }
 
     handleOnClickDelete(id){
-
-       axios.delete(`/api/orders/${this.props.cart.id}/products/${id}`, {}).then();
-    
+       axios.delete(`/api/orders/${this.props.cart.id}/products/${id}`, {})
+       .then(function(){
+        store.dispatch(fetchProductsForCart())
+       })
     }
 
   render(){
@@ -24,14 +27,14 @@ export default class Cart extends Component {
       total += (product.price*product.quantity)
       return (
 
-          <tr className="collection " key={product.id}> 
-                <td><img height='50' src={product.imageURL}/></td>  
+          <tr className="collection " key={product.id}>
+                <td><img height='50' src={product.imageURL}/></td>
                 <td>{product.name}</td>
                 <td>{product.price}</td>
                 <td>{product.quantity}</td>
                 <td><Link to={`/products/${product.id}`}><i className="material-icons">trending_flat</i></Link></td>
                 <td><button onClick={() => this.handleOnClickDelete(product.id)}>Delete</button></td>
-          </tr> 
+          </tr>
           )
         } )
   ) : (
@@ -60,11 +63,11 @@ export default class Cart extends Component {
 
 
 
-      <p>Total: {total}</p>
+      <p>Total: {`$ ${total.toFixed(2)}`}</p>
       <Link to='/checkout'><button disabled={hasProducts ? '' : 'disabled'}>
         Checkout
       </button></Link>
-      
+
     </div>
   )
 }
