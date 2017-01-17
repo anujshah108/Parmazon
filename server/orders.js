@@ -44,7 +44,7 @@ module.exports = require('express').Router()
 			}
 		})
 		.then(function(order){
-		if(req.session.products.length){
+		if(req.session.products){
 		req.session.products.forEach(function(product){
 		ProductOrder.findById(product.id).then(function(product){
 		if(product) product.update({order_id: order[0].id})

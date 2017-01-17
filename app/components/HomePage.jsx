@@ -10,20 +10,18 @@ export default class HomePage extends Component {
         super(props);
 
     }
-      componentDidMount() {
-        $('.slider').slider({full_width: true, height: 600});
-
-// Pause slider
-$('.slider').slider('pause');
-// Start slider
-$('.slider').slider('start');
-// Next slide
-$('.slider').slider('next');
-// Previous slide
-$('.slider').slider('prev');
 
 
-
+  componentDidMount() {
+        $('.slider').slider({full_width: true, height: 600, interval: 1500});
+        // Pause slider
+        $('.slider').slider('pause');
+        // Start slider
+        $('.slider').slider('start');
+        // Next slide
+        $('.slider').slider('next');
+        // Previous slide
+        $('.slider').slider('prev');
   }
 
   render() {

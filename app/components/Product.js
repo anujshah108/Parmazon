@@ -61,6 +61,7 @@ export default class Product extends Component {
                                     <img src={product.imageURL} className="img-fluid " height='500'/>
                                     <div className="mask">
                                     </div>
+                                    <br/>
                                     <h5 className="price"><span>{`$ ${product.price} / Wheel`}</span></h5>
                                 </div>
 
