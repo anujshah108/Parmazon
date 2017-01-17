@@ -5,6 +5,7 @@ const ProductOrder = db.model('productOrders')
 const Address = db.model('addresses')
 const {mustBeLoggedIn, forbidden,} = require('./auth.filters')
 
+
 module.exports = require('express').Router()
 	//route will getAll of the orders in the database, must be logged in as an admin
 	.get('/', (req, res, next) =>
@@ -16,6 +17,10 @@ module.exports = require('express').Router()
 		Order.create()
 		.then(order => res.json(order))
 		.catch(next))
+	.post('/updatecart', (req, res, next) => {
+		req.session.products = req.body.products
+		res.sendStatus(201)
+		})
 	//fetches a single order based on the passed in Id
 	.get('/:id', (req, res, next) =>
 		Order.findById(req.params.id)
@@ -38,9 +43,17 @@ module.exports = require('express').Router()
 				user_id: req.session.guest.id
 			}
 		})
+		.then(function(order){
+		req.session.products.forEach(function(product){
+		ProductOrder.findById(product.id).then(function(product){
+		product.update({order_id: order.id})
+		})
+		})
+		return order
+		})
 		.then(order => res.json(order))
 		.catch(next)
-	}
+		}
 	else{
 		Order.findOrCreate({
 			where: {

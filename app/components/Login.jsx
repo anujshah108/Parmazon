@@ -1,13 +1,19 @@
 import React from 'react'
 import {browserHistory} from 'react-router'
+import store from '../store'
+import axios from 'axios'
 
-export const Login = ({ login }) => (
+
+export const Login = (props) => (
  <div className="signin-container">
         <div className="buffer local">
           <form onSubmit={evt => {
             evt.preventDefault()
-            login(evt.target.email.value, evt.target.password.value)
-            browserHistory.push('/')
+            evt.persist()
+            axios.post(`/api/orders/updatecart`, {cart: props.cart, products:props.products})
+            .then(function(){
+            props.login(evt.target.email.value, evt.target.password.value)
+            browserHistory.push('/')})
           } }>
             <div className="form-group">
               <label>email</label>
@@ -71,7 +77,7 @@ import {login} from 'APP/app/reducers/auth'
 import {connect} from 'react-redux'
 
 export default connect (
-  state => ({}),
+  state => ({cart:state.orders.cart, products:state.orders.cartProducts}),
   {login},
 ) (Login)
 

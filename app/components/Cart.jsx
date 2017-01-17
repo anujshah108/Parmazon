@@ -9,7 +9,6 @@ import store from '../store'
 export default class Cart extends Component {
   constructor(props) {
         super(props);
-        this.state= {butt: 'butt'}
         this.handleOnClickDelete = this.handleOnClickDelete.bind(this)
       }
 
@@ -39,7 +38,9 @@ export default class Cart extends Component {
           )
         } )
   ) : (
-    <em>Please add some products to cart.</em>
+    <tr>
+    <td>Please add some products to cart.</td>
+    </tr>
   )
 
   return (
