@@ -79,7 +79,6 @@ export default class NavBar extends Component {
   }
 
   renderSignedin() {
-    console.log('LOG IN', this.props.user.isAdmin)
     var myAccountRoute = this.props.user.isAdmin ? '/myAccount' : `/myAccount/users/${this.props.user.id}`
     return (
       <div>
