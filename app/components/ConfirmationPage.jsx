@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NavBar from '../containers/NavBarContainer';
 import Products from '../containers/ProductsContainer'
 import axios from 'axios';
+import {Link} from 'react-router'
 
 export default class HomePage extends Component {
 
@@ -40,9 +41,7 @@ export default class HomePage extends Component {
     </div>
 
   </div>
-
-        <button> My Account </button>
-        <button> HomePage </button>
+       <Link to='/'> <button> Go Back To HomePage! </button> </Link>
       </div>
     )
   }
