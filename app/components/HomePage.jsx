@@ -13,7 +13,7 @@ export default class HomePage extends Component {
 
 
   componentDidMount() {
-        $('.slider').slider({full_width: true, height: 600, interval: 3000});
+        $('.slider').slider({full_width: true, height: 600, interval: 2250});
         // Pause slider
         $('.slider').slider('pause');
         // Start slider
