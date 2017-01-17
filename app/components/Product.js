@@ -36,9 +36,7 @@ export default class Product extends Component {
 
   handleSubmitAddToCart(event){
     event.preventDefault()
-    axios.post(`/api/orders/${this.props.cart.id}/products`, {name: this.props.product.name, price:this.props.product.price,quantity:this.state.quantity,imageURL:this.props.product.imageURL,ordered_product_id:this.props.product.id,order_id:this.props.cart.id,user_id:this.props.user.id})
-    .then();
-    browserHistory.push('/cart')
+    axios.post(`/api/orders/${this.props.cart.id}/products`, {name: this.props.product.name, price:this.props.product.price,quantity:this.state.quantity,imageURL:this.props.product.imageURL,ordered_product_id:this.props.product.id,order_id:this.props.cart.id,user_id:this.props.user.id}).then(() => browserHistory.push('/cart'));
 
   }
 

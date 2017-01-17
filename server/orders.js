@@ -44,11 +44,13 @@ module.exports = require('express').Router()
 			}
 		})
 		.then(function(order){
+		if(req.session.products.length){
 		req.session.products.forEach(function(product){
 		ProductOrder.findById(product.id).then(function(product){
-		product.update({order_id: order.id})
+		if(product) product.update({order_id: order[0].id})
 		})
 		})
+		}
 		return order
 		})
 		.then(order => res.json(order))
