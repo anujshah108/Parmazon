@@ -17,7 +17,7 @@ describe('products reducer', () => {
         expect(testStore.getState()).to.be.deep.equal({
             allProducts: [],
             currentProduct: {},
-            currentProductRating: 0,
+            currentProductRating: {stars: 5},
             currentProductReviews: []
         })
     })

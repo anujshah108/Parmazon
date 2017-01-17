@@ -14,14 +14,15 @@ describe('/api/products', () => {
 
     it('POST creates a product', () =>
       request(app)
-        .post('/api/products', {
+        .post('/api/products/')
+        .send ({
           name: 'cheeseTest',
           price: 4.44,
           stockQuantity: 100,
           summary: ['Really Great Cheese'],
           description: 'The best cheese in the whole world',
           imageURL: 'www.cheeseimage.com',
-          categories: 'cheese',
+          category: 'Goat',
           location: 'New York',
           age: 23
         })
@@ -30,7 +31,7 @@ describe('/api/products', () => {
 
     it('POST fails to create a product when missing info', () =>
       request(app)
-        .post('/api/products')
+        .post('/api/products/')
         .send({
           name: 'eve@interloper.com',
           price: 4.44

@@ -14,7 +14,8 @@ describe('users reducer', () => {
   it('should have initial state', () => {
     expect(usersTestStore.getState()).to.be.deep.equal({
       allUsers: [],
-      currentUser: {}
+      currentUser: {},
+      singleUser:{}
     })
   });
 
