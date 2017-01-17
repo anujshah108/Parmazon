@@ -30,7 +30,7 @@ export default class AllProducts extends Component {
                                 <div className="card-block">
                                     <h4 className="card-title">{product.name}</h4>
                                     <p className="card-text">{product.description.slice(0, 175) + ((product.description.length > 175) ? '...' : '')}</p>
-                                    <button href="#" className="btn btn-primary">Buy now for {`$ ${product.price}`}</button>
+                                    <button href="#" className="btn btn-primary">Buy now for {`$ ${product.price} / Wheel`}</button>
                                 </div>
                             </div>
                             </Link>
