@@ -4,7 +4,7 @@ import {RECEIVE_ALL_PRODUCTS, RECEIVE_REVIEWS, RECEIVE_PRODUCT, RECEIVE_RATING} 
 const initialState = {
 	allProducts: [],
 	currentProduct: {},
-	currentProductRating: 0,
+	currentProductRating: {stars: 5},
 	currentProductReviews: []
 };
 

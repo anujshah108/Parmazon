@@ -62,7 +62,6 @@ const onSingleProductEnter = function(nextRouterState) {
   store.dispatch(fetchSingleProduct(nextRouterState.params.productId));
   store.dispatch(fetchRatingforProduct(nextRouterState.params.productId));
   store.dispatch(fetchReviewsforProduct(nextRouterState.params.productId));
-   store.dispatch(fetchOpenCart());
 
 };
 

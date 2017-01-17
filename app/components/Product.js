@@ -10,19 +10,8 @@ export default class Product extends Component {
   constructor(props) {
         super(props);
         this.state = {
-          name: this.props.product.name,
-          imageURL: this.props.product.imageURL,
-          rating: this.props.rating.stars,
-          price: this.props.product.price,
-          stockQuantity: this.props.product.stock,
-          description: this.props.product.description,
-          summary: this.props.product.summary,
-          location: this.props.product.location,
-          age: this.props.product.age,
-          milkType: this.props.product.milkType,
           quantity: 1
         };
-
         this.handleSubmitEdit = this.handleSubmitEdit.bind(this);
         this.handleSubmitAddToCart = this.handleSubmitAddToCart.bind(this);
         this.handleDeleteButton = this.handleDeleteButton.bind(this);
@@ -53,10 +42,6 @@ export default class Product extends Component {
   }
 
 
-//TODO
-//write html/css product component
-//plug in react
-//renderAdmin in a conditional underneath
   render() {
     let product = this.props.product || {};
     let x = this.props.rating.stars
@@ -89,7 +74,7 @@ export default class Product extends Component {
                                 <div><h5>Summary: </h5>{`${product.summary}`}</div>
                                 <div><h5>Location: </h5>{`${product.location}`}</div>
                                 <div><h5>Age: </h5>{`${product.age}`}</div>
-                                <div><h5>Milk Type: </h5>{`${product.milkType.charAt(0).toUpperCase() + product.milkType.slice(1)}`}</div>
+                                <div><h5>Milk Type: </h5>{product.milkType}</div>
                             </div>
 
                         </div>
@@ -203,7 +188,7 @@ export default class Product extends Component {
                                 <div><h5>Summary: </h5>{`${product.summary}`}</div>
                                 <div><h5>Location: </h5>{`${product.location}`}</div>
                                 <div><h5>Age: </h5>{`${product.age}`}</div>
-                                <div><h5>Milk Type: </h5>{`${product.milkType}`}</div>
+                                <div><h5>Milk Type: </h5>{product.milkType}</div>
                             </div>
 
                         </div>

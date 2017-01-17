@@ -9,12 +9,13 @@ import store from '../store'
 export default class Cart extends Component {
   constructor(props) {
         super(props);
+        this.state= {butt: 'butt'}
         this.handleOnClickDelete = this.handleOnClickDelete.bind(this)
       }
 
     handleOnClickDelete(id){
        axios.delete(`/api/orders/${this.props.cart.id}/products/${id}`, {})
-       this.forceUpdate(callback)
+       this.setState({})
     }
 
   render(){
@@ -28,9 +29,9 @@ export default class Cart extends Component {
           <tr className="collection " key={product.id}>
                 <td><img height='50' src={product.imageURL}/></td>
                 <td>{product.name}</td>
-                <td>{product.price}</td>
+                <td>{`$ ${product.price}`}</td>
                 <td>{product.quantity}</td>
-                <td><Link to={`/products/${product.id}`}><i className="material-icons">trending_flat</i></Link></td>
+                <td><Link to={`/products/${product.ordered_product_id}`}><i className="material-icons">trending_flat</i></Link></td>
                 <td><button onClick={() => this.handleOnClickDelete(product.id)}>Delete</button></td>
           </tr>
           )
@@ -46,8 +47,8 @@ export default class Cart extends Component {
                 <thead>
                   <tr>
                       <th data-field="productImg"></th>
-                      <th data-field="name">Order Date</th>
-                      <th data-field="price">Order Status</th>
+                      <th data-field="name">Product Name</th>
+                      <th data-field="price">Price</th>
                       <th data-field="quantity">Quantiity</th>
                       <th data-field="link">View</th>
                       <th data-field="delete">Delete</th>

@@ -44,33 +44,33 @@ export default class Order extends Component {
           this.props.products.map(product => {
             total += (product.price * product.quantity)
             return (
-              <tr className="collection " key={product.id}> 
-                    <td><img height='50' src={product.imageURL}/></td>  
+              <tr className="collection " key={product.id}>
+                    <td><img height='50' src={product.imageURL}/></td>
                     <td>{product.name}</td>
-                    <td>{product.price}</td>
+                    <td>{`$ ${product.price}`}</td>
                     <td>{product.quantity}</td>
                     <td><Link to={`/products/${product.id}`}><i className="material-icons">trending_flat</i></Link></td>
-              </tr> 
+              </tr>
                    )
          } )
         ) : (
           <em>Please add some products to cart.</em>
         )
-	
+
         if(this.props.user.isAdmin){
             return (
-                        
-                      
+
+
                         <div className='productProduct'>
-                        
+
                             <div>
                                 <h3>Your Order</h3>
                                 <table className="highlight">
                                     <thead>
                                       <tr>
                                           <th data-field="productImg"></th>
-                                          <th data-field="name">Order Date</th>
-                                          <th data-field="price">Order Status</th>
+                                          <th data-field="name">Product Name</th>
+                                          <th data-field="price">Price</th>
                                           <th data-field="quantity">Quantiity</th>
                                           <th data-field="link">View</th>
                                       </tr>
@@ -91,7 +91,7 @@ export default class Order extends Component {
 
     	  return (
     	    <div className='productProduct'>
-    	 
+
     	      <div>
                 <h3>Your Order</h3>
                 <table className="highlight">
@@ -110,7 +110,7 @@ export default class Order extends Component {
                             </table>
                 <p>Total: {total}</p>
               </div>
-    	      
+
     	    </div>
     	    )
     }

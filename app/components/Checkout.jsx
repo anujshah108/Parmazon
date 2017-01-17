@@ -202,7 +202,7 @@ export default class Products extends Component {
     }
     else{
       return (
-       <div> Please Log In Or Sign Up To Continue! </div>
+       <h1> Please Log In Or Sign Up To Continue! </h1>
       )
     }
   }

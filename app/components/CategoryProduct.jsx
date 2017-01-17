@@ -39,7 +39,7 @@ export default class Products extends Component {
 
     return (
       <div className = 'row'>
-      <h2> Products By {this.props.params.cat.charAt(0).toUpperCase() + this.props.params.cat.slice(1)}! </h2>
+      <h2> {this.props.params.cat.charAt(0).toUpperCase() + this.props.params.cat.slice(1)} Milk Cheeses! </h2>
         {productsList}
       </div>
     )
