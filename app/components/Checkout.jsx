@@ -39,7 +39,7 @@ export default class Products extends Component {
     if(this.props.user.id){
       return (
 <div>
-<h2> Only One Step Away From All The Cheese </h2>
+<h2> Only One Step Away From All The Cheese!! </h2>
 <h4> Checkout Below </h4>
 <br/>
 <br/>

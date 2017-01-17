@@ -41,9 +41,9 @@ export default class MyAccount extends Component {
         return (
 
                 <div className='productProduct'>
-            
-                  <div id='productName' className='productName'>{this.props.singleUser.firstName}</div>
-                    <div id='productName' className='productName'>{this.props.singleUser.lastName}</div>
+
+                  <h3 id='productName' className='productName'>{this.props.singleUser.firstName}</h3>
+                    <h3 id='productName' className='productName'>{this.props.singleUser.lastName}</h3>
                     <div>
                       <div className="input-field col s12">
                         <label className="active" htmlFor="productImage">Email</label>
@@ -55,7 +55,7 @@ export default class MyAccount extends Component {
                     {<UserOrders userOrders={this.props.userOrders} user={this.props.currentUser} singleUser={this.props.singleUser} allOrders={this.props.allOrders}/>}
 
                     {/**<OrdersContainer />**/}
-                  
+
                 </div>
                 </div>
           )
@@ -63,7 +63,7 @@ export default class MyAccount extends Component {
 
     	  return (
     	    <div className='productProduct'>
-    	
+
     	      <div id='productName' className='productName'>{this.props.singleUser.firstName}</div>
               <div id='productName' className='productName'>{this.props.singleUser.lastName}</div>
               <div>
@@ -73,11 +73,11 @@ export default class MyAccount extends Component {
                   <button onClick={this.handleEditEmail}className='btn'>Edit Email</button>
                 </div>
               <UserOrders userOrders={this.props.userOrders} user={this.props.currentUser} singleUser={this.props.singleUser} allOrders={this.props.allOrders}/>
-    	      
+
     	    </div>
           </div>
 
     	    )
-        
+
       }
     }

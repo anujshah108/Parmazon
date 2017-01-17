@@ -14,9 +14,7 @@ export default class Cart extends Component {
 
     handleOnClickDelete(id){
        axios.delete(`/api/orders/${this.props.cart.id}/products/${id}`, {})
-       .then(function(){
-        store.dispatch(fetchProductsForCart())
-       })
+       this.forceUpdate(callback)
     }
 
   render(){

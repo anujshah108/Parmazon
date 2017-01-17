@@ -41,6 +41,7 @@ export default class Product extends Component {
     event.preventDefault();
     axios.delete(`/api/products/${this.props.product.id}`, this.state)
     .then();
+     browserHistory.push('/products')
   }
 
   handleSubmitAddToCart(event){
