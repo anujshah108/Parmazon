@@ -12,27 +12,26 @@ export default class Orders extends Component {
 
     render(){
 
-        console.log('8712389472189471289734987219847193', this.props);
         const arrToMap = this.props.user.isAdmin ? this.props.allOrders : this.props.userOrders;
 
 
             var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
-        
+
         	const arrOfOrders = arrToMap.map(order => {
         		let dateToFormat = new Date(order.created_at);
         		if(order.status === 'cart') return;
 
         		return(
-    	    			<tr className="collection " key={order.id}>		
+    	    			<tr className="collection " key={order.id}>
     			            <td>{order.id}</td>
     			            <td>{dateToFormat.toLocaleDateString("en-US")}</td>
     			            <td>{order.status}</td>
     			            <td><Link to={`/myAccount/orders/${order.id}`}><i className="material-icons">trending_flat</i></Link></td>
-    			        </tr>   
+    			        </tr>
         		)
         	})
-        	 // console.log('~~~~~~~~~~~~~~orders', this.props.allOrders)
+
 
         	return (
         		<div>
@@ -51,7 +50,7 @@ export default class Orders extends Component {
     	  		    </table>
         	    </div>
         	)
-        	
+
 
     }
 

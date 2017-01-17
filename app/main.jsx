@@ -38,10 +38,7 @@ const onHomePageEnter = function() {
 };
 
 const onOrdersEnter = function() {
-  // let currentUser = store.users.currentUser
-  // console.log('~~~~~~~~~~~~~~~~~~', currentUser);
-  //if(currentUser.isAdmin) store.dispatch(fetchOrdersFromServer());
-   //store.dispatch(fetchUserOrdersFromServer(1))
+
    store.dispatch(fetchOrdersFromServer());
    store.dispatch(fetchOpenCart());
 }

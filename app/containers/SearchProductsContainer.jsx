@@ -3,7 +3,7 @@ import SearchProduct from '../components/SearchProducts'
 import store from '../store'
 
 function mapStateToProps(state) {
-  console.log(state)
+
   return {
     products: state.products.allProducts
   };

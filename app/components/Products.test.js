@@ -17,7 +17,6 @@ describe('Products component', () => {
   it('should be wrapped a <div> ', () => {
     expect(products.is('div')).to.be.equal(true);
 
-    // console.log(products.get(0).props);
   })
 
   xit('calls passed in onChange prop with value of change event', () => {

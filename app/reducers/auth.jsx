@@ -16,7 +16,6 @@ export const authenticated = user => ({
 
 export const login = (username, password) =>
   dispatch => {
-    console.log('in here')
     axios.post('/api/auth/local/login',
       {username, password})
       .then(() => dispatch(whoami()))

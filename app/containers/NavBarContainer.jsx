@@ -3,7 +3,6 @@ import NavBar from '../components/NavBar'
 import store from '../store'
 
 function mapStateToProps(state) {
-  console.log(state)
   return {
    user: state.users.currentUser
   };

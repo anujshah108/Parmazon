@@ -3,10 +3,10 @@ import UsersList from '../components/UsersList'
 import store from '../store'
 
 function mapStateToProps(state) {
-  // console.log(state)
+
   return {
     allUsers: state.users.allUsers,
-    currentUser: state.users.currentUser 
+    currentUser: state.users.currentUser
 	}
 }
 function mapDispatchToProps(state) {

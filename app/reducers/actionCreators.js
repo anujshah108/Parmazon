@@ -322,7 +322,7 @@ export function receiveProductsForCart(products) {
 }
 
   export function deleteCartItem(id){
-  console.log('HELLO IN THE REDUCER')
+
   return {
    type: DELETE_CART,
    item: id

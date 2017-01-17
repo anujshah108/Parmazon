@@ -3,7 +3,6 @@ import CategoryProduct from '../components/CategoryProduct'
 import store from '../store'
 
 function mapStateToProps(state) {
-  console.log(state)
   return {
     products: state.products.allProducts
   };
