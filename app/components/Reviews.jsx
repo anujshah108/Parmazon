@@ -45,7 +45,9 @@ export default class Reviews extends Component {
       product_id: this.props.product.id,
       author_id: this.props.user.id
     })} }>
-          <div> Add A Review </div>
+      <br/>
+      <br/>
+          <h5> Add A Review Please</h5>
             <div className="form-group">
               <label>TItle</label>
               <input

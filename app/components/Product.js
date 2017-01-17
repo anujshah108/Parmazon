@@ -36,9 +36,7 @@ export default class Product extends Component {
 
   handleSubmitAddToCart(event){
     event.preventDefault()
-    axios.post(`/api/orders/${this.props.cart.id}/products`, {name: this.props.product.name, price:this.props.product.price,quantity:this.state.quantity,imageURL:this.props.product.imageURL,ordered_product_id:this.props.product.id,order_id:this.props.cart.id,user_id:this.props.user.id})
-    .then();
-    browserHistory.push('/cart')
+    axios.post(`/api/orders/${this.props.cart.id}/products`, {name: this.props.product.name, price:this.props.product.price,quantity:this.state.quantity,imageURL:this.props.product.imageURL,ordered_product_id:this.props.product.id,order_id:this.props.cart.id,user_id:this.props.user.id}).then(() => browserHistory.push('/cart'));
 
   }
 
@@ -51,7 +49,7 @@ export default class Product extends Component {
 
 
       return (
-        <div className='col s6' id='productContainer'>
+        <div className='col s6' id='productContainer' id='fuck'>
           <div className ='row'>
          <div className="col-lg-8">
                     <div className="row">
@@ -59,11 +57,12 @@ export default class Product extends Component {
 
                             <div className="product-wrapper">
 
-                                <div className="view overlay hm-white-light z-depth-1-half">
+                                <div className="view overlay hm-white-light z-depth-1-half" id='imageContainer'>
                                     <img src={product.imageURL} className="img-fluid " height='500'/>
                                     <div className="mask">
                                     </div>
-                                    <h5 className="price"><span>{`$ ${product.price}`}</span></h5>
+                                    <br/>
+                                    <h5 className="price"><span>{`$ ${product.price} / Wheel`}</span></h5>
                                 </div>
 
                                 <br/>
@@ -89,7 +88,7 @@ export default class Product extends Component {
                          <br/>
                          <br/>
                          <div className="reviews">
-                            <h2 className="h2-responsive">Reviews</h2>
+                            <h3 className="h2-responsive">Reviews</h3>
                              <Reviews user={this.props.user} reviews={this.props.reviews} product={this.props.product}/>
                         </div>
                          <br/>
@@ -107,8 +106,13 @@ export default class Product extends Component {
   renderAdmin() {
     return (
       <div>
-        <div> Admin Edit </div>
+        <h4> Admin Edit </h4>
+        <br/>
+        <br/>
           <button onClick={this.handleDeleteButton} className="btn">Delete Product</button>
+          <br/>
+          <br/>
+          <br/>
           <div className="row">
             <form id='productEditForm' className="col s6" onSubmit={this.handleSubmitEdit}>
               <div className="row">
