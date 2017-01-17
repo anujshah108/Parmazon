@@ -3,7 +3,7 @@ import {browserHistory} from 'react-router'
 import axios from 'axios';
 import Reviews from './Reviews'
 import Rating from 'react-rating-system';
-import {fetchRatingforProduct} from '../reducers/actionCreators'
+import {fetchRatingforProduct, deleteProduct} from '../reducers/actionCreators'
 import store from '../store'
 
 export default class Product extends Component {
@@ -27,10 +27,11 @@ export default class Product extends Component {
   }
 
   handleDeleteButton(event){
+    //optmistic rendering
+    store.dispatch(deleteProduct(this.props.product.id))
     event.preventDefault();
-    axios.delete(`/api/products/${this.props.product.id}`, this.state)
-    .then();
-     browserHistory.push('/products')
+    axios.delete(`/api/products/${this.props.product.id}`, this.state).then(() => browserHistory.push('/products'));
+
   }
 
   handleSubmitAddToCart(event){

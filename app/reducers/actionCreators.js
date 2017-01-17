@@ -16,6 +16,9 @@ export const RECEIVE_ORDER_PRODUCTS = 'RECEIVE_ORDER_PRODUCTS'
 export const RECEIVE_CART_PRODUCTS = 'RECEIVE_CART_PRODUCTS'
 export const RECEIVE_CREATED_ORDER = 'RECEIVE_CREATED_ORDER'
 export const RECEIVE_USER_FOR_PAGE = 'RECEIVE_USER_FOR_PAGE'
+export const DELETE_PRODUCT = 'DELETE_PRODUCT'
+export const DELETE_CART = 'DELETE_CART'
+export const DELETE_USER = 'DELETE_USER'
 
 //PRODUCTS
 
@@ -56,6 +59,7 @@ export function fetchSingleProduct(id) {
      });
  };
 }
+
 
 //ORDERS
 
@@ -306,6 +310,33 @@ export function receiveProductsForCart(products) {
         });
     };
   }
+
+
+  //Delete Action Creators
+
+  export function deleteProduct(id){
+  return {
+   type: DELETE_PRODUCT,
+   product: id
+ };
+}
+
+  export function deleteCartItem(id){
+  console.log('HELLO IN THE REDUCER')
+  return {
+   type: DELETE_CART,
+   item: id
+ };
+}
+
+
+  export function deleteUser(id){
+  return {
+   type: DELETE_USER,
+   user: id
+ };
+}
+
 
 
 

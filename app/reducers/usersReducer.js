@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import {RECEIVE_ALL_USERS, RECEIVE_USER_FOR_PAGE, RECEIVE_USER, LOGOUT_USER} from './actionCreators';
+import {RECEIVE_ALL_USERS, RECEIVE_USER_FOR_PAGE, RECEIVE_USER, LOGOUT_USER, DELETE_USER} from './actionCreators';
 
 const initialState = {
   allUsers: [],
@@ -13,6 +13,10 @@ const usersReducer = function(state = initialState, action) {
       return Object.assign({}, state, {
         allUsers: action.users
       });
+    case DELETE_USER:
+        return Object.assign({}, state, {
+          allUsers: state.allUsers.filter(user => user.id !== action.user)
+        });
     case RECEIVE_USER:
       return Object.assign({}, state, {
         currentUser: action.user

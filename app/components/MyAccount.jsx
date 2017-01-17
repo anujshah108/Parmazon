@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router';
+import {Link, browserHistory} from 'react-router';
 import UserOrders from './UserOrders';
 import axios from 'axios';
+import {fetchProductsForCart, deleteUser} from '../reducers/actionCreators'
+import store from '../store'
 
 export default class MyAccount extends Component {
 	constructor(props) {
@@ -29,8 +31,10 @@ export default class MyAccount extends Component {
     }
 
     handleDeleteUser(event){
+      //optmistic rendering
+      store.dispatch(deleteUser(this.props.singleUser.id))
       event.preventDefault();
-      axios.delete(`/api/users/${this.props.singleUser.id}`, {}).then();
+      axios.delete(`/api/users/${this.props.singleUser.id}`, {}).then(() => browserHistory.push('/myAccount/users'));
     }
 
 

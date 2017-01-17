@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import {RECEIVE_ALL_ORDERS, RECEIVE_CART, RECEIVE_ORDER, RECEIVE_USER_ORDERS, RECEIVE_ORDER_PRODUCTS, RECEIVE_CART_PRODUCTS, RECEIVE_CREATED_ORDER} from './actionCreators';
+import {RECEIVE_ALL_ORDERS, RECEIVE_CART, RECEIVE_ORDER, RECEIVE_USER_ORDERS, RECEIVE_ORDER_PRODUCTS, RECEIVE_CART_PRODUCTS, RECEIVE_CREATED_ORDER, DELETE_CART} from './actionCreators';
 
 const initialState = {
   allOrders: [],
@@ -15,6 +15,10 @@ const ordersReducer = function(state = initialState, action) {
       case RECEIVE_ALL_ORDERS:
         return Object.assign({}, state, {
           allOrders: action.orders
+        });
+        case DELETE_CART:
+        return Object.assign({}, state, {
+          cartProducts: state.cartProducts.filter(product => product.id !== action.item)
         });
         case RECEIVE_CREATED_ORDER:
         return Object.assign({}, state, {

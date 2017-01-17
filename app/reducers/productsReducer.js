@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import {RECEIVE_ALL_PRODUCTS, RECEIVE_REVIEWS, RECEIVE_PRODUCT, RECEIVE_RATING} from './actionCreators';
+import {RECEIVE_ALL_PRODUCTS, RECEIVE_REVIEWS, RECEIVE_PRODUCT, RECEIVE_RATING, DELETE_PRODUCT} from './actionCreators';
 
 const initialState = {
 	allProducts: [],
@@ -18,6 +18,10 @@ const productsReducer = function(state = initialState, action) {
 			return Object.assign({}, state, {
 				currentProductReviews: action.reviews
 			});
+			case DELETE_PRODUCT:
+        return Object.assign({}, state, {
+          allProducts: state.allProducts.filter(product => product.id !== action.product)
+        });
 			case RECEIVE_RATING:
 			return Object.assign({}, state, {
 				currentProductRating: action.rating

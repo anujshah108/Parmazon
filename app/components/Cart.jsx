@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router';
 import axios from 'axios'
 import {Router} from 'react-router'
-import {fetchProductsForCart} from '../reducers/actionCreators'
+import {fetchProductsForCart, deleteCartItem} from '../reducers/actionCreators'
 import store from '../store'
 
 
@@ -14,6 +14,8 @@ export default class Cart extends Component {
       }
 
     handleOnClickDelete(id){
+        //optmistic rendering
+       store.dispatch(deleteCartItem(id))
        axios.delete(`/api/orders/${this.props.cart.id}/products/${id}`, {})
        this.setState({})
     }
