@@ -1,6 +1,6 @@
 # Parmazon
 
-Parmazon is an e-commerce platform that allows businesses to connect users with thier cheese. It was built using Node, Express, React and PostgreSQL as a project for senior phase at Fullstack Acadmey. The site is deployed and viewable at parmazon.club (it's deployed via a free Heroku plan, so it might take a minute or so to load)
+Parmazon is an e-commerce platform that allows businesses to connect users with thier cheese. It was built using Node, Express, React and PostgreSQL as a project for senior phase at Fullstack Acadmey. The site is deployed and viewable at http://parmazon.club (it's deployed via a free Heroku plan, so it might take a minute or so to load)
 
 ## Getting Started
 
