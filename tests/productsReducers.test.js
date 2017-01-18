@@ -3,7 +3,7 @@ import { expect } from 'chai';
 
 
 import {createStore} from 'redux';
-import productsReducer from './productsReducer';
+import productsReducer from '../app/reducers/productsReducer';
 
 
 describe('products reducer', () => {

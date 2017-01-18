@@ -4,7 +4,7 @@ import chaiThings from 'chai-things';
 chai.use(chaiProperties);
 chai.use(chaiThings);
 const db = require('APP/db')
-const Order = require('./order')
+const Order = require('../db/models/order')
 const { expect } = require('chai')
 
 describe('Order Model', () => {

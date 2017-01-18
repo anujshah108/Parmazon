@@ -1,5 +1,5 @@
 const db = require('APP/db')
-const ProductOrder = require('./productOrder')
+const ProductOrder = require('../db/models/productOrder')
 const {expect} = require('chai')
 
 

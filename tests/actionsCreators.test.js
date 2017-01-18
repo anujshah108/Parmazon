@@ -3,7 +3,7 @@ import { expect } from 'chai';
 
 // actions
 
-import { receiveAllProducts, receiveProduct, fetchProductsFromServer, fetchSingleProduct, receiveAllOrders, receiveOrder, receiveAllUserOrders, sendCreatedCart, fetchOrdersFromServer, fetchUserOrdersFromServer, fetchSingleOrder,receiveAllUsers, receiveUser, logOutUser,fetchUsersFromServer, fetchSingleUser, receiveRating, receiveReviews, receiveCart, fetchRatingforProduct, receiveProductsForOrder, receiveProductsForCart } from './actionCreators';
+import { receiveAllProducts, receiveProduct, fetchProductsFromServer, fetchSingleProduct, receiveAllOrders, receiveOrder, receiveAllUserOrders, sendCreatedCart, fetchOrdersFromServer, fetchUserOrdersFromServer, fetchSingleOrder,receiveAllUsers, receiveUser, logOutUser,fetchUsersFromServer, fetchSingleUser, receiveRating, receiveReviews, receiveCart, fetchRatingforProduct, receiveProductsForOrder, receiveProductsForCart } from '../app/reducers/actionCreators';
 
 // PRODUCTS
 describe('products actions', () => {

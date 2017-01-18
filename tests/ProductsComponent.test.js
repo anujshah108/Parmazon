@@ -4,7 +4,7 @@ import React from 'react';
 import {spy} from 'sinon';
 
 
-import Products from './Products';
+import Products from '../app/components/Products';
 
 describe('Products component', () => {
   let products, onChangeSpy;

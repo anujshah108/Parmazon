@@ -1,5 +1,5 @@
 const db = require('APP/db')
-const Review = require('./review')
+const Review = require('../db/models/review')
 const {expect} = require('chai')
 
 
