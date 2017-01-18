@@ -73,6 +73,7 @@ module.exports = require('express').Router()
 	.put('/:id', (req, res, next) =>
 		Order.findById(req.params.id)
 		.then(orderToBeUpdated => orderToBeUpdated.update(req.body))
+		.then(order => req.session.products = [])
 		.catch(next))
 
 	//posts a new product for order
