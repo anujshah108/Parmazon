@@ -1,5 +1,6 @@
 'use strict'
 
+
 const db = require('APP/db')
 const api = module.exports = require('express').Router()
 
