@@ -62,7 +62,7 @@ module.exports = app
     next()
   })
   .use('/api', require('./api'))
-
+  .get('/github', (req, res, next) => {res.redirect('https://github.com/anujshah108/StackStore')})
   // Send index.html for anything else.
   .get('/*', (_, res) => res.sendFile(resolve(__dirname, '..', 'public', 'index.html')))
 
