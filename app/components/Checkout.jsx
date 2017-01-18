@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router'
+import {Link, browserHistory} from 'react-router'
 import axios from 'axios'
 
 export default class Products extends Component {
@@ -29,7 +29,6 @@ export default class Products extends Component {
       })
   })
     browserHistory.push('/confirmation')
-
   }
 
 
